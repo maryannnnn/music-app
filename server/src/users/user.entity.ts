@@ -1,33 +1,47 @@
-import {Entity, Column, PrimaryGeneratedColumn, JoinTable, ManyToMany, OneToMany} from 'typeorm';
+import {
+    Entity,
+    Column,
+    PrimaryGeneratedColumn,
+    JoinTable,
+    ManyToMany,
+    OneToMany,
+    CreateDateColumn,
+    UpdateDateColumn
+} from 'typeorm';
+
+interface UserCreationAttrs {
+    email: string;
+    password: string;
+}
 
 @Entity()
 export class Users {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @Column({nullable: true})
     firstName: string;
 
-    @Column()
+    @Column({nullable: true})
     lastName: string;
 
-    @Column()
+    @Column({nullable: true})
     nik: string;
 
-    @Column({ unique: true })
+    @Column({ unique: true, length: 100, nullable: false })
     email: string;
 
-    @Column()
+    @Column({nullable: false})
+    password: string;
+
+    @Column({nullable: true})
     shippingAddress: string;
 
-    @Column()
+    @Column({nullable: true})
     billingAddress: string;
 
-    @Column()
+    @Column({nullable: true})
     mobile: string;
-
-    @Column()
-    password: string;
 
     // @ManyToMany(() => Role)
     // @JoinTable()
@@ -45,9 +59,9 @@ export class Users {
     @Column({ nullable: true })
     banReason: string;
 
-    @Column()
-    createdDate: string;
+    @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+    createdAt: Date;
 
-    @Column()
-    updatedDate: string;
+    @UpdateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP', onUpdate: 'CURRENT_TIMESTAMP' })
+    updatedAt: Date;
 }

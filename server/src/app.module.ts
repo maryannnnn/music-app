@@ -4,6 +4,8 @@ import {UsersController} from './users/users.controller';
 import {UsersModule} from './users/users.module';
 import {ConfigModule} from "@nestjs/config";
 import {Users} from "./users/user.entity";
+import {UsersService} from "./users/users.service";
+import {Repository} from "typeorm";
 
 @Module({
     imports: [
@@ -24,7 +26,8 @@ import {Users} from "./users/user.entity";
         }),
         UsersModule,
     ],
-    controllers: [UsersController],
+    controllers: [],
+    providers: []
 })
 export class AppModule {
 }
