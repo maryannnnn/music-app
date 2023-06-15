@@ -5,6 +5,8 @@ import {ConfigModule} from "@nestjs/config";
 import {Users} from "./users/users.entity";
 import { RolesModule } from './roles/roles.module';
 import {Roles} from "./roles/roles.entity";
+import { AuthController } from './auth/auth.controller';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
     imports: [
@@ -25,8 +27,9 @@ import {Roles} from "./roles/roles.entity";
         }),
         UsersModule,
         RolesModule,
+        AuthModule,
     ],
-    controllers: [],
+    controllers: [AuthController],
     providers: []
 })
 export class AppModule {

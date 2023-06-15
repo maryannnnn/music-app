@@ -4,7 +4,7 @@ import {
     PrimaryGeneratedColumn,
     ManyToMany,
     CreateDateColumn,
-    UpdateDateColumn
+    UpdateDateColumn, JoinTable
 } from 'typeorm';
 import {ApiProperty} from "@nestjs/swagger";
 import {Roles} from "../roles/roles.entity";
@@ -48,6 +48,7 @@ export class Users {
     mobile: string;
 
     @ManyToMany(() => Roles)
+    @JoinTable()
     roles: Roles[];
     //
     // @OneToMany(() => Post, post => post.user)

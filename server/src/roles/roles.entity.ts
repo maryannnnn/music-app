@@ -21,8 +21,8 @@ export class Roles {
     description: string;
 
     @ManyToMany(() => Users)
-    @JoinTable()
-    roles: Users[];
+    //@JoinTable()
+    users: Users[];
 
     @ApiProperty({example: '2023-06-11T13:22:49.960Z', description: 'Created date'})
     @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
