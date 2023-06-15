@@ -21,5 +21,9 @@ export class UsersService {
     async getAllUsers(): Promise<Users[]> {
         return await this.usersRepository.find({relations: ['roles']})
     }
+
+    async getUserByEmail(email: string): Promise<Users | undefined> {
+        return await this.usersRepository.findOne({ where: { email }, relations: ['roles'] })
+    }
 }
 
