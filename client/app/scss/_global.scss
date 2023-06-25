@@ -1,0 +1,18 @@
+@import 'mixins';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  @include text-1;
+}
+
+.footer {
+  flex: 0 0 auto;
+}
+
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
