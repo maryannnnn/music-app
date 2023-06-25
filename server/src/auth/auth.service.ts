@@ -4,7 +4,6 @@ import {CreateUserDto, FullUserDto} from "../users/dto/create-user.dto";
 import { JwtService } from '@nestjs/jwt';
 import {LocalStrategy} from "./localStrategy";
 import * as bcrypt from "bcrypt";
-import {Users} from "../users/users.entity";
 
 @Injectable()
 export class AuthService {
@@ -35,8 +34,8 @@ export class AuthService {
     }
 
     // Check Token
-    verifyToken(token: string): any {
-        return this.jwtService.verify(token);
+    verifyToken(token: string) {
+        return this.jwtService.verify(token)
     }
 
 }
