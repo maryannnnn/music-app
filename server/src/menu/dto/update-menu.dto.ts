@@ -1,6 +1,9 @@
 import {ApiProperty} from "@nestjs/swagger";
 
-export class CreateMenuDto {
+export class UpdateMenuDto {
+    @ApiProperty({example: '2', description: 'Id of link'})
+    readonly id: number;
+
     @ApiProperty({example: 'Company', description: 'Name of company'})
     readonly nameLink: string;
 

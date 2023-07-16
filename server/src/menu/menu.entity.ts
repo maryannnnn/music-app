@@ -3,30 +3,34 @@ import {
     Column,
     PrimaryGeneratedColumn,
     CreateDateColumn,
-    UpdateDateColumn, JoinTable
+    UpdateDateColumn
 } from 'typeorm';
 import {ApiProperty} from "@nestjs/swagger";
 
 @Entity()
-export class Menu {
+export class Link {
     @ApiProperty({example: '1', description: 'Unique identificator'})
     @PrimaryGeneratedColumn()
     id: number;
 
     @ApiProperty({example: 'Company', description: 'Name Link'})
-    @Column({nullable: true})
+    @Column({nullable: false, length: 100})
     nameLink: string;
 
     @ApiProperty({example: '/company', description: 'Url Link'})
-    @Column({nullable: true})
+    @Column({nullable: false, length: 100})
     urlLink: string;
 
-    @ApiProperty({example: 'CatJon', description: 'Order of Links'})
-    @Column({nullable: true})
+    @ApiProperty({example: '5', description: 'Order of Links'})
+    @Column({nullable: false})
     orderLink: number;
 
-    @ApiProperty({example: '1', description: 'menuId'})
+    @ApiProperty({example: '1', description: 'Parent Id'})
     @Column({nullable: true})
+    parentId: number;
+
+    @ApiProperty({example: '1', description: 'Menu Id'})
+    @Column({nullable: false})
     menuId: number;
 
     @ApiProperty({example: '2023-06-11T13:22:49.960Z', description: 'Created date'})

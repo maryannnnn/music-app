@@ -9,7 +9,7 @@ import { AuthController } from './auth/auth.controller';
 import { AuthModule } from './auth/auth.module';
 import { MenuController } from './menu/menu.controller';
 import { MenuModule } from './menu/menu.module';
-import {Menu} from "./menu/menu.entity";
+import {Link} from "./menu/menu.entity";
 
 @Module({
     imports: [
@@ -25,7 +25,7 @@ import {Menu} from "./menu/menu.entity";
             username: process.env.POSTGRES_USER,
             password: process.env.POSTGRESS_PASSWORD,
             database: process.env.POSTGRES_DB,
-            entities: [Users, Roles, Menu],
+            entities: [Users, Roles, Link],
             synchronize: true,
         }),
         UsersModule,
