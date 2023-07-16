@@ -3,38 +3,80 @@
 @tailwind utilities;
 
 @layer base {
-    h1 {
-        @apply text-2xl;
-    }
-    h2 {
-        @apply text-xl;
-    }
-    h3 {
-        @apply text-lg;
-    }
-    a {
-        @apply text-blue-600 underline;
-    }
-
     html{
         @apply h-full w-full m-0 box-border
     }
-
     body {
         @apply h-full w-full m-0
     }
-
     .wrapper {
         @apply flex flex-col min-h-full
     }
-
     .container {
-        @apply max-w-[1280px] mx-auto my-[0px] px-[15px] py-0;
+        @apply mx-auto px-[15px] py-0 my-0;
     }
-
+    /*.container {*/
+    /*    @apply mx-auto 2xl:max-w-[1520px] px-[15px] py-0 my-[0px];*/
+    /*}*/
+    /*.container {*/
+    /*    @apply mx-auto sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 my-[0px] py-0;*/
+    /*}*/
     .footer {
         @apply flex-[0_0_auto];
     }
+
+    .t-96b {
+        @apply font-sans text-8xl font-black;
+    }
+    .t-36b {
+        @apply font-sans text-4xl font-black;
+    }
+    .t-30b {
+        @apply font-sans text-3xl font-extrabold;
+    }
+    .t-24b {
+        @apply font-sans text-2xl font-extrabold;
+    }
+    .t-20b {
+        @apply font-sans text-xl font-bold;
+    }
+    .t-18b {
+        @apply font-sans text-lg font-bold;
+    }
+    .t-16b {
+        @apply font-sans text-base font-bold;
+    }
+    .t-14b {
+        @apply font-sans text-sm font-bold;
+    }
+    .t-12b {
+        @apply font-sans text-xs font-bold;
+    }
+    .t-36 {
+        @apply font-sans text-4xl font-normal;
+    }
+    .t-30 {
+        @apply font-sans text-3xl font-normal;
+    }
+    .t-24 {
+        @apply font-sans text-2xl font-normal;
+    }
+    .t-20 {
+        @apply font-sans text-xl font-normal;
+    }
+    .t-18 {
+        @apply font-sans text-lg font-normal;
+    }
+    .t-16 {
+        @apply font-sans text-base font-normal;
+    }
+    .t-14 {
+        @apply font-sans text-sm font-normal;
+    }
+    .t-12 {
+        @apply font-sans text-xs font-normal;
+    }
+
 
 
 

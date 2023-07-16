@@ -15,13 +15,13 @@ export class FullUserDto {
     readonly nik: string;
     readonly email: string;
     readonly password: string;
-    readonly shippingAddress: string
-    readonly billingAddress: string
-    readonly mobile: string
-    readonly roles: Roles[]
-    readonly isActive: boolean
-    readonly banned: boolean
-    readonly banReason: string
+    readonly shippingAddress: string;
+    readonly billingAddress: string;
+    readonly mobile: string;
+    readonly roles: Roles[];
+    readonly isActive: boolean;
+    readonly banned: boolean;
+    readonly banReason: string;
     readonly createdAt: Date;
     readonly updatedAt: Date;
 }

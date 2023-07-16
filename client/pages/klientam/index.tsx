@@ -1,5 +1,5 @@
-import '../app/globals.css'
-import MainLayout from "../app/layouts/layout";
+import '../../app/globals.css'
+import MainLayout from "../../app/layouts/layout";
 
 const Index = () => {
 
@@ -13,7 +13,7 @@ const Index = () => {
         <MainLayout title={PageProps.title} description={PageProps.description} keywords={PageProps.keywords}>
             <div className="main">
                 <div className="container">
-                    <h1 className="t-30b text-gray-100">Hello, Next.js!</h1>
+                    <h1 className="t-30b text-gray-100">Клиентам</h1>
                 </div>
             </div>
         </MainLayout>
