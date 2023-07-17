@@ -7,6 +7,9 @@ import { RolesModule } from './roles/roles.module';
 import {Roles} from "./roles/roles.entity";
 import { AuthController } from './auth/auth.controller';
 import { AuthModule } from './auth/auth.module';
+import { MenuController } from './menu/menu.controller';
+import { MenuModule } from './menu/menu.module';
+import {Link} from "./menu/menu.entity";
 
 @Module({
     imports: [
@@ -22,14 +25,15 @@ import { AuthModule } from './auth/auth.module';
             username: process.env.POSTGRES_USER,
             password: process.env.POSTGRESS_PASSWORD,
             database: process.env.POSTGRES_DB,
-            entities: [Users, Roles],
+            entities: [Users, Roles, Link],
             synchronize: true,
         }),
         UsersModule,
         RolesModule,
         AuthModule,
+        MenuModule,
     ],
-    controllers: [AuthController],
+    controllers: [AuthController, MenuController],
     providers: []
 })
 export class AppModule {

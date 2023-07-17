@@ -6,7 +6,6 @@ import {UsersController} from "./users.controller";
 import {Roles} from "../roles/roles.entity";
 import {RolesModule} from "../roles/roles.module";
 import {AuthModule} from "../auth/auth.module";
-import {JwtModule} from "@nestjs/jwt";
 
 @Module({
   imports: [TypeOrmModule.forFeature([Users, Roles]), RolesModule,

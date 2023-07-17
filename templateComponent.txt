@@ -1,0 +1,29 @@
+import React, {FC} from 'react';
+
+interface Props {
+  name: string;
+}
+
+const MyComponent: FC<Props> = ({ name }) => {
+  return (
+    <div>
+      <h1>Hello, {name}!</h1>
+    </div>
+  );
+};
+
+export default MyComponent;
+
+
+
+import React, {FC} from 'react';
+
+const MenuTop: FC = () => {
+    return (
+        <div>
+            <h1>MenuTop</h1>
+        </div>
+    );
+};
+
+export default MenuTop;
