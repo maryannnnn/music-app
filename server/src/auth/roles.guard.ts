@@ -22,12 +22,12 @@ export class RolesGuard implements CanActivate {
             const requiredRoles = this.reflector.getAllAndOverride<string[]>(ROLES_KEY, [
                 context.getHandler(),
                 context.getClass(),
-            ])
+            ]);
             if (!requiredRoles) {
                 return true;
             }
-            const req = context.switchToHttp().getRequest()
-            const [bearer, token] = req.headers.authorization?.split(' ') ?? []
+            const req = context.switchToHttp().getRequest();
+            const [bearer, token] = req.headers.authorization?.split(' ') ?? [];
 
             if (bearer !== 'Bearer' || !token) {
                 throw new UnauthorizedException({message: 'User not authorization'})
