@@ -15,7 +15,7 @@ const makeStore: MakeStore<Store<RootState>> = () => {
 
 export type RootState = ReturnType<typeof rootReducer>
 
-// Define the NextThunkDispatch type
+// Define the NextThunkDispatch types
 export type NextThunkDispatch = ThunkDispatch<RootState, void, AnyAction>;
 
 // Create the wrapper

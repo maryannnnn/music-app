@@ -27,14 +27,14 @@ export class MenuController {
 
     @ApiOperation({summary: 'Remove link of Menu'})
     @ApiResponse({status: 200})
-    @Delete()
-    deleteLink(@Query('id') id: number) {
+    @Delete(':id')
+    deleteLink(@Param('id') id: number) {
         return this.menuService.deleteLinkByNameAndMenuId(id)
     }
 
     @ApiOperation({summary: 'Update link of Menu'})
     @ApiResponse({status: 200, type: Link})
-    @Put()
+    @Put('/edit/:id')
     updateLink(@Body() updateDto: UpdateMenuDto) {
         return this.menuService.updateLinkMenu(updateDto)
     }
