@@ -8,33 +8,33 @@ export interface IMenu {
     menuId: number;
 }
 
-export interface menuState {
+export interface menuTopState {
     menu: IMenu[];
     isLoadingMenu: boolean;
     errorMenu: string;
 }
 
 export enum MenuActionEnum {
-    MENU_LIST_REQUEST = "MENU_LIST_REQUEST",
-    MENU_LIST_SUCCESS = " MENU_LIST_SUCCESS",
-    MENU_LIST_FAIL = "MENU_LIST_FAIL",
+    MENU_TOP_REQUEST = "MENU_TOP_REQUEST",
+    MENU_TOP_SUCCESS = " MENU_TOP_SUCCESS",
+    MENU_TOP_FAIL = "MENU_TOP_FAIL",
 }
 
-export interface menuListRequestAction {
-    type: MenuActionEnum.MENU_LIST_REQUEST;
+export interface menuTopRequestAction {
+    type: MenuActionEnum.MENU_TOP_REQUEST;
 }
 
-export interface menuListSuccessAction {
-    type: MenuActionEnum.MENU_LIST_SUCCESS;
+export interface menuTopSuccessAction {
+    type: MenuActionEnum.MENU_TOP_SUCCESS;
     payload: IMenu[];
 }
 
-export interface menuListFailAction {
-    type: MenuActionEnum.MENU_LIST_FAIL;
+export interface menuTopFailAction {
+    type: MenuActionEnum.MENU_TOP_FAIL;
     payload: string;
 }
 
-export type MenuListAction =
-    menuListRequestAction |
-    menuListSuccessAction |
-    menuListFailAction
+export type MenuTopAction =
+    menuTopRequestAction |
+    menuTopSuccessAction |
+    menuTopFailAction

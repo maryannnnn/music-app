@@ -13,7 +13,7 @@ export class MenuController {
 
     @ApiOperation({summary: 'Create link of Menu'})
     @ApiResponse({status: 200, type: Link})
-    @Post()
+    @Post('/create')
     createLink(@Body() menuDto: CreateMenuDto) {
         return this.menuService.createLinkMenu(menuDto)
     }
@@ -21,13 +21,13 @@ export class MenuController {
     @ApiOperation({summary: 'Get links by menuId'})
     @ApiResponse({status: 200, type: [Link]})
     @Get()
-    getMenuById(@Query('menuId') menuId: number) {
+    getMenuById(@Param('menuId') menuId: number) {
         return this.menuService.getLinksByMenuId(menuId)
     }
 
     @ApiOperation({summary: 'Remove link of Menu'})
     @ApiResponse({status: 200})
-    @Delete(':id')
+    @Delete('/delete/:id')
     deleteLink(@Param('id') id: number) {
         return this.menuService.deleteLinkByNameAndMenuId(id)
     }
