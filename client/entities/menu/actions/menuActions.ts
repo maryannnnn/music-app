@@ -2,6 +2,7 @@ import {IMenu, MenuActionEnum, MenuTopAction} from "../types/menuTypes";
 import {Dispatch} from "react";
 import Axios from "axios";
 
+
 // export const createLinkMenuAction = (menu: IMenu) => async (dispatch) => {
 //     dispatch({type: MenuActionEnum.MENU_LIST_REQUEST, payload: menu});
 //     try {
@@ -17,10 +18,10 @@ import Axios from "axios";
 // }
 
     export const getMenuTopAction = (menuId: number) => async (dispatch: Dispatch<MenuTopAction>) => {
-        console.log("getMenuTopAction menuId", menuId)
+        const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
         dispatch({type: MenuActionEnum.MENU_TOP_REQUEST, payload: menuId});
         try {
-            const response = await Axios.get(`/menu?menuId=${menuId}`);
+            const response = await Axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/menu?menuId=${menuId}`);
             dispatch({type: MenuActionEnum.MENU_TOP_SUCCESS, payload: response.data});
         } catch (error) {
             dispatch({

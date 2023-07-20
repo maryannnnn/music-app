@@ -5,6 +5,7 @@ import {getMenuTopAction} from "../../entities/menu/actions/menuActions";
 import {MenuTopAction} from "../../entities/menu/types/menuTypes";
 import {useTypedDispatch} from "../../app/story/hooks/useTypedDispatch";
 import {useTypedSelector} from "../../app/story/hooks/useTypedSelector";
+import {useWrappedStore} from "../../app/story";
 
 const MenuTop: FC = () => {
     const dispatch = useTypedDispatch();
