@@ -20,7 +20,7 @@ export class MenuController {
 
     @ApiOperation({summary: 'Get links by menuId'})
     @ApiResponse({status: 200, type: [Link]})
-    @Get()
+    @Get(':menuId')
     getMenuById(@Param('menuId') menuId: number) {
         return this.menuService.getLinksByMenuId(menuId)
     }
