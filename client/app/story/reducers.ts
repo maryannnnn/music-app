@@ -1,6 +1,7 @@
-import {menuTopReducer} from "../../entities/menu/reducers/menuReducers";
+import {menuCommonReducer, menuTopReducer} from "../../entities/menu/reducers/menuReducers";
 
 export const Reducers = {
-    menuTopReducer
+    menuTopReducer,
+    menuCommonReducer
 }
 

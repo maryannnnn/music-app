@@ -15,8 +15,9 @@ export class MenuService {
         return await this.menuRepository.save(linkMenu);
     }
 
-    async getLinksByMenuId(menuId: number): Promise<Link[] | undefined> {
-        return await this.menuRepository.find({ where: { menuId }})
+    async getLinksByMenuId(menuId: number): Promise<Link[]> {
+        console.log("getLinksByMenuId Nest: ", menuId)
+        return await this.menuRepository.find( {where: { menuId }})
     }
 
     async deleteLinkByNameAndMenuId(id: number) {
