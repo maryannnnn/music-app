@@ -19,11 +19,9 @@ import Axios from "axios";
 //
   export const menuActions = {
     getMenuTopAction: (menuId: number) => async (dispatch: Dispatch<MenuTopAction>) => {
-        console.log("getMenuTopAction menuId: ", menuId)
         dispatch({type: MenuTopActionEnum.MENU_TOP_REQUEST, payload: menuId});
         try {
             const response = await Axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/menu/${menuId}`);
-            console.log("getMenuTopAction response.data: ", response.data)
             dispatch({type: MenuTopActionEnum.MENU_TOP_SUCCESS, payload: response.data});
         } catch (error) {
             dispatch({
@@ -39,7 +37,6 @@ import Axios from "axios";
           dispatch({type: MenuCommonActionEnum.MENU_COMMON_REQUEST, payload: menuId});
           try {
               const response = await Axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/menu/${menuId}`);
-              console.log("getMenuCommonAction: ", response.data)
               dispatch({type: MenuCommonActionEnum.MENU_COMMON_SUCCESS, payload: response.data});
           } catch (error) {
               dispatch({

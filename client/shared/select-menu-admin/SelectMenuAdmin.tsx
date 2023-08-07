@@ -3,10 +3,11 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import {MenuNames} from "../../entities/menu/types/menuTypes";
 
 interface PropsSelect {
     menuId: number;
-    setMenuId: number;
+    setMenuId: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const SelectMenuAdmin: FC<PropsSelect> = ({ menuId, setMenuId }) => {
@@ -30,12 +31,11 @@ const SelectMenuAdmin: FC<PropsSelect> = ({ menuId, setMenuId }) => {
                     <MenuItem value={0}>
                         <em>None</em>
                     </MenuItem>
-                    <MenuItem value={1}>Menu Top</MenuItem>
-                    <MenuItem value={2}>Menu Social</MenuItem>
-                    <MenuItem value={3}>Menu Main</MenuItem>
+                    {MenuNames.map(item => (
+                        <MenuItem key={item.id} value={item.id}>{item.name}</MenuItem>
+                    ))}
                 </Select>
             </FormControl>
-            <div>menuId: {menuId}</div>
         </div>
     );
 }

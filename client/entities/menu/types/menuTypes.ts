@@ -10,6 +10,21 @@ export interface IMenu {
     updatedAt: Date;
 }
 
+export interface IMenuNew {
+    nameLink: string;
+    urlLink: string;
+    orderLink: number;
+    parentId: number;
+    menuId: number;
+}
+
+export const MenuNames = [
+    {id: 1, name: "Menu Top"},
+    {id: 2, name: "Menu Main"},
+    {id: 3, name:"Menu Social"}
+]
+
+
 export interface menuTopState {
     menuTop: IMenu[];
     isLoadingTopMenu: boolean;
@@ -18,7 +33,7 @@ export interface menuTopState {
 
 export enum MenuTopActionEnum {
     MENU_TOP_REQUEST = "MENU_TOP_REQUEST",
-    MENU_TOP_SUCCESS = " MENU_TOP_SUCCESS",
+    MENU_TOP_SUCCESS = "MENU_TOP_SUCCESS",
     MENU_TOP_FAIL = "MENU_TOP_FAIL",
 }
 

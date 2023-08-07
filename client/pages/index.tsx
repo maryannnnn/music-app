@@ -1,7 +1,8 @@
+import React, {FC} from 'react';
 import '../app/globals.css'
 import MainLayout from "../app/layouts/layout";
 
-const Index = () => {
+const Index: FC = () => {
 
     const PageProps = {
         title: 'Главная',
