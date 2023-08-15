@@ -36,6 +36,7 @@ interface PropsMenuTable {
 }
 
 const TableMenuAdmin: FC<PropsMenuTable> = ({menuCommon, isLoadingCommonMenu, errorCommonMenu}) => {
+
     return (
         <>
             {isLoadingCommonMenu ? (
@@ -60,23 +61,23 @@ const TableMenuAdmin: FC<PropsMenuTable> = ({menuCommon, isLoadingCommonMenu, er
                         </TableHead>
                         <TableBody>
                             {menuCommon.sort((a, b) => a.orderLink - b.orderLink).map(link => (
-                            <StyledTableRow key={link.id}>
-                                <StyledTableCell component="th" scope="row">
-                                    {link.id}
-                                </StyledTableCell>
-                                <StyledTableCell align="left">{link.nameLink}</StyledTableCell>
-                                <StyledTableCell align="left">{link.urlLink}</StyledTableCell>
-                                <StyledTableCell align="left">{link.orderLink}</StyledTableCell>
-                                <StyledTableCell align="left">{link.parentId}</StyledTableCell>
-                                <StyledTableCell align="left">{link.menuId}</StyledTableCell>
-                                <StyledTableCell align="left">{link.updatedAt}</StyledTableCell>
-                                <StyledTableCell align="left">
-                                    Edit
-                                </StyledTableCell>
-                                <StyledTableCell align="left">
-                                    Delete
-                                </StyledTableCell>
-                            </StyledTableRow>
+                                <StyledTableRow key={link.id}>
+                                    <StyledTableCell component="th" scope="row">
+                                        {link.id}
+                                    </StyledTableCell>
+                                    <StyledTableCell align="left">{link.nameLink}</StyledTableCell>
+                                    <StyledTableCell align="left">{link.urlLink}</StyledTableCell>
+                                    <StyledTableCell align="left">{link.orderLink}</StyledTableCell>
+                                    <StyledTableCell align="left">{link.parentId}</StyledTableCell>
+                                    <StyledTableCell align="left">{link.menuId}</StyledTableCell>
+                                    <StyledTableCell align="left">{(link.updatedAt).toLocaleString('en-US')}</StyledTableCell>
+                                    <StyledTableCell align="left">
+                                        Edit
+                                    </StyledTableCell>
+                                    <StyledTableCell align="left">
+                                        Delete
+                                    </StyledTableCell>
+                                </StyledTableRow>
                             ))}
                         </TableBody>
                     </Table>

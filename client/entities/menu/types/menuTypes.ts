@@ -10,7 +10,7 @@ export interface IMenu {
     updatedAt: Date;
 }
 
-export interface IMenuNew {
+export interface ILinkNew {
     nameLink: string;
     urlLink: string;
     orderLink: number;
@@ -24,6 +24,7 @@ export const MenuNames = [
     {id: 3, name:"Menu Social"}
 ]
 
+///////////////////////////////////////////////
 
 export interface menuTopState {
     menuTop: IMenu[];
@@ -56,6 +57,7 @@ export type MenuTopAction =
     menuTopSuccessAction |
     menuTopFailAction
 
+//////////////////////////////////////////////////
 
 export interface menuCommonState {
     menuCommon: IMenu[];
@@ -87,3 +89,36 @@ export type MenuCommonAction =
     menuCommonRequestAction |
     menuCommonSuccessAction |
     menuCommonFailAction
+
+//////////////////////////////////////////////
+
+export interface linkCreateState {
+    linkCreate: ILinkNew;
+    isLoadingLinkCreate: boolean;
+    errorLinkCreate: string;
+}
+
+export enum LinkCreateActionEnum {
+    LINK_CREATE_REQUEST = "LINK_CREATE_REQUEST",
+    LINK_CREATE_SUCCESS = "LINK_CREATE_SUCCESS",
+    LINK_CREATE_FAIL = "LINK_CREATE_FAIL",
+}
+
+export interface linkCreateRequestAction {
+    type: LinkCreateActionEnum.LINK_CREATE_REQUEST;
+}
+
+export interface linkCreateSuccessAction {
+    type: LinkCreateActionEnum.LINK_CREATE_SUCCESS;
+    payload: ILinkNew;
+}
+
+export interface linkCreateFailAction {
+    type: LinkCreateActionEnum.LINK_CREATE_FAIL;
+    payload: string;
+}
+
+export type LinkCreateAction =
+    linkCreateRequestAction |
+    linkCreateSuccessAction |
+    linkCreateFailAction
