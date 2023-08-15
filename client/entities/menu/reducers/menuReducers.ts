@@ -1,4 +1,37 @@
-import {MenuTopActionEnum, MenuTopAction, menuCommonState, menuTopState, MenuCommonActionEnum, MenuCommonAction} from "../types/menuTypes";
+import {
+    MenuTopActionEnum,
+    MenuTopAction,
+    menuCommonState,
+    menuTopState,
+    MenuCommonActionEnum,
+    MenuCommonAction,
+    linkCreateState, LinkCreateAction, LinkCreateActionEnum, ILinkNew
+} from "../types/menuTypes";
+
+const initialLinkCreateState: linkCreateState = {
+    linkCreate: {} as ILinkNew,
+    isLoadingLinkCreate: false,
+    errorLinkCreate: ''
+}
+
+export const linkCreateReducer = (state = initialLinkCreateState, action: LinkCreateAction): linkCreateState => {
+    switch (action.type) {
+        case LinkCreateActionEnum.LINK_CREATE_REQUEST:
+            return {
+                ...state, isLoadingLinkCreate: true
+            }
+        case LinkCreateActionEnum.LINK_CREATE_SUCCESS:
+            return {
+                ...state, linkCreate: action.payload, isLoadingLinkCreate: false
+            }
+        case LinkCreateActionEnum.LINK_CREATE_FAIL:
+            return {
+                ...state, errorLinkCreate: action.payload, isLoadingLinkCreate: false
+            }
+        default:
+            return state
+    }
+}
 
 const initialMenuTopState: menuTopState = {
         menuTop: [],

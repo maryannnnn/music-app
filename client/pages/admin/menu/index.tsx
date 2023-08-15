@@ -3,23 +3,25 @@ import MainLayout from "../../../app/layouts/layout";
 import SelectMenuAdmin from '../../../shared/select-menu-admin/SelectMenuAdmin'
 import {useActions} from "../../../app/story/hooks/useActions";
 import {useTypedSelector} from "../../../app/story/hooks/useTypedSelector";
-import {FC, useEffect, useState} from "react";
+import React, {FC, useEffect, useState} from "react";
 import TableMenuAdmin from "../../../shared/table-amenu-dmin/TableMenuAdmin";
 import Button from "@mui/material/Button";
 import ModalForm from "../../../shared/modal/Modal";
 import FormMenuCreate from "../../../features/form-menu-create/FormMenuCreate";
+import SnackBar from "../../../shared/snack-bar/SnackBar";
 
 const Index: FC = () => {
     const [modalOpen, setModalOpen] = useState(false)
     const [menuId, setMenuId] = useState(0);
     const [isDisable, setIsDisable] = useState(false);
+    const [isSuccessfullyAdded, setIsSuccessfullyAdded] = useState(false);
     const {getMenuCommonAction} = useActions();
     const {isLoadingCommonMenu, errorCommonMenu, menuCommon} = useTypedSelector(state => state.menuCommonReducer);
 
     useEffect(() => {
         getMenuCommonAction(menuId);
         handleIsDisable();
-    }, [menuId]);
+    }, [menuId, modalOpen]);
 
     const handleModalCreateOpen = () => {
         setModalOpen(true)
@@ -38,18 +40,19 @@ const Index: FC = () => {
                     <h1 className="t-30b text-gray-100">Page edit Menu</h1>
                     <div className="p-4 flex flex-row gap-x-3.5">
                         <SelectMenuAdmin menuId={menuId} setMenuId={setMenuId}/>
-
                         <Button variant="text" onClick={handleModalCreateOpen} disabled={isDisable}>Add link</Button>
                         <ModalForm modalOpen={modalOpen} setModalOpen={setModalOpen}>
                             <FormMenuCreate
                                 menuId={menuId}
                                 setModalOpen={setModalOpen}
-                                menuCommon={menuCommon}/>
+                                menuCommon={menuCommon}
+                                setIsSuccessfullyAdded={setIsSuccessfullyAdded}
+                            />
                         </ModalForm>
                     </div>
                     <TableMenuAdmin menuCommon={menuCommon} isLoadingCommonMenu={isLoadingCommonMenu} errorCommonMenu={errorCommonMenu}/>
                 </div>
-
+                {isSuccessfullyAdded && <SnackBar/>}
             </div>
         </MainLayout>
     )

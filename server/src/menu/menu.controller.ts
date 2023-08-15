@@ -13,7 +13,7 @@ export class MenuController {
 
     @ApiOperation({summary: 'Create link of Menu'})
     @ApiResponse({status: 200, type: Link})
-    @Post('/create')
+    @Post('/new')
     createLink(@Body() menuDto: CreateMenuDto) {
         return this.menuService.createLinkMenu(menuDto)
     }

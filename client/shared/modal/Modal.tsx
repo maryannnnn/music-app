@@ -5,7 +5,6 @@ import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Typography from '@mui/material/Typography';
 
-
 const style = {
     position: 'absolute' as 'absolute',
     top: '50%',
@@ -20,13 +19,11 @@ const style = {
 
 interface ModalProps {
     modalOpen: boolean;
-    setModalOpen;
+    setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
     children;
 }
 
 const ModalForm: FC<ModalProps> = ({modalOpen, setModalOpen, children}) => {
-    //const [open, setOpen] = React.useState(false);
-    //const handleOpen = () => setOpen(true);
     const handleClose = () => setModalOpen(false);
 
     return (
