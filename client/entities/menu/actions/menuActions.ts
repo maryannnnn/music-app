@@ -1,23 +1,33 @@
-import {IMenu, MenuTopActionEnum, MenuTopAction, MenuCommonActionEnum, MenuCommonAction} from "../types/menuTypes";
+import {
+    IMenu,
+    MenuTopActionEnum,
+    MenuTopAction,
+    MenuCommonActionEnum,
+    MenuCommonAction,
+    ILinkNew, LinkCreateAction, LinkCreateActionEnum
+} from "../types/menuTypes";
 import {Dispatch} from "react";
 import Axios from "axios";
 
-
-// export const createLinkMenuAction = (menu: IMenu) => async (dispatch) => {
-//     dispatch({type: MenuActionEnum.MENU_LIST_REQUEST, payload: menu});
-//     try {
-//         const response = await Axios.post('/menu', {menu});
-//         dispatch({ type: MenuActionEnum.MENU_LIST_SUCCESS, payload: response.data });
-//     } catch (error) {
-//     dispatch({
-//         type: MenuActionEnum.MENU_LIST_FAIL,
-//         payload: error.response && error.response.data.message
-//                 ? error.response.data.message
-//                 : error.message,
-//     });
-// }
-//
   export const menuActions = {
+
+    createLinkMenuAction: (link: ILinkNew) => async (dispatch: Dispatch<LinkCreateAction>) => {
+        dispatch({type: LinkCreateActionEnum.LINK_CREATE_REQUEST, payload: link});
+        try {
+            console.log("link: ", link)
+            const response = await Axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/menu/new`, {...link});
+            console.log("response.data: ", response.data)
+            dispatch({type: LinkCreateActionEnum.LINK_CREATE_SUCCESS, payload: response.data});
+        } catch (error) {
+            dispatch({
+                type: LinkCreateActionEnum.LINK_CREATE_FAIL,
+                payload: error.response && error.response.data.message
+                    ? error.response.data.message
+                    : error.message,
+            });
+        }
+    },
+
     getMenuTopAction: (menuId: number) => async (dispatch: Dispatch<MenuTopAction>) => {
         dispatch({type: MenuTopActionEnum.MENU_TOP_REQUEST, payload: menuId});
         try {
