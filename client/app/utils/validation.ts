@@ -1,5 +1,4 @@
-import * as Yup from 'yup';
-import React, { FC } from "react";
+
 import {ValidateNumberFieldParams, ValidateStringFieldParams} from "./interfases";
 
 export const validateStringField = async (
