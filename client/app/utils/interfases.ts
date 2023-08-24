@@ -1,3 +1,4 @@
+import * as Yup from 'yup';
 
 export interface ValidateStringFieldParams {
     fieldName: string;

@@ -1,33 +1,16 @@
 import React, {FC} from 'react';
-import {styled} from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
-import TableCell, {tableCellClasses} from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import {IMenu} from "../../entities/menu/types/menuTypes";
-
-const StyledTableCell = styled(TableCell)(({theme}) => ({
-    [`&.${tableCellClasses.head}`]: {
-        backgroundColor: theme.palette.common.black,
-        color: theme.palette.common.white,
-    },
-    [`&.${tableCellClasses.body}`]: {
-        fontSize: 14,
-    },
-}));
-
-const StyledTableRow = styled(TableRow)(({theme}) => ({
-    '&:nth-of-type(odd)': {
-        backgroundColor: theme.palette.action.hover,
-    },
-    // hide last border
-    '&:last-child td, &:last-child th': {
-        border: 0,
-    },
-}));
+import {CircularProgress, IconButton} from "@mui/material";
+import Pagination from "../pagination/Pagination";
+import {StyledTableCell, StyledTableRow} from "./Styles";
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 interface PropsMenuTable {
     menuCommon: IMenu[];
@@ -36,16 +19,36 @@ interface PropsMenuTable {
 }
 
 const TableMenuAdmin: FC<PropsMenuTable> = ({menuCommon, isLoadingCommonMenu, errorCommonMenu}) => {
+    const [page, setPage] = React.useState(0);
+    const [rowsPerPage, setRowsPerPage] = React.useState(5);
+
+    // Avoid a layout jump when reaching the last page with empty rows.
+    const emptyRows =
+        page > 0 ? Math.max(0, (1 + page) * rowsPerPage - menuCommon.length) : 0;
+
+    const handleChangePage = (
+        event: React.MouseEvent<HTMLButtonElement> | null,
+        newPage: number,
+    ) => {
+        setPage(newPage);
+    };
+
+    const handleChangeRowsPerPage = (
+        event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    ) => {
+        setRowsPerPage(parseInt(event.target.value, 10));
+        setPage(0);
+    };
 
     return (
         <>
             {isLoadingCommonMenu ? (
-                <h3 className="m-10">...Loading</h3>
+                <CircularProgress/>
             ) : errorCommonMenu ? (
                 <h3 className="p-4 bg-red-200">{errorCommonMenu}</h3>
             ) : menuCommon.length > 0 ? (
                 <TableContainer component={Paper}>
-                    <Table sx={{minWidth: 700}} aria-label="customized table">
+                    <Table sx={{minWidth: 700}} aria-label="custom pagination table">
                         <TableHead>
                             <TableRow>
                                 <StyledTableCell align="left">Id</StyledTableCell>
@@ -60,7 +63,10 @@ const TableMenuAdmin: FC<PropsMenuTable> = ({menuCommon, isLoadingCommonMenu, er
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {menuCommon.sort((a, b) => a.orderLink - b.orderLink).map(link => (
+                            {(rowsPerPage > 0
+                                    ? menuCommon.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                                    : menuCommon
+                            ).sort((a, b) => a.orderLink - b.orderLink).map(link => (
                                 <StyledTableRow key={link.id}>
                                     <StyledTableCell component="th" scope="row">
                                         {link.id}
@@ -70,18 +76,27 @@ const TableMenuAdmin: FC<PropsMenuTable> = ({menuCommon, isLoadingCommonMenu, er
                                     <StyledTableCell align="left">{link.orderLink}</StyledTableCell>
                                     <StyledTableCell align="left">{link.parentId}</StyledTableCell>
                                     <StyledTableCell align="left">{link.menuId}</StyledTableCell>
-                                    <StyledTableCell align="left">{(link.updatedAt).toLocaleString('en-US')}</StyledTableCell>
+                                    <StyledTableCell
+                                        align="left">{(link.updatedAt).toLocaleString('en-US')}</StyledTableCell>
                                     <StyledTableCell align="left">
-                                        Edit
+                                        <IconButton aria-label="delete">
+                                            <EditIcon />
+                                        </IconButton>
                                     </StyledTableCell>
                                     <StyledTableCell align="left">
-                                        Delete
+                                        <IconButton aria-label="delete">
+                                            <DeleteIcon />
+                                        </IconButton>
                                     </StyledTableCell>
                                 </StyledTableRow>
                             ))}
                         </TableBody>
+                        <Pagination data={menuCommon} page={page} rowsPerPage={rowsPerPage}
+                                    handleChangePage={handleChangePage}
+                                    handleChangeRowsPerPage={handleChangeRowsPerPage}/>
                     </Table>
                 </TableContainer>
+
             ) : (
                 <div className="m-10">There are no links in this menu.</div>
             )
