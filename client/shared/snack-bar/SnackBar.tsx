@@ -1,9 +1,15 @@
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 
-const SnackBar: FC = () => {
-    const [openSnackbar, setOpenSnackbar] = useState(true);
+interface SnackBarProps {
+    openSnackbar: boolean;
+    setOpenSnackbar: React.Dispatch<React.SetStateAction<boolean>>;
+    severity: string;
+    alertMessage: string;
+}
+
+const SnackBar: FC<SnackBarProps> = ({openSnackbar, setOpenSnackbar, severity, alertMessage}) => {
 
     return (
         <Snackbar
@@ -13,10 +19,10 @@ const SnackBar: FC = () => {
         >
             <Alert
                 onClose={() => setOpenSnackbar(false)}
-                severity="success"
+                severity={severity}
                 sx={{width: '100%'}}
             >
-                Successfully added!
+                {alertMessage}
             </Alert>
         </Snackbar>
     );
