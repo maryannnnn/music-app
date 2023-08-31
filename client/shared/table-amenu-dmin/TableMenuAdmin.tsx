@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
@@ -11,6 +11,9 @@ import Pagination from "../pagination/Pagination";
 import {StyledTableCell, StyledTableRow} from "./Styles";
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import ModalForm from "../modal/Modal";
+import FormMenuEdit from "../../features/form-menu-edit/FormMenuEdit";
+import SnackBar from "../snack-bar/SnackBar";
 
 interface PropsMenuTable {
     menuCommon: IMenu[];
@@ -21,6 +24,11 @@ interface PropsMenuTable {
 const TableMenuAdmin: FC<PropsMenuTable> = ({menuCommon, isLoadingCommonMenu, errorCommonMenu}) => {
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
+    const [modalOpenEdit, setModalOpenEdit] = useState(false);
+    const [linkEdit, setLinkEdit] = useState({} as IMenu)
+    const [openSnackbarEdit, setOpenSnackbarEdit] = useState(false);
+    const [severityEdit, setSeverityEdit] = useState('');
+    const [alertMessageEdit, setAlertMessageEdit] = useState('')
 
     // Avoid a layout jump when reaching the last page with empty rows.
     const emptyRows =
@@ -39,6 +47,15 @@ const TableMenuAdmin: FC<PropsMenuTable> = ({menuCommon, isLoadingCommonMenu, er
         setRowsPerPage(parseInt(event.target.value, 10));
         setPage(0);
     };
+
+    const handleEdit = (link: IMenu) => {
+        setLinkEdit(link)
+        setModalOpenEdit(true)
+    }
+
+    const handleDelete = () => {
+        console.log('handleDelete')
+    }
 
     return (
         <>
@@ -79,12 +96,12 @@ const TableMenuAdmin: FC<PropsMenuTable> = ({menuCommon, isLoadingCommonMenu, er
                                     <StyledTableCell
                                         align="left">{(link.updatedAt).toLocaleString('en-US')}</StyledTableCell>
                                     <StyledTableCell align="left">
-                                        <IconButton aria-label="delete">
+                                        <IconButton aria-label="edit" onClick={() => handleEdit(link)}>
                                             <EditIcon />
                                         </IconButton>
                                     </StyledTableCell>
                                     <StyledTableCell align="left">
-                                        <IconButton aria-label="delete">
+                                        <IconButton aria-label="delete" onClick={handleDelete}>
                                             <DeleteIcon />
                                         </IconButton>
                                     </StyledTableCell>
@@ -101,6 +118,18 @@ const TableMenuAdmin: FC<PropsMenuTable> = ({menuCommon, isLoadingCommonMenu, er
                 <div className="m-10">There are no links in this menu.</div>
             )
             }
+            <ModalForm modalOpen={modalOpenEdit} setModalOpen={setModalOpenEdit}>
+                <FormMenuEdit
+                    setModalOpen={setModalOpenEdit}
+                    link={linkEdit}
+                    setOpenSnackbar={setOpenSnackbarEdit}
+                    setSeverity={setSeverityEdit}
+                    setAlertMessage={setAlertMessageEdit}
+                    menuCommon={menuCommon}
+                />
+            </ModalForm>
+            <SnackBar openSnackbar={openSnackbarEdit} setOpenSnackbar={setOpenSnackbarEdit} severity={severityEdit}
+                      alertMessage={alertMessageEdit}/>
         </>
     );
 }
