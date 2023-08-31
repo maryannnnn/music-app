@@ -5,12 +5,19 @@ import {
     menuTopState,
     MenuCommonActionEnum,
     MenuCommonAction,
-    linkCreateState, LinkCreateAction, LinkCreateActionEnum, ILinkNew
+    linkCreateState,
+    LinkCreateAction,
+    LinkCreateActionEnum,
+    ILinkNew,
+    LinkEditActionEnum,
+    LinkEditAction,
+    linkEditState,
+    IMenu
 } from "../types/menuTypes";
 
 const initialLinkCreateState: linkCreateState = {
-    linkCreate: {} as ILinkNew,
     isLoadingLinkCreate: false,
+    successLinkCreate: false,
     errorLinkCreate: ''
 }
 
@@ -22,7 +29,7 @@ export const linkCreateReducer = (state = initialLinkCreateState, action: LinkCr
             }
         case LinkCreateActionEnum.LINK_CREATE_SUCCESS:
             return {
-                ...state, linkCreate: action.payload, isLoadingLinkCreate: false
+                ...state, isLoadingLinkCreate: false, successLinkCreate: true
             }
         case LinkCreateActionEnum.LINK_CREATE_FAIL:
             return {
@@ -33,8 +40,33 @@ export const linkCreateReducer = (state = initialLinkCreateState, action: LinkCr
     }
 }
 
+const initialLinkEditState: linkEditState = {
+    isLoadingLinkEdit: false,
+    successLinkEdit: false,
+    errorLinkEdit: ''
+}
+
+export const linkEditReducer = (state = initialLinkEditState, action: LinkEditAction): linkEditState => {
+    switch (action.type) {
+        case LinkEditActionEnum.LINK_EDIT_REQUEST:
+            return {
+                ...state, isLoadingLinkEdit: true
+            }
+        case LinkEditActionEnum.LINK_EDIT_SUCCESS:
+            return {
+                ...state, isLoadingLinkEdit: false, successLinkEdit: true
+            }
+        case LinkEditActionEnum.LINK_EDIT_FAIL:
+            return {
+                ...state, errorLinkEdit: action.payload, isLoadingLinkEdit: false
+            }
+        default:
+            return state
+    }
+}
+
 const initialMenuTopState: menuTopState = {
-        menuTop: [],
+        menuTop: [] as IMenu[],
         isLoadingTopMenu: false,
         errorTopMenu: ''
 }
@@ -59,7 +91,7 @@ export const menuTopReducer = (state = initialMenuTopState, action: MenuTopActio
 }
 
 const initialMenuCommonState: menuCommonState = {
-    menuCommon: [],
+    menuCommon: [] as IMenu[],
     isLoadingCommonMenu: false,
     errorCommonMenu: ''
 }
@@ -82,3 +114,4 @@ export const menuCommonReducer = (state = initialMenuCommonState, action: MenuCo
             return state
     }
 }
+

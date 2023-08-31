@@ -1,8 +1,9 @@
-import {linkCreateReducer, menuCommonReducer, menuTopReducer} from "../../entities/menu/reducers/menuReducers";
+import {linkCreateReducer, linkEditReducer, menuCommonReducer, menuTopReducer} from "../../entities/menu/reducers/menuReducers";
 
 export const Reducers = {
     menuTopReducer,
     menuCommonReducer,
-    linkCreateReducer
+    linkCreateReducer,
+    linkEditReducer
 }
 

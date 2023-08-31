@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5dd6a474-6225-4acd-9ade-c5a8d9341043" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/shared/pagination/Pagination.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/shared/pagination/TablePaginationActions.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/shared/table-amenu-dmin/Styles.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/features/form-menu-create/interface.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/features/form-menu-create/validation-menu.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/features/form-menu-edit/FormMenuEdit.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/features/form-menu-edit/interface.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/features/form-menu-edit/validation-menu.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/Dockerfile" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/auth/auth.module.ts" afterDir="false" />
@@ -24,17 +26,17 @@
       <change afterPath="$PROJECT_DIR$/server/src/users/dto/create-user.dto.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/users/users.entity.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/app/utils/interfases.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/utils/interfases.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/app/utils/validation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/utils/validation.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/app/story/reducers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/story/reducers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/entities/menu/actions/menuActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/entities/menu/actions/menuActions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/entities/menu/reducers/menuReducers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/entities/menu/reducers/menuReducers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/entities/menu/types/menuTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/entities/menu/types/menuTypes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/features/form-menu-create/FormMenuCreate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/form-menu-create/FormMenuCreate.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/pages/admin/menu/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/admin/menu/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/shared/snack-bar/SnackBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/snack-bar/SnackBar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/shared/table-amenu-dmin/TableMenuAdmin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/table-amenu-dmin/TableMenuAdmin.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/.development.env" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/.production.env" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/menu/menu.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/menu/menu.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/users/users.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/users/users.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/users/users.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/users/users.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/users/users.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/users/users.service.ts" afterDir="false" />
@@ -57,7 +59,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../React/mern-cloud-disk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/features" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -72,6 +74,9 @@
     <property name="ts.external.directory.path" value="H:\Мои Документы\React_TypeScript\music-app\server\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="H:\Мои Документы\React_TypeScript\music-app\client\features" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="H:\Мои Документы\React_TypeScript\music-app\client\shared\pagination" />
     </key>
@@ -111,7 +116,12 @@
       <workItem from="1692264994354" duration="4838000" />
       <workItem from="1692709318022" duration="9167000" />
       <workItem from="1692782585995" duration="21737000" />
-      <workItem from="1692865567413" duration="12744000" />
+      <workItem from="1692865567413" duration="15872000" />
+      <workItem from="1693235178975" duration="3323000" />
+      <workItem from="1693258309916" duration="6616000" />
+      <workItem from="1693305828384" duration="12858000" />
+      <workItem from="1693347380685" duration="5191000" />
+      <workItem from="1693474390962" duration="12787000" />
     </task>
     <servers />
   </component>
