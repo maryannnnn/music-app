@@ -18,6 +18,15 @@ export interface ILinkNew {
     menuId: number;
 }
 
+export interface ILinkEdit {
+    id: number;
+    nameLink: string;
+    urlLink: string;
+    orderLink: number;
+    parentId: number;
+    menuId: number;
+}
+
 export const MenuNames = [
     {id: 1, name: "Menu Top"},
     {id: 2, name: "Menu Main"},
@@ -93,8 +102,8 @@ export type MenuCommonAction =
 //////////////////////////////////////////////
 
 export interface linkCreateState {
-    linkCreate: ILinkNew;
     isLoadingLinkCreate: boolean;
+    successLinkCreate: boolean;
     errorLinkCreate: string;
 }
 
@@ -122,3 +131,36 @@ export type LinkCreateAction =
     linkCreateRequestAction |
     linkCreateSuccessAction |
     linkCreateFailAction
+
+//////////////////////////////////////////////////////
+
+export interface linkEditState {
+    isLoadingLinkEdit: boolean;
+    successLinkEdit: boolean;
+    errorLinkEdit: string;
+}
+
+export enum LinkEditActionEnum {
+    LINK_EDIT_REQUEST = "LINK_EDIT_REQUEST",
+    LINK_EDIT_SUCCESS = "LINK_EDIT_SUCCESS",
+    LINK_EDIT_FAIL = "LINK_EDIT_FAIL",
+}
+
+export interface linkEditRequestAction {
+    type: LinkEditActionEnum.LINK_EDIT_REQUEST;
+}
+
+export interface linkEditSuccessAction {
+    type: LinkEditActionEnum.LINK_EDIT_SUCCESS;
+    payload: ILinkEdit;
+}
+
+export interface linkEditFailAction {
+    type: LinkEditActionEnum.LINK_EDIT_FAIL;
+    payload: string;
+}
+
+export type LinkEditAction =
+    linkEditRequestAction |
+    linkEditSuccessAction |
+    linkEditFailAction

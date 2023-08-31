@@ -12,22 +12,22 @@ import SnackBar from "../../../shared/snack-bar/SnackBar";
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 const Index: FC = () => {
-    const [modalOpen, setModalOpen] = useState(false);
+    const [modalOpenCreate, setModalOpenCreate] = useState(false);
     const [menuId, setMenuId] = useState(0);
     const [isDisable, setIsDisable] = useState(false);
-    const [openSnackbar, setOpenSnackbar] = useState(false);
-    const [severity, setSeverity] = useState('');
-    const [alertMessage, setAlertMessage] = useState('')
+    const [openSnackbarCreate, setOpenSnackbarCreate] = useState(false);
+    const [severityCreate, setSeverityCreate] = useState('');
+    const [alertMessageCreate, setAlertMessageCreate] = useState('')
     const {getMenuCommonAction} = useActions();
     const {isLoadingCommonMenu, errorCommonMenu, menuCommon} = useTypedSelector(state => state.menuCommonReducer);
 
     useEffect(() => {
         getMenuCommonAction(menuId);
         handleIsDisable();
-    }, [menuId, modalOpen]);
+    }, [menuId, modalOpenCreate]);
 
     const handleModalCreateOpen = () => {
-        setModalOpen(true)
+        setModalOpenCreate(true)
     }
 
     const handleIsDisable = () => {
@@ -45,22 +45,22 @@ const Index: FC = () => {
                         <SelectMenuAdmin menuId={menuId} setMenuId={setMenuId}/>
                         <Button variant="text" onClick={handleModalCreateOpen} disabled={isDisable}
                                 startIcon={<AddCircleIcon/>}>Add link</Button>
-                        <ModalForm modalOpen={modalOpen} setModalOpen={setModalOpen}>
+                        <ModalForm modalOpen={modalOpenCreate} setModalOpen={setModalOpenCreate}>
                             <FormMenuCreate
                                 menuId={menuId}
-                                setModalOpen={setModalOpen}
+                                setModalOpen={setModalOpenCreate}
                                 menuCommon={menuCommon}
-                                setOpenSnackbar={setOpenSnackbar}
-                                setSeverity={setSeverity}
-                                setAlertMessage={setAlertMessage}
+                                setOpenSnackbar={setOpenSnackbarCreate}
+                                setSeverity={setSeverityCreate}
+                                setAlertMessage={setAlertMessageCreate}
                             />
                         </ModalForm>
                     </div>
                     <TableMenuAdmin menuCommon={menuCommon} isLoadingCommonMenu={isLoadingCommonMenu}
                                     errorCommonMenu={errorCommonMenu}/>
                 </div>
-                <SnackBar openSnackbar={openSnackbar} setOpenSnackbar={setOpenSnackbar} severity={severity}
-                          alertMessage={alertMessage}/>
+                <SnackBar openSnackbar={openSnackbarCreate} setOpenSnackbar={setOpenSnackbarCreate} severity={severityCreate}
+                          alertMessage={alertMessageCreate}/>
             </div>
         </MainLayout>
     )

@@ -12,21 +12,21 @@ import {validateStringField, validateNumberField} from '../../app/utils/validati
 import {useTypedSelector} from "../../app/story/hooks/useTypedSelector";
 import {setTimeout} from "timers";
 import {validationSchemaMenu} from "./validation-menu";
-import {PropsFormMenuCreate} from "./interface";
+import {PropsFormMenuEdit} from "./interface";
 
-const FormMenuCreate: FC<PropsFormMenuCreate> = (
+const FormMenuEdit: FC<PropsFormMenuEdit> = (
     {
-        menuId, setModalOpen, menuCommon, setOpenSnackbar, setSeverity, setAlertMessage
+        setModalOpen, link, setOpenSnackbar, setSeverity, setAlertMessage, menuCommon
     }) => {
 
     const [errors, setErrors] = useState({nameLink: '', urlLink: ''});
     const [formValid, setFormValid] = useState(false)
-    const [clickedButtonAdd, setClickedButtonAdd] = useState(false)
-    const {createLinkMenuAction, getMenuCommonAction, getMenuTopAction} = useActions();
-    const {isLoadingLinkCreate, errorLinkCreate, successLinkCreate} = useTypedSelector(state => state.linkCreateReducer);
+    const [update, setUpdate] = useState(false)
+    const {editLinkMenuAction, getMenuCommonAction, getMenuTopAction} = useActions();
+    const {isLoadingLinkEdit, errorLinkEdit, successLinkEdit} = useTypedSelector(state => state.linkEditReducer);
     const [form, setForm] = useState({
-        nameLink: 'New Name Link', urlLink: 'New Url Link', orderLink: 0,
-        parentId: 0, menuId: menuId
+        id: link.id, nameLink: link.nameLink, urlLink: link.urlLink, orderLink: link.orderLink,
+        parentId: link.parentId, menuId: link.menuId, createdAt: link.createdAt, updatedAt: link.updatedAt
     })
 
     const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,8 +48,8 @@ const FormMenuCreate: FC<PropsFormMenuCreate> = (
 
     const handleAddLink = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
-        createLinkMenuAction({...form});
-        setClickedButtonAdd(true)
+        editLinkMenuAction({...form});
+        setUpdate(true)
         setSeverity('success')
         setAlertMessage('Successfully added!')
         setOpenSnackbar(true);
@@ -78,13 +78,13 @@ const FormMenuCreate: FC<PropsFormMenuCreate> = (
     }, [errors.nameLink, errors.urlLink])
 
     useEffect(() => {
-        if (successLinkCreate) {
-            getMenuCommonAction(menuId);
+        if (successLinkEdit) {
+            getMenuCommonAction(link.menuId);
         }
-        if (menuId === 1) {
-            getMenuTopAction(menuId);
+        if (link.menuId === 1) {
+            getMenuTopAction(link.menuId);
         }
-    }, [successLinkCreate])
+    }, [successLinkEdit])
 
     return (
         <Box
@@ -95,20 +95,20 @@ const FormMenuCreate: FC<PropsFormMenuCreate> = (
             noValidate
             autoComplete="off"
         >
-            {isLoadingLinkCreate ? (
+            {isLoadingLinkEdit ? (
                 <CircularProgress/>
-            ) : errorLinkCreate ? handlerUpdateError() && (
+            ) : errorLinkEdit ? handlerUpdateError() && (
                 <>
-                    <Alert severity="error">{errorLinkCreate}</Alert>
-                    < div className="flex flex-row-reverse gap-2">
+                    <Alert severity="error">{errorLinkEdit}</Alert>
+                    <div className="flex flex-row-reverse gap-2">
                         < Button onClick={handleClose}>Cancel</Button>
                     </div>
                 </>
-            ) : clickedButtonAdd ? handlerSetModalOpen()
+            ) : update ? handlerSetModalOpen()
                 : (
                     <div>
                         <FormControl sx={{m: 1, minWidth: 150}}>
-                            <h2>Add link to {MenuNames[menuId - 1].name}</h2>
+                            <h2>Edit link in {MenuNames[link.menuId - 1].name}</h2>
                         </FormControl>
                         <FormControl sx={{m: 1, minWidth: 100}}>
                             <TextField
@@ -170,7 +170,7 @@ const FormMenuCreate: FC<PropsFormMenuCreate> = (
                             </Select>
                         </FormControl>
                         <div className="flex flex-row-reverse gap-2">
-                            <Button onClick={handleAddLink} disabled={formValid}>Add</Button>
+                            <Button onClick={handleAddLink} disabled={formValid}>Update</Button>
                             <Button onClick={handleClose}>Cancel</Button>
                         </div>
                     </div>
@@ -179,4 +179,4 @@ const FormMenuCreate: FC<PropsFormMenuCreate> = (
     );
 };
 
-export default FormMenuCreate;
+export default FormMenuEdit;

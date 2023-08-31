@@ -34,7 +34,7 @@ export class MenuController {
 
     @ApiOperation({summary: 'Update link of Menu'})
     @ApiResponse({status: 200, type: Link})
-    @Put('/edit/:id')
+    @Put('/edit')
     updateLink(@Body() updateDto: UpdateMenuDto) {
         return this.menuService.updateLinkMenu(updateDto)
     }
