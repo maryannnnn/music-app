@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5dd6a474-6225-4acd-9ade-c5a8d9341043" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/features/form-menu-create/interface.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/features/form-menu-create/validation-menu.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/features/form-menu-edit/FormMenuEdit.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/features/form-menu-edit/interface.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/features/form-menu-edit/validation-menu.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/features/alert-menu-delete/AlertMenuDelete.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/features/alert-menu-delete/interface.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/Dockerfile" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/auth/auth.module.ts" afterDir="false" />
@@ -31,12 +28,12 @@
       <change beforePath="$PROJECT_DIR$/client/entities/menu/reducers/menuReducers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/entities/menu/reducers/menuReducers.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/entities/menu/types/menuTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/entities/menu/types/menuTypes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/features/form-menu-create/FormMenuCreate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/form-menu-create/FormMenuCreate.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/admin/menu/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/admin/menu/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/form-menu-edit/FormMenuEdit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/form-menu-edit/FormMenuEdit.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/shared/table-amenu-dmin/TableMenuAdmin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/table-amenu-dmin/TableMenuAdmin.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/.development.env" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/.production.env" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/menu/menu.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/menu/menu.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/menu/menu.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/menu/menu.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/users/users.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/users/users.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/users/users.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/users/users.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/users/users.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/users/users.service.ts" afterDir="false" />
@@ -74,11 +71,11 @@
     <property name="ts.external.directory.path" value="H:\Мои Документы\React_TypeScript\music-app\server\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="H:\Мои Документы\React_TypeScript\music-app\client\features" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="H:\Мои Документы\React_TypeScript\music-app\client\shared\pagination" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="H:\Мои Документы\React_TypeScript\music-app\client\features" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -121,7 +118,8 @@
       <workItem from="1693258309916" duration="6616000" />
       <workItem from="1693305828384" duration="12858000" />
       <workItem from="1693347380685" duration="5191000" />
-      <workItem from="1693474390962" duration="12787000" />
+      <workItem from="1693474390962" duration="13352000" />
+      <workItem from="1693751638788" duration="12639000" />
     </task>
     <servers />
   </component>
@@ -129,6 +127,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="2056" y="180" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1693755016262">
+      <screen x="1366" y="-87" width="1920" height="1040" />
+    </state>
+    <state x="2056" y="180" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728/1366.-87.1920.1040@1366.-87.1920.1040" timestamp="1693755016262" />
     <state x="2106" y="188" key="FileChooserDialogImpl" timestamp="1691940768388">
       <screen x="1366" y="-87" width="1920" height="1040" />
     </state>

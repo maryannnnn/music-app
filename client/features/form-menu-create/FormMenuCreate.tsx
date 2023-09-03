@@ -84,7 +84,7 @@ const FormMenuCreate: FC<PropsFormMenuCreate> = (
         if (menuId === 1) {
             getMenuTopAction(menuId);
         }
-    }, [successLinkCreate])
+    }, [clickedButtonAdd])
 
     return (
         <Box
