@@ -16,7 +16,6 @@ export class MenuService {
     }
 
     async getLinksByMenuId(menuId: number): Promise<Link[]> {
-        console.log("getLinksByMenuId Nest: ", menuId)
         return await this.menuRepository.find( {where: { menuId }})
     }
 
