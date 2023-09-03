@@ -34,6 +34,7 @@ export const MenuNames = [
 ]
 
 ///////////////////////////////////////////////
+////Menu Top
 
 export interface menuTopState {
     menuTop: IMenu[];
@@ -67,6 +68,7 @@ export type MenuTopAction =
     menuTopFailAction
 
 //////////////////////////////////////////////////
+////Menu Common
 
 export interface menuCommonState {
     menuCommon: IMenu[];
@@ -100,6 +102,7 @@ export type MenuCommonAction =
     menuCommonFailAction
 
 //////////////////////////////////////////////
+///// Link Create
 
 export interface linkCreateState {
     isLoadingLinkCreate: boolean;
@@ -133,6 +136,7 @@ export type LinkCreateAction =
     linkCreateFailAction
 
 //////////////////////////////////////////////////////
+/////// Link Edit
 
 export interface linkEditState {
     isLoadingLinkEdit: boolean;
@@ -164,3 +168,37 @@ export type LinkEditAction =
     linkEditRequestAction |
     linkEditSuccessAction |
     linkEditFailAction
+
+//////////////////////////////////////////////////////
+/////// Link Delete
+
+export interface linkDeleteState {
+    isLoadingLinkDelete: boolean;
+    successLinkDelete: boolean;
+    errorLinkDelete: string;
+}
+
+export enum LinkDeleteActionEnum {
+    LINK_DELETE_REQUEST = "LINK_DELETE_REQUEST",
+    LINK_DELETE_SUCCESS = "LINK_DELETE_SUCCESS",
+    LINK_DELETE_FAIL = "LINK_DELETE_FAIL",
+}
+
+export interface linkDeleteRequestAction {
+    type: LinkDeleteActionEnum.LINK_DELETE_REQUEST;
+}
+
+export interface linkDeleteSuccessAction {
+    type: LinkDeleteActionEnum.LINK_DELETE_SUCCESS;
+    payload: number;
+}
+
+export interface linkDeleteFailAction {
+    type: LinkDeleteActionEnum.LINK_DELETE_FAIL;
+    payload: string;
+}
+
+export type LinkDeleteAction =
+    linkDeleteRequestAction |
+    linkDeleteSuccessAction |
+    linkDeleteFailAction

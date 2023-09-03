@@ -4,7 +4,13 @@ import {
     MenuTopAction,
     MenuCommonActionEnum,
     MenuCommonAction,
-    ILinkNew, LinkCreateAction, LinkCreateActionEnum, LinkEditActionEnum, LinkEditAction, ILinkEdit
+    ILinkNew,
+    LinkCreateAction,
+    LinkCreateActionEnum,
+    LinkEditActionEnum,
+    LinkEditAction,
+    ILinkEdit,
+    LinkDeleteActionEnum, LinkDeleteAction
 } from "../types/menuTypes";
 import {Dispatch} from "react";
 import Axios from "axios";
@@ -29,13 +35,28 @@ export const menuActions = {
     editLinkMenuAction: (link:IMenu) => async (dispatch: Dispatch<LinkEditAction>) => {
         dispatch({type: LinkEditActionEnum.LINK_EDIT_REQUEST, payload: link});
         try {
-            console.log("link: ", link)
             const response = await Axios.put(`${process.env.NEXT_PUBLIC_BACKEND_URL}/menu/edit`, {...link});
-            console.log("response.data: ", response.data)
             dispatch({type: LinkEditActionEnum.LINK_EDIT_SUCCESS, payload: response.data});
         } catch (error) {
             dispatch({
                 type: LinkEditActionEnum.LINK_EDIT_FAIL,
+                payload: error.response && error.response.data.message
+                    ? error.response.data.message
+                    : error.message,
+            });
+        }
+    },
+
+    deleteLinkMenuAction: (linkId:number) => async (dispatch: Dispatch<LinkDeleteAction>) => {
+        dispatch({type: LinkDeleteActionEnum.LINK_DELETE_REQUEST, payload: linkId});
+        try {
+            console.log("Delete linkId: ", linkId)
+            const response = await Axios.delete(`${process.env.NEXT_PUBLIC_BACKEND_URL}/menu/delete/${linkId}`);
+            console.log("response.data: ", response.data)
+            dispatch({type: LinkDeleteActionEnum.LINK_DELETE_SUCCESS, payload: response.data});
+        } catch (error) {
+            dispatch({
+                type: LinkDeleteActionEnum.LINK_DELETE_FAIL,
                 payload: error.response && error.response.data.message
                     ? error.response.data.message
                     : error.message,
@@ -72,5 +93,4 @@ export const menuActions = {
             });
         }
     }
-
 }

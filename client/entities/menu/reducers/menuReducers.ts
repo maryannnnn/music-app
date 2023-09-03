@@ -1,18 +1,20 @@
 import {
-    MenuTopActionEnum,
-    MenuTopAction,
-    menuCommonState,
-    menuTopState,
-    MenuCommonActionEnum,
-    MenuCommonAction,
-    linkCreateState,
+    IMenu,
     LinkCreateAction,
     LinkCreateActionEnum,
-    ILinkNew,
-    LinkEditActionEnum,
+    linkCreateState,
+    LinkDeleteAction,
+    LinkDeleteActionEnum,
+    linkDeleteState,
     LinkEditAction,
+    LinkEditActionEnum,
     linkEditState,
-    IMenu
+    MenuCommonAction,
+    MenuCommonActionEnum,
+    menuCommonState,
+    MenuTopAction,
+    MenuTopActionEnum,
+    menuTopState
 } from "../types/menuTypes";
 
 const initialLinkCreateState: linkCreateState = {
@@ -59,6 +61,31 @@ export const linkEditReducer = (state = initialLinkEditState, action: LinkEditAc
         case LinkEditActionEnum.LINK_EDIT_FAIL:
             return {
                 ...state, errorLinkEdit: action.payload, isLoadingLinkEdit: false
+            }
+        default:
+            return state
+    }
+}
+
+const initialLinkDeleteState: linkDeleteState = {
+    isLoadingLinkDelete: false,
+    successLinkDelete: false,
+    errorLinkDelete: ''
+}
+
+export const linkDeleteReducer = (state = initialLinkDeleteState, action: LinkDeleteAction): linkDeleteState => {
+    switch (action.type) {
+        case LinkDeleteActionEnum.LINK_DELETE_REQUEST:
+            return {
+                ...state, isLoadingLinkDelete: true
+            }
+        case LinkDeleteActionEnum.LINK_DELETE_SUCCESS:
+            return {
+                ...state, isLoadingLinkDelete: false, successLinkDelete: true
+            }
+        case LinkDeleteActionEnum.LINK_DELETE_FAIL:
+            return {
+                ...state, errorLinkDelete: action.payload, isLoadingLinkDelete: false
             }
         default:
             return state

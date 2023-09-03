@@ -21,7 +21,7 @@ const FormMenuEdit: FC<PropsFormMenuEdit> = (
 
     const [errors, setErrors] = useState({nameLink: '', urlLink: ''});
     const [formValid, setFormValid] = useState(false)
-    const [update, setUpdate] = useState(false)
+    const [clickedButtonEdit, setClickedButtonEdit] = useState(false)
     const {editLinkMenuAction, getMenuCommonAction, getMenuTopAction} = useActions();
     const {isLoadingLinkEdit, errorLinkEdit, successLinkEdit} = useTypedSelector(state => state.linkEditReducer);
     const [form, setForm] = useState({
@@ -49,7 +49,7 @@ const FormMenuEdit: FC<PropsFormMenuEdit> = (
     const handleAddLink = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
         editLinkMenuAction({...form});
-        setUpdate(true)
+        setClickedButtonEdit(true)
         setSeverity('success')
         setAlertMessage('Successfully added!')
         setOpenSnackbar(true);
@@ -84,7 +84,7 @@ const FormMenuEdit: FC<PropsFormMenuEdit> = (
         if (link.menuId === 1) {
             getMenuTopAction(link.menuId);
         }
-    }, [successLinkEdit])
+    }, [clickedButtonEdit])
 
     return (
         <Box
@@ -104,7 +104,7 @@ const FormMenuEdit: FC<PropsFormMenuEdit> = (
                         < Button onClick={handleClose}>Cancel</Button>
                     </div>
                 </>
-            ) : update ? handlerSetModalOpen()
+            ) : clickedButtonEdit ? handlerSetModalOpen()
                 : (
                     <div>
                         <FormControl sx={{m: 1, minWidth: 150}}>
