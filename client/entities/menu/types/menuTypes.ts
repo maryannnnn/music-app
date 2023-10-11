@@ -5,6 +5,7 @@ export interface IMenu {
     urlLink: string;
     orderLink: number;
     parentId: number;
+    isVisible: boolean;
     menuId: number;
     createdAt: Date;
     updatedAt: Date;
@@ -15,15 +16,7 @@ export interface ILinkNew {
     urlLink: string;
     orderLink: number;
     parentId: number;
-    menuId: number;
-}
-
-export interface ILinkEdit {
-    id: number;
-    nameLink: string;
-    urlLink: string;
-    orderLink: number;
-    parentId: number;
+    isVisible: boolean;
     menuId: number;
 }
 
@@ -156,7 +149,7 @@ export interface linkEditRequestAction {
 
 export interface linkEditSuccessAction {
     type: LinkEditActionEnum.LINK_EDIT_SUCCESS;
-    payload: ILinkEdit;
+    payload: IMenu;
 }
 
 export interface linkEditFailAction {
@@ -202,3 +195,37 @@ export type LinkDeleteAction =
     linkDeleteRequestAction |
     linkDeleteSuccessAction |
     linkDeleteFailAction
+
+//////////////////////////////////////////////////////
+/////// Menu Edit
+
+export interface menuEditState {
+    isLoadingMenuEdit: boolean;
+    successMenuEdit: boolean;
+    errorMenuEdit: string;
+}
+
+export enum menuEditActionEnum {
+    MENU_EDIT_REQUEST = "MENU_EDIT_REQUEST",
+    MENU_EDIT_SUCCESS = "MENU_EDIT_SUCCESS",
+    MENU_EDIT_FAIL = "MENU_EDIT_FAIL",
+}
+
+export interface menuEditRequestAction {
+    type: menuEditActionEnum.MENU_EDIT_REQUEST;
+}
+
+export interface menuEditSuccessAction {
+    type: menuEditActionEnum.MENU_EDIT_SUCCESS;
+    payload: IMenu[];
+}
+
+export interface menuEditFailAction {
+    type: menuEditActionEnum.MENU_EDIT_FAIL;
+    payload: string;
+}
+
+export type menuEditAction =
+    menuEditRequestAction |
+    menuEditSuccessAction |
+    menuEditFailAction

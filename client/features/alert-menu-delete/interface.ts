@@ -7,4 +7,6 @@ export interface PropsAlertMenuDelete {
     setOpenSnackbar: React.Dispatch<React.SetStateAction<boolean>>;
     setSeverity: React.Dispatch<React.SetStateAction<string>>;
     setAlertMessage: React.Dispatch<React.SetStateAction<string>>;
+    menuCommon: IMenu[];
+    setFormLinks: React.Dispatch<React.SetStateAction<IMenu[]>>;
 }

@@ -1,0 +1,11 @@
+
+    const [form, setForm] = useState({name: '', tel: '', email: '', price: '', product: ''})
+
+    const changeHandler = (e) => {
+        setForm({...form, [e.target.name]: e.target.value})
+    }
+
+@media screen and (max-width: 767px) {
+
+maryann_polyakk
+

@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5dd6a474-6225-4acd-9ade-c5a8d9341043" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/features/alert-menu-delete/AlertMenuDelete.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/features/alert-menu-delete/interface.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/shared/select-options/select-options.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/Dockerfile" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/auth/auth.module.ts" afterDir="false" />
@@ -24,16 +23,23 @@
       <change afterPath="$PROJECT_DIR$/server/src/users/users.entity.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/app/story/reducers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/story/reducers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/app/utils/interfases.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/utils/interfases.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/app/utils/validation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/utils/validation.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/entities/menu/actions/menuActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/entities/menu/actions/menuActions.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/entities/menu/reducers/menuReducers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/entities/menu/reducers/menuReducers.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/entities/menu/types/menuTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/entities/menu/types/menuTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/alert-menu-delete/AlertMenuDelete.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/alert-menu-delete/AlertMenuDelete.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/alert-menu-delete/interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/alert-menu-delete/interface.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/features/form-menu-create/FormMenuCreate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/form-menu-create/FormMenuCreate.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/form-menu-create/interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/form-menu-create/interface.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/features/form-menu-edit/FormMenuEdit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/form-menu-edit/FormMenuEdit.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/form-menu-edit/interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/form-menu-edit/interface.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/admin/menu/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/admin/menu/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/shared/pagination/Pagination.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/pagination/Pagination.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/shared/table-amenu-dmin/TableMenuAdmin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/table-amenu-dmin/TableMenuAdmin.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/.development.env" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/.production.env" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/menu/menu.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/menu/menu.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/users/users.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/users/users.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/users/users.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/users/users.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/users/users.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/users/users.service.ts" afterDir="false" />
@@ -46,6 +52,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2TvvFqvI96ynEyRdaLfpY7mfdgI" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -53,22 +62,13 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/features" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.standard" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.standard" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.standard" value="" />
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="prettierjs.PrettierConfiguration.Package" value="H:\Мои Документы\React_TypeScript\music-app\server\node_modules\prettier" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
     <property name="ts.external.directory.path" value="H:\Мои Документы\React_TypeScript\music-app\server\node_modules\typescript\lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -78,6 +78,7 @@
       <recent name="H:\Мои Документы\React_TypeScript\music-app\client\features" />
     </key>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -120,24 +121,38 @@
       <workItem from="1693347380685" duration="5191000" />
       <workItem from="1693474390962" duration="13352000" />
       <workItem from="1693751638788" duration="12639000" />
+      <workItem from="1693833201698" duration="590000" />
+      <workItem from="1694001510202" duration="19229000" />
+      <workItem from="1694417905241" duration="2394000" />
+      <workItem from="1694528708943" duration="16944000" />
+      <workItem from="1694600718236" duration="675000" />
+      <workItem from="1694603798598" duration="65000" />
+      <workItem from="1694604871889" duration="375000" />
+      <workItem from="1694608603740" duration="19000" />
+      <workItem from="1694612280332" duration="577000" />
+      <workItem from="1694613524654" duration="5000" />
+      <workItem from="1694613623170" duration="2826000" />
+      <workItem from="1695049294964" duration="5379000" />
+      <workItem from="1695057104929" duration="1906000" />
+      <workItem from="1695116750322" duration="11905000" />
+      <workItem from="1695154969866" duration="880000" />
+      <workItem from="1695162118550" duration="9354000" />
+      <workItem from="1695205837906" duration="17681000" />
+      <workItem from="1695245712787" duration="3652000" />
+      <workItem from="1695313377792" duration="2253000" />
+      <workItem from="1695554019414" duration="593000" />
+      <workItem from="1696241628652" duration="13689000" />
+      <workItem from="1696323186581" duration="8120000" />
+      <workItem from="1696409877974" duration="1132000" />
+      <workItem from="1696499966533" duration="17758000" />
+      <workItem from="1696858408174" duration="585000" />
+      <workItem from="1696941447400" duration="12544000" />
+      <workItem from="1697016494729" duration="5920000" />
+      <workItem from="1697039438490" duration="3256000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="2056" y="180" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1693755016262">
-      <screen x="1366" y="-87" width="1920" height="1040" />
-    </state>
-    <state x="2056" y="180" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728/1366.-87.1920.1040@1366.-87.1920.1040" timestamp="1693755016262" />
-    <state x="2106" y="188" key="FileChooserDialogImpl" timestamp="1691940768388">
-      <screen x="1366" y="-87" width="1920" height="1040" />
-    </state>
-    <state x="2106" y="188" key="FileChooserDialogImpl/0.0.1366.728/1366.-87.1920.1040@1366.-87.1920.1040" timestamp="1691940768388" />
-    <state x="2048" y="189" key="SettingsEditor" timestamp="1691940713071">
-      <screen x="1366" y="-87" width="1920" height="1040" />
-    </state>
-    <state x="2048" y="189" key="SettingsEditor/0.0.1366.728/1366.-87.1920.1040@1366.-87.1920.1040" timestamp="1691940713071" />
+    <option name="version" value="3" />
   </component>
 </project>

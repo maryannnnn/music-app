@@ -12,6 +12,9 @@ import {
     MenuCommonAction,
     MenuCommonActionEnum,
     menuCommonState,
+    menuEditAction,
+    menuEditActionEnum,
+    menuEditState,
     MenuTopAction,
     MenuTopActionEnum,
     menuTopState
@@ -93,9 +96,9 @@ export const linkDeleteReducer = (state = initialLinkDeleteState, action: LinkDe
 }
 
 const initialMenuTopState: menuTopState = {
-        menuTop: [] as IMenu[],
-        isLoadingTopMenu: false,
-        errorTopMenu: ''
+    menuTop: [] as IMenu[],
+    isLoadingTopMenu: false,
+    errorTopMenu: ''
 }
 
 export const menuTopReducer = (state = initialMenuTopState, action: MenuTopAction): menuTopState => {
@@ -136,6 +139,31 @@ export const menuCommonReducer = (state = initialMenuCommonState, action: MenuCo
         case MenuCommonActionEnum.MENU_COMMON_FAIL:
             return {
                 ...state, errorCommonMenu: action.payload, isLoadingCommonMenu: false
+            }
+        default:
+            return state
+    }
+}
+
+const initialMenuEditState: menuEditState = {
+    isLoadingMenuEdit: false,
+    successMenuEdit: false,
+    errorMenuEdit: ''
+}
+
+export const menuEditReducer = (state = initialMenuEditState, action: menuEditAction): menuEditState => {
+    switch (action.type) {
+        case menuEditActionEnum.MENU_EDIT_REQUEST:
+            return {
+                ...state, isLoadingMenuEdit: true
+            }
+        case menuEditActionEnum.MENU_EDIT_SUCCESS:
+            return {
+                ...state, isLoadingMenuEdit: false, successMenuEdit: true
+            }
+        case menuEditActionEnum.MENU_EDIT_FAIL:
+            return {
+                ...state, errorMenuEdit: action.payload, isLoadingMenuEdit: false
             }
         default:
             return state

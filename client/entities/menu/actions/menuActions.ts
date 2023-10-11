@@ -9,8 +9,7 @@ import {
     LinkCreateActionEnum,
     LinkEditActionEnum,
     LinkEditAction,
-    ILinkEdit,
-    LinkDeleteActionEnum, LinkDeleteAction
+    LinkDeleteActionEnum, LinkDeleteAction, menuEditAction, menuEditActionEnum
 } from "../types/menuTypes";
 import {Dispatch} from "react";
 import Axios from "axios";
@@ -50,9 +49,7 @@ export const menuActions = {
     deleteLinkMenuAction: (linkId:number) => async (dispatch: Dispatch<LinkDeleteAction>) => {
         dispatch({type: LinkDeleteActionEnum.LINK_DELETE_REQUEST, payload: linkId});
         try {
-            console.log("Delete linkId: ", linkId)
             const response = await Axios.delete(`${process.env.NEXT_PUBLIC_BACKEND_URL}/menu/delete/${linkId}`);
-            console.log("response.data: ", response.data)
             dispatch({type: LinkDeleteActionEnum.LINK_DELETE_SUCCESS, payload: response.data});
         } catch (error) {
             dispatch({
@@ -92,5 +89,21 @@ export const menuActions = {
                     : error.message,
             });
         }
-    }
+    },
+
+    editMenuAction: (menu:IMenu[]) => async (dispatch: Dispatch<menuEditAction>) => {
+        dispatch({type: menuEditActionEnum.MENU_EDIT_REQUEST, payload: menu});
+        try {
+            console.log("editMenuAction ", menu)
+            const response = await Axios.put(`${process.env.NEXT_PUBLIC_BACKEND_URL}/menu/update`, {...menu});
+            dispatch({type: menuEditActionEnum.MENU_EDIT_SUCCESS, payload: response.data});
+        } catch (error) {
+            dispatch({
+                type: menuEditActionEnum.MENU_EDIT_FAIL,
+                payload: error.response && error.response.data.message
+                    ? error.response.data.message
+                    : error.message,
+            });
+        }
+    },
 }

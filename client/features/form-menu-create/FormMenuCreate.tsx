@@ -1,7 +1,7 @@
 import React, {FC, useEffect, useState} from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import {Alert, CircularProgress, Select} from "@mui/material";
+import {Alert, Checkbox, CircularProgress, FormControlLabel, FormGroup, Select} from "@mui/material";
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
@@ -13,10 +13,11 @@ import {useTypedSelector} from "../../app/story/hooks/useTypedSelector";
 import {setTimeout} from "timers";
 import {validationSchemaMenu} from "./validation-menu";
 import {PropsFormMenuCreate} from "./interface";
+import {selectOptionsNumber} from '../../shared/select-options/select-options'
 
 const FormMenuCreate: FC<PropsFormMenuCreate> = (
     {
-        menuId, setModalOpen, menuCommon, setOpenSnackbar, setSeverity, setAlertMessage
+        menuId, setModalOpen, menuCommon, setOpenSnackbar, setSeverity, setAlertMessage, setFormLinks
     }) => {
 
     const [errors, setErrors] = useState({nameLink: '', urlLink: ''});
@@ -26,33 +27,62 @@ const FormMenuCreate: FC<PropsFormMenuCreate> = (
     const {isLoadingLinkCreate, errorLinkCreate, successLinkCreate} = useTypedSelector(state => state.linkCreateReducer);
     const [form, setForm] = useState({
         nameLink: 'New Name Link', urlLink: 'New Url Link', orderLink: 0,
-        parentId: 0, menuId: menuId
+        parentId: 0, isVisible: true, menuId: menuId
     })
 
+    useEffect(() => {
+        if (errors.nameLink !== '' || errors.urlLink !== '') {
+            setFormValid(true)
+        } else {
+            setFormValid(false)
+        }
+    }, [errors.nameLink, errors.urlLink])
+
+    useEffect(() => {
+        if (clickedButtonAdd) {
+            getMenuCommonAction(menuId);
+        }
+        if (menuId === 1) {
+            getMenuTopAction(menuId);
+        }
+    }, [clickedButtonAdd])
+
+    useEffect(() => {
+        setFormLinks(menuCommon)
+    }, [menuCommon])
+
     const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const {name, value, type} = e.target;
+        const {name, value, checked, type} = e.target;
 
         if (type === 'text') {
-            validateStringField({ fieldName: name, value: value, validationSchema: validationSchemaMenu,
-                setErrors: setErrors, form: form });
+            validateStringField({
+                fieldName: name, value: value, validationSchema: validationSchemaMenu,
+                setErrors: setErrors, form: form
+            });
         } else if (type === 'number') {
-            validateNumberField({ fieldName: name, value: Number(value), validationSchema: validationSchemaMenu,
-                setErrors: setErrors, form: form });
+            validateNumberField({
+                fieldName: name, value: Number(value), validationSchema: validationSchemaMenu,
+                setErrors: setErrors, form: form
+            });
         }
 
         setErrors({...errors, [name]: ''});
-        setForm({...form, [name]: value});
+        if (type === 'checkbox') {
+            setForm({ ...form, [name]: checked });
+        } else {
+            setForm({ ...form, [name]: value });
+        }
     };
 
     const handleClose = () => setModalOpen(false);
 
     const handleAddLink = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
-        createLinkMenuAction({...form});
-        setClickedButtonAdd(true)
         setSeverity('success')
         setAlertMessage('Successfully added!')
         setOpenSnackbar(true);
+        createLinkMenuAction({...form});
+        setClickedButtonAdd(true)
     }
 
     const handlerUpdateError = () => {
@@ -68,23 +98,6 @@ const FormMenuCreate: FC<PropsFormMenuCreate> = (
     const handlerSetModalOpen = () => {
         setModalOpen(false)
     }
-
-    useEffect(() => {
-        if (errors.nameLink !== '' || errors.urlLink !== '') {
-            setFormValid(true)
-        } else {
-            setFormValid(false)
-        }
-    }, [errors.nameLink, errors.urlLink])
-
-    useEffect(() => {
-        if (successLinkCreate) {
-            getMenuCommonAction(menuId);
-        }
-        if (menuId === 1) {
-            getMenuTopAction(menuId);
-        }
-    }, [clickedButtonAdd])
 
     return (
         <Box
@@ -110,34 +123,56 @@ const FormMenuCreate: FC<PropsFormMenuCreate> = (
                         <FormControl sx={{m: 1, minWidth: 150}}>
                             <h2>Add link to {MenuNames[menuId - 1].name}</h2>
                         </FormControl>
-                        <FormControl sx={{m: 1, minWidth: 100}}>
-                            <TextField
-                                required
-                                name="nameLink"
-                                label="Name Link"
-                                type="text"
-                                fullWidth
-                                defaultValue="Hello World"
-                                value={form.nameLink}
-                                onChange={changeHandler}
-                                error={!!errors.nameLink}
-                                helperText={errors.nameLink}
-                            />
-                        </FormControl>
-                        <FormControl sx={{m: 1, minWidth: 100}}>
-                            <TextField
-                                required
-                                name="urlLink"
-                                label="Url Link"
-                                type="text"
-                                fullWidth
-                                defaultValue="Hello World"
-                                value={form.urlLink}
-                                onChange={changeHandler}
-                                error={!!errors.urlLink}
-                                helperText={errors.urlLink}
-                            />
-                        </FormControl>
+                        <FormGroup>
+                            <FormControl sx={{m: 1, minWidth: 100}}>
+                                <TextField
+                                    required
+                                    name="nameLink"
+                                    label="Name Link"
+                                    type="text"
+                                    fullWidth
+                                    defaultValue="Hello World"
+                                    value={form.nameLink}
+                                    onChange={changeHandler}
+                                    error={!!errors.nameLink}
+                                    helperText={errors.nameLink}
+                                />
+                            </FormControl>
+                            <FormControl sx={{m: 1, minWidth: 100}}>
+                                <TextField
+                                    required
+                                    name="urlLink"
+                                    label="Url Link"
+                                    type="text"
+                                    fullWidth
+                                    defaultValue="Hello World"
+                                    value={form.urlLink}
+                                    onChange={changeHandler}
+                                    error={!!errors.urlLink}
+                                    helperText={errors.urlLink}
+                                />
+                            </FormControl>
+                        </FormGroup>
+                        <FormGroup>
+                            <FormControl sx={{m: 1, minWidth: 100}}>
+                                <InputLabel id="order-link">Parent</InputLabel>
+                                <Select
+                                    required
+                                    name="parentId"
+                                    type="number"
+                                    value={form.parentId}
+                                    label="Parent"
+                                    onChange={changeHandler}
+                                >
+                                    {menuCommon ? menuCommon.map(link => (
+                                        <MenuItem key={link.id} value={link.id}>{link.nameLink}</MenuItem>
+                                        )) : (
+                                        <h4>No elements</h4>
+                                        )
+                                    }
+                                </Select>
+                            </FormControl>
+                        </FormGroup>
                         <FormControl sx={{m: 1, minWidth: 100}}>
                             <InputLabel id="orderLink">Order Link</InputLabel>
                             <Select
@@ -149,25 +184,21 @@ const FormMenuCreate: FC<PropsFormMenuCreate> = (
                                 label="Order Link"
                                 onChange={changeHandler}
                             >
-                                {[...Array(13)].map((item, index) => (
-                                    <MenuItem key={index} value={index + 1}>{index + 1}</MenuItem>
+                                {selectOptionsNumber.map((item, index) => (
+                                    <MenuItem key={index} value={item.value}>{item.value}</MenuItem>
                                 ))}
                             </Select>
                         </FormControl>
                         <FormControl sx={{m: 1, minWidth: 100}}>
-                            <InputLabel id="order-link">Parent</InputLabel>
-                            <Select
-                                required
-                                name="parentId"
-                                type="number"
-                                value={form.parentId}
-                                label="Parent"
-                                onChange={changeHandler}
-                            >
-                                {menuCommon.map(link => (
-                                    <MenuItem key={link.id} value={link.id}>{link.nameLink}</MenuItem>
-                                ))}
-                            </Select>
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        defaultChecked
+                                        name="isVisible"
+                                        checked={form.isVisible}
+                                        onChange={changeHandler}
+                                    />
+                                } label="Visible"/>
                         </FormControl>
                         <div className="flex flex-row-reverse gap-2">
                             <Button onClick={handleAddLink} disabled={formValid}>Add</Button>

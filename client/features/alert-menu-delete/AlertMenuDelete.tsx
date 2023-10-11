@@ -9,12 +9,29 @@ import {PropsAlertMenuDelete} from "./interface";
 
 const AlertMenuDelete: FC<PropsAlertMenuDelete> = (
     {
-        setModalOpen, link, setOpenSnackbar, setSeverity, setAlertMessage
+        setModalOpen, link, setOpenSnackbar, setSeverity, setAlertMessage, menuCommon, setFormLinks
     }) => {
 
     const [clickedButtonDelete, setClickedButtonDelete] = useState(false)
     const {deleteLinkMenuAction, getMenuCommonAction, getMenuTopAction} = useActions();
-    const {isLoadingLinkDelete, errorLinkDelete, successLinkDelete} = useTypedSelector(state => state.linkDeleteReducer);
+    const {
+        isLoadingLinkDelete,
+        errorLinkDelete,
+        successLinkDelete
+    } = useTypedSelector(state => state.linkDeleteReducer);
+
+    useEffect(() => {
+        if (successLinkDelete) {
+            getMenuCommonAction(link.menuId);
+        }
+        if (link.menuId === 1) {
+            getMenuTopAction(link.menuId);
+        }
+    }, [clickedButtonDelete])
+
+    useEffect(() => {
+        setFormLinks(menuCommon)
+    }, [menuCommon])
 
     const handleClose = () => setModalOpen(false);
 
@@ -23,13 +40,13 @@ const AlertMenuDelete: FC<PropsAlertMenuDelete> = (
         deleteLinkMenuAction(link.id)
         setClickedButtonDelete(true)
         setSeverity('success')
-        setAlertMessage('Successfully added!')
+        setAlertMessage('Successfully deleted!')
         setOpenSnackbar(true);
     }
 
     const handlerUpdateError = () => {
         setSeverity('error')
-        setAlertMessage('Error adding link')
+        setAlertMessage('Error delete link')
         setOpenSnackbar(true);
         setTimeout(() => {
             setModalOpen(false)
@@ -40,15 +57,6 @@ const AlertMenuDelete: FC<PropsAlertMenuDelete> = (
     const handlerSetModalOpen = () => {
         setModalOpen(false)
     }
-
-    useEffect(() => {
-        if (successLinkDelete) {
-            getMenuCommonAction(link.menuId);
-        }
-        if (link.menuId === 1) {
-            getMenuTopAction(link.menuId);
-        }
-    }, [clickedButtonDelete])
 
     return (
         <Box

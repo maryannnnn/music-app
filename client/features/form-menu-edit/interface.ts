@@ -1,5 +1,5 @@
 import React from "react";
-import {ILinkEdit, IMenu} from "../../entities/menu/types/menuTypes";
+import {IMenu} from "../../entities/menu/types/menuTypes";
 
 export interface PropsFormMenuEdit {
     setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -8,4 +8,5 @@ export interface PropsFormMenuEdit {
     setSeverity: React.Dispatch<React.SetStateAction<string>>;
     setAlertMessage: React.Dispatch<React.SetStateAction<string>>;
     menuCommon: IMenu[];
+    setFormLinks: React.Dispatch<React.SetStateAction<IMenu[]>>;
 }
