@@ -38,4 +38,11 @@ export class MenuController {
     updateLink(@Body() updateDto: UpdateMenuDto) {
         return this.menuService.updateLinkMenu(updateDto)
     }
+
+    @ApiOperation({summary: 'Update Menu'})
+    @ApiResponse({status: 200, type: [Link]})
+    @Put('/update')
+    updateMenu(@Body() updateMenu: UpdateMenuDto[]) {
+        return this.menuService.updateMenu(updateMenu)
+    }
 }

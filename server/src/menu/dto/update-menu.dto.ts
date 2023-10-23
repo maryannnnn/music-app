@@ -16,6 +16,9 @@ export class UpdateMenuDto {
     @ApiProperty({example: '2', description: 'Parent Id of link'})
     readonly parentId: number;
 
+    @ApiProperty({example: 'true', description: 'Viseable of link'})
+    readonly isVisible: boolean;
+
     @ApiProperty({example: '2', description: 'Menu Id of menu'})
     readonly menuId: number;
 

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="29c95d5b-b1bb-48f3-be0e-1209a2dd618a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/shared/select-options/select-options.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/interfases.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/interfases.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/validation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/validation.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entities/menu/actions/menuActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/entities/menu/actions/menuActions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entities/menu/types/menuTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/entities/menu/types/menuTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/form-menu-create/FormMenuCreate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/form-menu-create/FormMenuCreate.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/form-menu-edit/FormMenuEdit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/form-menu-edit/FormMenuEdit.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/form-menu-edit/interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/form-menu-edit/interface.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/table-amenu-dmin/TableMenuAdmin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shared/table-amenu-dmin/TableMenuAdmin.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/menu/dto/create-menu.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/menu/dto/create-menu.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/menu/dto/update-menu.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/menu/dto/update-menu.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/menu/menu.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/menu/menu.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/menu/menu.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/menu/menu.service.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2VZwlbT6JquJulaafcNfe2eDo7A" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="29c95d5b-b1bb-48f3-be0e-1209a2dd618a" name="Changes" comment="" />
+      <created>1695057062867</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1695057062867</updated>
+      <workItem from="1695057084842" duration="13000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

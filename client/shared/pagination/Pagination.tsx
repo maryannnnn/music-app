@@ -5,7 +5,7 @@ import {IMenu} from "../../entities/menu/types/menuTypes";
 import TablePaginationActions from "./TablePaginationActions";
 
 interface PaginationProps {
-    data: [];
+    data: [{}] ;
     page: number;
     rowsPerPage: number;
     handleChangePage: (

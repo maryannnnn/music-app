@@ -5,7 +5,6 @@ export interface PropsFormMenuCreate {
     menuId: number;
     setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
     menuCommon: IMenu[];
-    setOpenSnackbar: React.Dispatch<React.SetStateAction<boolean>>;
-    setSeverity: React.Dispatch<React.SetStateAction<string>>;
-    setAlertMessage: React.Dispatch<React.SetStateAction<string>>;
+    setSnackbar: React.Dispatch<React.SetStateAction<{}>>;
+    setFormLinks: React.Dispatch<React.SetStateAction<IMenu[]>>;
 }
