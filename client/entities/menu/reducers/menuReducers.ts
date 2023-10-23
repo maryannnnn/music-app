@@ -80,7 +80,7 @@ export const linkDeleteReducer = (state = initialLinkDeleteState, action: LinkDe
     switch (action.type) {
         case LinkDeleteActionEnum.LINK_DELETE_REQUEST:
             return {
-                ...state, isLoadingLinkDelete: true
+                ...state, isLoadingLinkDelete: true, successLinkDelete: false, errorLinkDelete: ''
             }
         case LinkDeleteActionEnum.LINK_DELETE_SUCCESS:
             return {

@@ -10,19 +10,17 @@ import {MenuNames} from "../../entities/menu/types/menuTypes";
 import {useActions} from "../../app/story/hooks/useActions";
 import {validateStringField, validateNumberField} from '../../app/utils/validation'
 import {useTypedSelector} from "../../app/story/hooks/useTypedSelector";
-import {setTimeout} from "timers";
 import {validationSchemaMenu} from "./validation-menu";
 import {PropsFormMenuCreate} from "./interface";
 import {selectOptionsNumber} from '../../shared/select-options/select-options'
 
 const FormMenuCreate: FC<PropsFormMenuCreate> = (
     {
-        menuId, setModalOpen, menuCommon, setOpenSnackbar, setSeverity, setAlertMessage, setFormLinks
+        menuId, setModalOpen, menuCommon, setSnackbar, setFormLinks
     }) => {
 
     const [errors, setErrors] = useState({nameLink: '', urlLink: ''});
     const [formValid, setFormValid] = useState(false)
-    const [clickedButtonAdd, setClickedButtonAdd] = useState(false)
     const {createLinkMenuAction, getMenuCommonAction, getMenuTopAction} = useActions();
     const {isLoadingLinkCreate, errorLinkCreate, successLinkCreate} = useTypedSelector(state => state.linkCreateReducer);
     const [form, setForm] = useState({
@@ -37,15 +35,6 @@ const FormMenuCreate: FC<PropsFormMenuCreate> = (
             setFormValid(false)
         }
     }, [errors.nameLink, errors.urlLink])
-
-    useEffect(() => {
-        if (clickedButtonAdd) {
-            getMenuCommonAction(menuId);
-        }
-        if (menuId === 1) {
-            getMenuTopAction(menuId);
-        }
-    }, [clickedButtonAdd])
 
     useEffect(() => {
         setFormLinks(menuCommon)
@@ -76,27 +65,19 @@ const FormMenuCreate: FC<PropsFormMenuCreate> = (
 
     const handleClose = () => setModalOpen(false);
 
-    const handleAddLink = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const handleAddLink = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
-        setSeverity('success')
-        setAlertMessage('Successfully added!')
-        setOpenSnackbar(true);
-        createLinkMenuAction({...form});
-        setClickedButtonAdd(true)
-    }
-
-    const handlerUpdateError = () => {
-        setSeverity('error')
-        setAlertMessage('Error adding link')
-        setOpenSnackbar(true);
-        setTimeout(() => {
-            setModalOpen(false)
-        }, 3000)
-        return true
-    }
-
-    const handlerSetModalOpen = () => {
+        await createLinkMenuAction({...form});
         setModalOpen(false)
+        if(successLinkCreate) {
+            setSnackbar({openSnackbar: true, severity: 'success', alertMessage: 'Successfully added!'})
+            await getMenuCommonAction(menuId);
+            if (menuId === 1) {
+              await getMenuTopAction(menuId);
+            }
+        } else if(errorLinkCreate !== '') {
+            setSnackbar({openSnackbar: true, severity: 'error', alertMessage: `Error added: ${errorLinkCreate}`})
+        }
     }
 
     return (
@@ -110,16 +91,8 @@ const FormMenuCreate: FC<PropsFormMenuCreate> = (
         >
             {isLoadingLinkCreate ? (
                 <CircularProgress/>
-            ) : errorLinkCreate ? handlerUpdateError() && (
-                <>
-                    <Alert severity="error">{errorLinkCreate}</Alert>
-                    < div className="flex flex-row-reverse gap-2">
-                        < Button onClick={handleClose}>Cancel</Button>
-                    </div>
-                </>
-            ) : clickedButtonAdd ? handlerSetModalOpen()
-                : (
-                    <div>
+            ) : (
+                    <>
                         <FormControl sx={{m: 1, minWidth: 150}}>
                             <h2>Add link to {MenuNames[menuId - 1].name}</h2>
                         </FormControl>
@@ -204,7 +177,7 @@ const FormMenuCreate: FC<PropsFormMenuCreate> = (
                             <Button onClick={handleAddLink} disabled={formValid}>Add</Button>
                             <Button onClick={handleClose}>Cancel</Button>
                         </div>
-                    </div>
+                    </>
                 )}
         </Box>
     );

@@ -194,7 +194,7 @@ export interface linkDeleteFailAction {
 export type LinkDeleteAction =
     linkDeleteRequestAction |
     linkDeleteSuccessAction |
-    linkDeleteFailAction
+    linkDeleteFailAction 
 
 //////////////////////////////////////////////////////
 /////// Menu Edit

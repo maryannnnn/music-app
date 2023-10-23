@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5dd6a474-6225-4acd-9ade-c5a8d9341043" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/shared/select-options/select-options.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/Dockerfile" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/auth/auth.module.ts" afterDir="false" />
@@ -22,20 +21,6 @@
       <change afterPath="$PROJECT_DIR$/server/src/users/dto/create-user.dto.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/users/users.entity.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/app/story/reducers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/story/reducers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/app/utils/interfases.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/utils/interfases.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/app/utils/validation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/utils/validation.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/entities/menu/actions/menuActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/entities/menu/actions/menuActions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/entities/menu/reducers/menuReducers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/entities/menu/reducers/menuReducers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/entities/menu/types/menuTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/entities/menu/types/menuTypes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/alert-menu-delete/AlertMenuDelete.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/alert-menu-delete/AlertMenuDelete.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/alert-menu-delete/interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/alert-menu-delete/interface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/form-menu-create/FormMenuCreate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/form-menu-create/FormMenuCreate.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/form-menu-create/interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/form-menu-create/interface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/form-menu-edit/FormMenuEdit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/form-menu-edit/FormMenuEdit.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/form-menu-edit/interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/form-menu-edit/interface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/admin/menu/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/admin/menu/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/shared/pagination/Pagination.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/pagination/Pagination.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/shared/table-amenu-dmin/TableMenuAdmin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/table-amenu-dmin/TableMenuAdmin.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/.development.env" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/.production.env" beforeDir="false" />
@@ -148,7 +133,12 @@
       <workItem from="1696858408174" duration="585000" />
       <workItem from="1696941447400" duration="12544000" />
       <workItem from="1697016494729" duration="5920000" />
-      <workItem from="1697039438490" duration="3256000" />
+      <workItem from="1697039438490" duration="3917000" />
+      <workItem from="1697105412265" duration="1241000" />
+      <workItem from="1697124377928" duration="1184000" />
+      <workItem from="1697136467061" duration="567000" />
+      <workItem from="1697386174013" duration="4231000" />
+      <workItem from="1697561343432" duration="19000" />
     </task>
     <servers />
   </component>

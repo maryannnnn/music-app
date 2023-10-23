@@ -35,9 +35,7 @@ interface PropsMenuTable {
 const TableMenuAdmin: FC<PropsMenuTable> = ({menuId}) => {
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
-    const [openSnackbar, setOpenSnackbar] = useState(false);
-    const [severity, setSeverity] = useState('');
-    const [alertMessage, setAlertMessage] = useState('')
+    const [snackbar, setSnackbar] = useState({openSnackbar: false, severity: '', alertMessage: ''}) 
     const [modalOpenCreate, setModalOpenCreate] = useState(false);
     const [modalOpenEdit, setModalOpenEdit] = useState(false);
     const [modalOpenDelete, setModalOpenDelete] = useState(false);
@@ -46,6 +44,7 @@ const TableMenuAdmin: FC<PropsMenuTable> = ({menuId}) => {
     const [isDisableAdd, setIsDisableAdd] = useState(true)
     const [isDisableSave, setIsDisableSave] = useState(true)
     const [errors, setErrors] = useState({nameLink: '', urlLink: ''});
+
     const {editMenuAction, getMenuCommonAction, getMenuTopAction} = useActions();
     const {errorMenuEdit, successMenuEdit} = useTypedSelector(state => state.menuEditReducer);
     const {isLoadingCommonMenu, errorCommonMenu, menuCommon} = useTypedSelector(state => state.menuCommonReducer);
@@ -59,7 +58,10 @@ const TableMenuAdmin: FC<PropsMenuTable> = ({menuId}) => {
         if (menuId > 0) {
             setIsDisableAdd(false)
             getMenuCommonAction(menuId);
-        } else setIsDisableAdd(true)
+        } else {
+          setIsDisableAdd(true)
+          getMenuCommonAction(menuId);
+        }
     }, [menuId])
 
     useEffect(() => {
@@ -129,66 +131,22 @@ const TableMenuAdmin: FC<PropsMenuTable> = ({menuId}) => {
             }
             return updatedFormLinks;
         });
-
         setIsDisableSave(false);
     };
 
-    // const changeHandlerLinks = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
-    //     const {name, value, checked, type} = e.target;
-    //
-    //     if (type === 'text') {
-    //         validateStringField({
-    //             fieldName: name,
-    //             value: value,
-    //             validationSchema: validationSchemaMenu,
-    //             setErrors: setErrors,
-    //             form: formLinks[index]
-    //         });
-    //     } else if (type === 'number') {
-    //         validateNumberField({
-    //             fieldName: name,
-    //             value: Number(value),
-    //             validationSchema: validationSchemaMenu,
-    //             setErrors: setErrors,
-    //             form: formLinks[index]
-    //         });
-    //     }
-    //
-    //     setErrors({...errors, [name]: ''});
-    //
-    //     if (type === 'checkbox') {
-    //         setFormLinks((prevFormLinks) => {
-    //             const updatedFormLinks = [...prevFormLinks];
-    //             updatedFormLinks[index][name] = checked;
-    //             console.log("updatedFormLinks", updatedFormLinks)
-    //             return updatedFormLinks;
-    //         });
-    //     } else {
-    //         setFormLinks((prevFormLinks) => {
-    //             const updatedFormLinks = [...prevFormLinks];
-    //             updatedFormLinks[index][name] = value;
-    //             return updatedFormLinks;
-    //         });
-    //     }
-    //     setIsDisableSave(false)
-    // };
-
-    const handleSaveTable = () => {
-        editMenuAction(formLinks)
+    const handleSaveTable = async () => {
+        await editMenuAction(formLinks)
+        if(successMenuEdit) {
+            setSnackbar({openSnackbar: true, severity: 'success', alertMessage: 'Successfully edited!'})
+            await getMenuCommonAction(menuId);
+            if (menuId === 1) {
+              await getMenuTopAction(menuId);
+            }
+        } else if(errorMenuEdit !== '') {
+            setSnackbar({openSnackbar: true, severity: 'error', alertMessage: `Error: ${errorMenuEdit}`})
+        }
         setIsDisableSave(true)
     }
-
-    useEffect(() => {
-        if(successMenuEdit) {
-            setSeverity('success')
-            setAlertMessage('Successfully edited!')
-            setOpenSnackbar(true);
-        } else if(errorMenuEdit !== '') {
-            setSeverity('error')
-            setAlertMessage(`Error: ${errorMenuEdit}`)
-            setOpenSnackbar(true);
-        }
-    }, [successMenuEdit])
 
     return (
         <>
@@ -230,7 +188,6 @@ const TableMenuAdmin: FC<PropsMenuTable> = ({menuId}) => {
                                     </StyledTableCell>
                                     <StyledTableCell align="left">{link.nameLink}</StyledTableCell>
                                     <StyledTableCell align="left">{link.urlLink}</StyledTableCell>
-                                    {/*<StyledTableCell align="left">{link.orderLink}</StyledTableCell>*/}
                                     <FormControl sx={{m: 1, minWidth: 100}}>
                                         <InputLabel id="orderLink">Order Link</InputLabel>
                                         <Select
@@ -286,9 +243,7 @@ const TableMenuAdmin: FC<PropsMenuTable> = ({menuId}) => {
                     menuId={menuId}
                     setModalOpen={setModalOpenCreate}
                     menuCommon={menuCommon}
-                    setOpenSnackbar={setOpenSnackbar}
-                    setSeverity={setSeverity}
-                    setAlertMessage={setAlertMessage}
+                    setSnackbar={setSnackbar}
                     setFormLinks={setFormLinks}
                 />
             </ModalForm>
@@ -296,9 +251,7 @@ const TableMenuAdmin: FC<PropsMenuTable> = ({menuId}) => {
                 <FormMenuEdit
                     setModalOpen={setModalOpenEdit}
                     link={linkEdit}
-                    setOpenSnackbar={setOpenSnackbar}
-                    setSeverity={setSeverity}
-                    setAlertMessage={setAlertMessage}
+                    setSnackbar={setSnackbar}
                     menuCommon={menuCommon}
                     setFormLinks={setFormLinks}
                 />
@@ -307,15 +260,12 @@ const TableMenuAdmin: FC<PropsMenuTable> = ({menuId}) => {
                 <AlertMenuDelete
                     setModalOpen={setModalOpenDelete}
                     link={linkDelete}
-                    setOpenSnackbar={setOpenSnackbar}
-                    setSeverity={setSeverity}
-                    setAlertMessage={setAlertMessage}
+                    setSnackbar={setSnackbar}
                     menuCommon={menuCommon}
                     setFormLinks={setFormLinks}
                 />
             </ModalForm>
-            <SnackBar openSnackbar={openSnackbar} setOpenSnackbar={setOpenSnackbar}
-                      severity={severity} alertMessage={alertMessage}/>
+            <SnackBar snackbar={snackbar} setSnackbar={setSnackbar}/>
         </>
     );
 }

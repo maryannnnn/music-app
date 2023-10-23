@@ -8,21 +8,19 @@ import InputLabel from '@mui/material/InputLabel';
 import Button from '@mui/material/Button';
 import {MenuNames} from "../../entities/menu/types/menuTypes";
 import {useActions} from "../../app/story/hooks/useActions";
-import {validateStringField, validateNumberField, validateBooleanField} from '../../app/utils/validation'
+import {validateStringField, validateNumberField} from '../../app/utils/validation'
 import {useTypedSelector} from "../../app/story/hooks/useTypedSelector";
-import {setTimeout} from "timers";
 import {validationSchemaMenu} from "./validation-menu";
 import {PropsFormMenuEdit} from "./interface";
 import {selectOptionsNumber} from "../../shared/select-options/select-options";
 
 const FormMenuEdit: FC<PropsFormMenuEdit> = (
     {
-        setModalOpen, link, setOpenSnackbar, setSeverity, setAlertMessage, menuCommon, setFormLinks
+        setModalOpen, link, setSnackbar, menuCommon, setFormLinks
     }) => {
 
     const [errors, setErrors] = useState({nameLink: '', urlLink: ''});
     const [formValid, setFormValid] = useState(false)
-    const [clickedButtonEdit, setClickedButtonEdit] = useState(false)
     const {editLinkMenuAction, getMenuCommonAction, getMenuTopAction} = useActions();
     const {isLoadingLinkEdit, errorLinkEdit, successLinkEdit} = useTypedSelector(state => state.linkEditReducer);
     const [form, setForm] = useState({
@@ -44,15 +42,6 @@ const FormMenuEdit: FC<PropsFormMenuEdit> = (
             setFormValid(false)
         }
     }, [errors.nameLink, errors.urlLink])
-
-    useEffect(() => {
-        if (clickedButtonEdit) {
-            getMenuCommonAction(link.menuId);
-        }
-        if (link.menuId === 1) {
-            getMenuTopAction(link.menuId);
-        }
-    }, [clickedButtonEdit])
 
     useEffect(() => {
         setFormLinks(menuCommon)
@@ -83,27 +72,19 @@ const FormMenuEdit: FC<PropsFormMenuEdit> = (
 
     const handleClose = () => setModalOpen(false);
 
-    const handleAddLink = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const handleAddLink = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
-        setSeverity('success')
-        setAlertMessage('Successfully edited!')
-        setOpenSnackbar(true);
-        editLinkMenuAction({...form});
-        setClickedButtonEdit(true)
-    }
-
-    const handlerUpdateError = () => {
-        setSeverity('error')
-        setAlertMessage('Error edit link')
-        setOpenSnackbar(true);
-        setTimeout(() => {
-            setModalOpen(false)
-        }, 3000)
-        return true
-    }
-
-    const handlerSetModalOpen = () => {
+        await editLinkMenuAction({...form});
         setModalOpen(false)
+        if(successLinkEdit) {
+            setSnackbar({openSnackbar: true, severity: 'success', alertMessage: 'Successfully edited!'})
+            await getMenuCommonAction(link.menuId);
+            if (link.menuId === 1) {
+              await getMenuTopAction(link.menuId);
+            }
+        } else if(errorLinkEdit !== '') {
+            setSnackbar({openSnackbar: true, severity: 'error', alertMessage: `Error added: ${errorLinkEdit}`})
+        }
     }
 
     return (
@@ -117,16 +98,8 @@ const FormMenuEdit: FC<PropsFormMenuEdit> = (
         >
             {isLoadingLinkEdit ? (
                 <CircularProgress/>
-            ) : errorLinkEdit ? handlerUpdateError() && (
-                <>
-                    <Alert severity="error">{errorLinkEdit}</Alert>
-                    <div className="flex flex-row-reverse gap-2">
-                        < Button onClick={handleClose}>Cancel</Button>
-                    </div>
-                </>
-            ) : clickedButtonEdit ? handlerSetModalOpen()
-                : (
-                    <div>
+            ) : (
+                    <>
                         <FormControl sx={{m: 1, minWidth: 150}}>
                             <h2>Edit link in {MenuNames[link.menuId - 1].name}</h2>
                         </FormControl>
@@ -208,7 +181,7 @@ const FormMenuEdit: FC<PropsFormMenuEdit> = (
                             <Button onClick={handleAddLink} disabled={formValid}>Update</Button>
                             <Button onClick={handleClose}>Cancel</Button>
                         </div>
-                    </div>
+                    </>
                 )}
         </Box>
     );
