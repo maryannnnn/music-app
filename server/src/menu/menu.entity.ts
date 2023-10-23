@@ -29,6 +29,10 @@ export class Link {
     @Column({nullable: true})
     parentId: number;
 
+    @ApiProperty({example: 'true', description: 'Viseable of link'})
+    @Column({nullable: true})
+    isVisible: boolean;
+
     @ApiProperty({example: '1', description: 'Menu Id'})
     @Column({nullable: false})
     menuId: number;

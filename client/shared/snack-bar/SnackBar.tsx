@@ -3,26 +3,28 @@ import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 
 interface SnackBarProps {
-    openSnackbar: boolean;
-    setOpenSnackbar: React.Dispatch<React.SetStateAction<boolean>>;
-    severity: string;
-    alertMessage: string;
+    snackbar: {
+      openSnackbar: boolean;
+      severity: string;
+      alertMessage: string;
+    }
+    setSnackbar: React.Dispatch<React.SetStateAction<{}>>;
 }
 
-const SnackBar: FC<SnackBarProps> = ({openSnackbar, setOpenSnackbar, severity, alertMessage}) => {
+const SnackBar: FC<SnackBarProps> = ({snackbar, setSnackbar}) => {
 
     return (
         <Snackbar
-            open={openSnackbar}
+            open={snackbar.openSnackbar}
             autoHideDuration={4000} // Time open window
-            onClose={() => setOpenSnackbar(false)}
+            onClose={() => setSnackbar({openSnackbar: false})}
         >
             <Alert
-                onClose={() => setOpenSnackbar(false)}
-                severity={severity}
+                onClose={() => setSnackbar({openSnackbar: false})}
+                severity={snackbar.severity}
                 sx={{width: '100%'}}
             >
-                {alertMessage}
+                {snackbar.alertMessage}
             </Alert>
         </Snackbar>
     );
