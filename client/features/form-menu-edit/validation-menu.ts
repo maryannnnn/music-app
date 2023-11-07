@@ -2,7 +2,7 @@ import * as Yup from "yup";
 
 export const validationSchemaMenu = Yup.object({
     nameLink: Yup.string().required('Required').min(4, 'must be at least 4 characters long')
-        .max(16, 'must be less than 16 characters'),
+        .max(20, 'must be less than 20 characters'),
     urlLink: Yup.string().required('Required').min(4, 'must be at least 4 characters long')
-        .max(16, 'must be less than 16 characters'),
+        .max(100, 'must be less than 100 characters'),
 });
