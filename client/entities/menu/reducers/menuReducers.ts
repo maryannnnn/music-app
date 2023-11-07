@@ -14,7 +14,7 @@ import {
     menuCommonState,
     menuEditAction,
     menuEditActionEnum,
-    menuEditState,
+    menuEditState, MenuSocAction, MenuSocActionEnum, menuSocState,
     MenuTopAction,
     MenuTopActionEnum,
     menuTopState
@@ -22,7 +22,7 @@ import {
 
 const initialLinkCreateState: linkCreateState = {
     isLoadingLinkCreate: false,
-    successLinkCreate: false,
+    successLinkCreate: true,
     errorLinkCreate: ''
 }
 
@@ -47,7 +47,7 @@ export const linkCreateReducer = (state = initialLinkCreateState, action: LinkCr
 
 const initialLinkEditState: linkEditState = {
     isLoadingLinkEdit: false,
-    successLinkEdit: false,
+    successLinkEdit: true,
     errorLinkEdit: ''
 }
 
@@ -70,9 +70,34 @@ export const linkEditReducer = (state = initialLinkEditState, action: LinkEditAc
     }
 }
 
+const initialMenuEditState: menuEditState = {
+    isLoadingMenuEdit: false,
+    successMenuEdit: true,
+    errorMenuEdit: ''
+}
+
+export const menuEditReducer = (state = initialMenuEditState, action: menuEditAction): menuEditState => {
+    switch (action.type) {
+        case menuEditActionEnum.MENU_EDIT_REQUEST:
+            return {
+                ...state, isLoadingMenuEdit: true
+            }
+        case menuEditActionEnum.MENU_EDIT_SUCCESS:
+            return {
+                ...state, isLoadingMenuEdit: false, successMenuEdit: true
+            }
+        case menuEditActionEnum.MENU_EDIT_FAIL:
+            return {
+                ...state, errorMenuEdit: action.payload, isLoadingMenuEdit: false
+            }
+        default:
+            return state
+    }
+}
+
 const initialLinkDeleteState: linkDeleteState = {
     isLoadingLinkDelete: false,
-    successLinkDelete: false,
+    successLinkDelete: true,
     errorLinkDelete: ''
 }
 
@@ -145,28 +170,27 @@ export const menuCommonReducer = (state = initialMenuCommonState, action: MenuCo
     }
 }
 
-const initialMenuEditState: menuEditState = {
-    isLoadingMenuEdit: false,
-    successMenuEdit: false,
-    errorMenuEdit: ''
+const initialMenuSocState: menuSocState = {
+    menuSoc: [] as IMenu[],
+    isLoadingSocMenu: false,
+    errorSocMenu: ''
 }
 
-export const menuEditReducer = (state = initialMenuEditState, action: menuEditAction): menuEditState => {
+export const menuSocReducer = (state = initialMenuSocState, action: MenuSocAction): menuSocState => {
     switch (action.type) {
-        case menuEditActionEnum.MENU_EDIT_REQUEST:
+        case MenuSocActionEnum.MENU_SOC_REQUEST:
             return {
-                ...state, isLoadingMenuEdit: true
+                ...state, isLoadingSocMenu: true
             }
-        case menuEditActionEnum.MENU_EDIT_SUCCESS:
+        case MenuSocActionEnum.MENU_SOC_SUCCESS:
             return {
-                ...state, isLoadingMenuEdit: false, successMenuEdit: true
+                ...state, menuSoc: action.payload, isLoadingSocMenu: false
             }
-        case menuEditActionEnum.MENU_EDIT_FAIL:
+        case MenuSocActionEnum.MENU_SOC_FAIL:
             return {
-                ...state, errorMenuEdit: action.payload, isLoadingMenuEdit: false
+                ...state, errorSocMenu: action.payload, isLoadingSocMenu: false
             }
         default:
             return state
     }
 }
-

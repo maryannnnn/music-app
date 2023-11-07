@@ -4,6 +4,7 @@ export interface IMenu {
     nameLink: string;
     urlLink: string;
     orderLink: number;
+    iconLink: string;
     parentId: number;
     isVisible: boolean;
     menuId: number;
@@ -15,6 +16,7 @@ export interface ILinkNew {
     nameLink: string;
     urlLink: string;
     orderLink: number;
+    iconLink: string;
     parentId: number;
     isVisible: boolean;
     menuId: number;
@@ -23,7 +25,11 @@ export interface ILinkNew {
 export const MenuNames = [
     {id: 1, name: "Menu Top"},
     {id: 2, name: "Menu Main"},
-    {id: 3, name:"Menu Social"}
+    {id: 3, name: "Menu Soc"},
+    {id: 4, name:"Menu Admin Top"},
+    {id: 5, name:"Menu Admin left"},
+    {id: 6, name:"Menu Account"},
+
 ]
 
 ///////////////////////////////////////////////
@@ -229,3 +235,37 @@ export type menuEditAction =
     menuEditRequestAction |
     menuEditSuccessAction |
     menuEditFailAction
+
+///////////////////////////////////////////////
+////Menu Top
+
+export interface menuSocState {
+    menuSoc: IMenu[];
+    isLoadingSocMenu: boolean;
+    errorSocMenu: string;
+}
+
+export enum MenuSocActionEnum {
+    MENU_SOC_REQUEST = "MENU_SOC_REQUEST",
+    MENU_SOC_SUCCESS = "MENU_SOC_SUCCESS",
+    MENU_SOC_FAIL = "MENU_SOC_FAIL",
+}
+
+export interface menuSocRequestAction {
+    type: MenuSocActionEnum.MENU_SOC_REQUEST;
+}
+
+export interface menuSocSuccessAction {
+    type: MenuSocActionEnum.MENU_SOC_SUCCESS;
+    payload: IMenu[];
+}
+
+export interface menuSocFailAction {
+    type: MenuSocActionEnum.MENU_SOC_FAIL;
+    payload: string;
+}
+
+export type MenuSocAction =
+    menuSocRequestAction |
+    menuSocSuccessAction |
+    menuSocFailAction

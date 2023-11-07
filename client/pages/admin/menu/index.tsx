@@ -1,5 +1,5 @@
 import '../../../app/globals.css'
-import MainLayout from "../../../app/layouts/layout";
+import AdminLayout from "../../../app/layouts/layout-admin";
 import SelectMenuAdmin from '../../../shared/select-menu-admin/SelectMenuAdmin'
 import React, {FC, useState} from "react";
 import TableMenuAdmin from "../../../shared/table-amenu-dmin/TableMenuAdmin";
@@ -9,7 +9,7 @@ const Index: FC = () => {
     const [menuId, setMenuId] = useState(0);
 
     return (
-        <MainLayout>
+        <AdminLayout>
             <div className="main">
                 <div className="container">
                     <h1 className="t-30b text-gray-100">Page edit Menu</h1>
@@ -19,7 +19,7 @@ const Index: FC = () => {
                     <TableMenuAdmin menuId={menuId}/>
                 </div>
             </div>
-        </MainLayout>
+        </AdminLayout>
     )
 }
 

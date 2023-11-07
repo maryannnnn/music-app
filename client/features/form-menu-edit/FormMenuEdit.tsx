@@ -12,7 +12,7 @@ import {validateStringField, validateNumberField} from '../../app/utils/validati
 import {useTypedSelector} from "../../app/story/hooks/useTypedSelector";
 import {validationSchemaMenu} from "./validation-menu";
 import {PropsFormMenuEdit} from "./interface";
-import {selectOptionsNumber} from "../../shared/select-options/select-options";
+import {selectIcons, selectNumber} from "../../shared/select-options/select-options";
 
 const FormMenuEdit: FC<PropsFormMenuEdit> = (
     {
@@ -21,13 +21,14 @@ const FormMenuEdit: FC<PropsFormMenuEdit> = (
 
     const [errors, setErrors] = useState({nameLink: '', urlLink: ''});
     const [formValid, setFormValid] = useState(false)
-    const {editLinkMenuAction, getMenuCommonAction, getMenuTopAction} = useActions();
+    const {editLinkMenuAction, getMenuCommonAction, getMenuTopAction, getMenuSocAction} = useActions();
     const {isLoadingLinkEdit, errorLinkEdit, successLinkEdit} = useTypedSelector(state => state.linkEditReducer);
     const [form, setForm] = useState({
         id: link.id,
         nameLink: link.nameLink,
         urlLink: link.urlLink,
         orderLink: link.orderLink,
+        iconLink: link.iconLink,
         parentId: link.parentId,
         isVisible: link.isVisible,
         menuId: link.menuId,
@@ -81,6 +82,9 @@ const FormMenuEdit: FC<PropsFormMenuEdit> = (
             await getMenuCommonAction(link.menuId);
             if (link.menuId === 1) {
               await getMenuTopAction(link.menuId);
+            }
+            if (link.menuId === 3) {
+                await getMenuSocAction(link.menuId);
             }
         } else if(errorLinkEdit !== '') {
             setSnackbar({openSnackbar: true, severity: 'error', alertMessage: `Error added: ${errorLinkEdit}`})
@@ -145,7 +149,7 @@ const FormMenuEdit: FC<PropsFormMenuEdit> = (
                                     onChange={changeHandler}
                                 >
                                     {menuCommon.map(link => (
-                                        <MenuItem key={link.id} value={link.id}>{link.nameLink}</MenuItem>
+                                        <MenuItem key={link.id} value={link.value}>{link.nameLink}</MenuItem>
                                     ))}
                                 </Select>
                             </FormControl>
@@ -161,7 +165,23 @@ const FormMenuEdit: FC<PropsFormMenuEdit> = (
                                 label="Order Link"
                                 onChange={changeHandler}
                             >
-                                {selectOptionsNumber.map((item, index) => (
+                                {selectNumber.map((item, index) => (
+                                    <MenuItem key={index} value={item.value}>{item.value}</MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
+                        <FormControl sx={{m: 1, minWidth: 100}}>
+                            <InputLabel id="iconLink">Icon Link</InputLabel>
+                            <Select
+                                required
+                                name="iconLink"
+                                type="string"
+                                fullWidth
+                                value={form.iconLink}
+                                label="Icon Link"
+                                onChange={changeHandler}
+                            >
+                                {selectIcons.map((item, index) => (
                                     <MenuItem key={index} value={item.value}>{item.value}</MenuItem>
                                 ))}
                             </Select>
@@ -175,7 +195,6 @@ const FormMenuEdit: FC<PropsFormMenuEdit> = (
                                         onChange={changeHandler}
                                     />
                                 } label="Visible"/>
-                                {console.log("form.isVisible", form.isVisible)}
                         </FormControl>
                         <div className="flex flex-row-reverse gap-2">
                             <Button onClick={handleAddLink} disabled={formValid}>Update</Button>
