@@ -4,7 +4,8 @@ import {
     linkDeleteReducer,
     menuCommonReducer,
     menuTopReducer,
-    menuEditReducer
+    menuEditReducer,
+    menuSocReducer
 } from "../../entities/menu/reducers/menuReducers";
 
 export const Reducers = {
@@ -13,6 +14,7 @@ export const Reducers = {
     linkCreateReducer,
     linkEditReducer,
     linkDeleteReducer,
-    menuEditReducer
+    menuEditReducer,
+    menuSocReducer
 }
 

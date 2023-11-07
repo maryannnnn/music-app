@@ -25,8 +25,9 @@ import {validateNumberField, validateStringField} from "@/app/utils/validation";
 import {validationSchemaMenu} from "@/features/form-menu-edit/validation-menu";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
-import {selectOptionsNumber} from "@/shared/select-options/select-options";
+import {selectNumber, selectIcon} from "@/shared/select-options/select-options";
 import MenuItem from "@mui/material/MenuItem";
+import {selectIcons} from "../select-options/select-options";
 
 interface PropsMenuTable {
     menuId: number;
@@ -35,7 +36,7 @@ interface PropsMenuTable {
 const TableMenuAdmin: FC<PropsMenuTable> = ({menuId}) => {
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
-    const [snackbar, setSnackbar] = useState({openSnackbar: false, severity: '', alertMessage: ''}) 
+    const [snackbar, setSnackbar] = useState({openSnackbar: false, severity: '', alertMessage: ''})
     const [modalOpenCreate, setModalOpenCreate] = useState(false);
     const [modalOpenEdit, setModalOpenEdit] = useState(false);
     const [modalOpenDelete, setModalOpenDelete] = useState(false);
@@ -45,7 +46,7 @@ const TableMenuAdmin: FC<PropsMenuTable> = ({menuId}) => {
     const [isDisableSave, setIsDisableSave] = useState(true)
     const [errors, setErrors] = useState({nameLink: '', urlLink: ''});
 
-    const {editMenuAction, getMenuCommonAction, getMenuTopAction} = useActions();
+    const {editMenuAction, getMenuCommonAction, getMenuTopAction, getMenuSocAction} = useActions();
     const {errorMenuEdit, successMenuEdit} = useTypedSelector(state => state.menuEditReducer);
     const {isLoadingCommonMenu, errorCommonMenu, menuCommon} = useTypedSelector(state => state.menuCommonReducer);
     const [formLinks, setFormLinks] = useState(menuCommon);
@@ -59,8 +60,8 @@ const TableMenuAdmin: FC<PropsMenuTable> = ({menuId}) => {
             setIsDisableAdd(false)
             getMenuCommonAction(menuId);
         } else {
-          setIsDisableAdd(true)
-          getMenuCommonAction(menuId);
+            setIsDisableAdd(true)
+            getMenuCommonAction(menuId);
         }
     }, [menuId])
 
@@ -97,7 +98,7 @@ const TableMenuAdmin: FC<PropsMenuTable> = ({menuId}) => {
     }
 
     const changeHandlerLinks = (e: React.ChangeEvent<HTMLInputElement>, id: number) => {
-        const { name, value, checked, type } = e.target;
+        const {name, value, checked, type} = e.target;
 
         if (type === 'text') {
             validateStringField({
@@ -117,7 +118,7 @@ const TableMenuAdmin: FC<PropsMenuTable> = ({menuId}) => {
             });
         }
 
-        setErrors({ ...errors, [name]: '' });
+        setErrors({...errors, [name]: ''});
 
         setFormLinks((prevFormLinks) => {
             const updatedFormLinks = [...prevFormLinks];
@@ -136,13 +137,16 @@ const TableMenuAdmin: FC<PropsMenuTable> = ({menuId}) => {
 
     const handleSaveTable = async () => {
         await editMenuAction(formLinks)
-        if(successMenuEdit) {
+        if (successMenuEdit) {
             setSnackbar({openSnackbar: true, severity: 'success', alertMessage: 'Successfully edited!'})
             await getMenuCommonAction(menuId);
             if (menuId === 1) {
-              await getMenuTopAction(menuId);
+                await getMenuTopAction(menuId);
             }
-        } else if(errorMenuEdit !== '') {
+            if (menuId === 3) {
+                await getMenuSocAction(menuId);
+            }
+        } else if (errorMenuEdit !== '') {
             setSnackbar({openSnackbar: true, severity: 'error', alertMessage: `Error: ${errorMenuEdit}`})
         }
         setIsDisableSave(true)
@@ -158,7 +162,7 @@ const TableMenuAdmin: FC<PropsMenuTable> = ({menuId}) => {
             </div>
             {isLoadingCommonMenu ? (
                 <CircularProgress/>
-            ) : errorCommonMenu !=='' ? (
+            ) : errorCommonMenu !== '' ? (
                 <h3 className="p-4 bg-red-200">{errorCommonMenu}</h3>
             ) : menuCommon.length > 0 ? (
                 <TableContainer component={Paper}>
@@ -169,6 +173,7 @@ const TableMenuAdmin: FC<PropsMenuTable> = ({menuId}) => {
                                 <StyledTableCell align="left">Name</StyledTableCell>
                                 <StyledTableCell align="left">Url</StyledTableCell>
                                 <StyledTableCell align="left">Order</StyledTableCell>
+                                <StyledTableCell align="left">Icon</StyledTableCell>
                                 <StyledTableCell align="left">Parent</StyledTableCell>
                                 <StyledTableCell align="left">Visible</StyledTableCell>
                                 <StyledTableCell align="left">Menu</StyledTableCell>
@@ -188,23 +193,59 @@ const TableMenuAdmin: FC<PropsMenuTable> = ({menuId}) => {
                                     </StyledTableCell>
                                     <StyledTableCell align="left">{link.nameLink}</StyledTableCell>
                                     <StyledTableCell align="left">{link.urlLink}</StyledTableCell>
-                                    <FormControl sx={{m: 1, minWidth: 100}}>
-                                        <InputLabel id="orderLink">Order Link</InputLabel>
-                                        <Select
-                                            required
-                                            name="orderLink"
-                                            type="number"
-                                            fullWidth
-                                            value={link.orderLink}
-                                            label="Order Link"
-                                            onChange={(e) => changeHandlerLinks(e, link.id)}
-                                        >
-                                            {selectOptionsNumber.map((item, index) => (
-                                                <MenuItem key={index} value={item.value}>{item.value}</MenuItem>
-                                            ))}
-                                        </Select>
-                                    </FormControl>
-                                    <StyledTableCell align="left">{link.parentId}</StyledTableCell>
+                                    <StyledTableCell align="left">
+                                        <FormControl sx={{m: 1, minWidth: 100}}>
+                                            <InputLabel id="orderLink">Order Link</InputLabel>
+                                            <Select
+                                                required
+                                                name="orderLink"
+                                                type="number"
+                                                fullWidth
+                                                value={link.orderLink}
+                                                label="Order Link"
+                                                onChange={(e) => changeHandlerLinks(e, link.id)}
+                                            >
+                                                {selectNumber.map((item, index) => (
+                                                    <MenuItem key={index} value={item.value}>{item.value}</MenuItem>
+                                                ))}
+                                            </Select>
+                                        </FormControl>
+                                    </StyledTableCell>
+                                    <StyledTableCell align="left">
+                                        <FormControl sx={{m: 1, minWidth: 100}}>
+                                            <InputLabel id="iconLink">Icon Link</InputLabel>
+                                            <Select
+                                                required
+                                                name="iconLink"
+                                                type="string"
+                                                fullWidth
+                                                value={link.iconLink}
+                                                label="Icon Link"
+                                                onChange={(e) => changeHandlerLinks(e, link.id)}
+                                            >
+                                                {selectIcons.map((item, index) => (
+                                                    <MenuItem key={index} value={item.value}>{item.value}</MenuItem>
+                                                ))}
+                                            </Select>
+                                        </FormControl>
+                                    </StyledTableCell>
+                                    <StyledTableCell align="left">
+                                        <FormControl sx={{m: 1, minWidth: 100}}>
+                                            <InputLabel id="order-link">Parent</InputLabel>
+                                            <Select
+                                                required
+                                                name="parentId"
+                                                type="number"
+                                                value={link.parentId}
+                                                label="Parent"
+                                                onChange={(e) => changeHandlerLinks(e, link.id)}
+                                            >
+                                                {menuCommon.map(link => (
+                                                    <MenuItem key={link.id} value={link.id}>{link.nameLink}</MenuItem>
+                                                ))}
+                                            </Select>
+                                        </FormControl>
+                                    </StyledTableCell>
                                     <StyledTableCell align="left">
                                         <div>{link.isVisible}</div>
                                         <Checkbox

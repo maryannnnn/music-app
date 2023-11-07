@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 
-const MenuTop: FC = () => {
+const MenuAdminTop: FC = () => {
     const {getMenuTopAction} = useActions();
     const menuId = 1;
     const {isLoadingTopMenu, errorTopMenu, menuTop} = useTypedSelector(state => state.menuTopReducer);
@@ -45,4 +45,4 @@ const MenuTop: FC = () => {
     );
 };
 
-export default MenuTop;
+export default MenuAdminTop;

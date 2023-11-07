@@ -30,18 +30,3 @@ export interface ValidateNumberFieldParams {
     };
 }
 
-
-export interface ValidateBooleanFieldParams {
-    fieldName: string;
-    value: boolean;
-    validationSchema: Yup.ObjectSchema<any>;
-    setErrors: React.Dispatch<React.SetStateAction<{ [key: string]: string }>>;
-    form: {
-        nameLink: string;
-        urlLink: string;
-        orderLink: number;
-        parentId: number;
-        isVisible: boolean;
-        menuId: number;
-    };
-}
