@@ -8,7 +8,7 @@ import {
     linkDeleteState,
     LinkEditAction,
     LinkEditActionEnum,
-    linkEditState,
+    linkEditState, MenuAdminLeftAction, MenuAdminLeftActionEnum, menuAdminLeftState,
     MenuCommonAction,
     MenuCommonActionEnum,
     menuCommonState,
@@ -189,6 +189,31 @@ export const menuSocReducer = (state = initialMenuSocState, action: MenuSocActio
         case MenuSocActionEnum.MENU_SOC_FAIL:
             return {
                 ...state, errorSocMenu: action.payload, isLoadingSocMenu: false
+            }
+        default:
+            return state
+    }
+}
+
+const initialMenuAdminLeftState: menuAdminLeftState = {
+    menuAdminLeft: [] as IMenu[],
+    isLoadingAdminLeftMenu: false,
+    errorAdminLeftMenu: ''
+}
+
+export const menuAdminLeftReducer = (state = initialMenuAdminLeftState, action: MenuAdminLeftAction): menuAdminLeftState => {
+    switch (action.type) {
+        case MenuAdminLeftActionEnum.MENU_ADMINLEFT_REQUEST:
+            return {
+                ...state, isLoadingAdminLeftMenu: true
+            }
+        case MenuAdminLeftActionEnum.MENU_ADMINLEFT_SUCCESS:
+            return {
+                ...state, menuAdminLeft: action.payload, isLoadingAdminLeftMenu: false
+            }
+        case MenuAdminLeftActionEnum.MENU_ADMINLEFT_FAIL:
+            return {
+                ...state, errorAdminLeftMenu: action.payload, isLoadingAdminLeftMenu: false
             }
         default:
             return state
