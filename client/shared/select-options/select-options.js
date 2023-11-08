@@ -20,8 +20,8 @@ export const selectIcons = [
     {label: 3, value: 'Twitter'},
     {label: 4, value: 'YouTube'},
     {label: 5, value: 'Pinterest'},
-    {label: 6, value: ''},
-    {label: 7, value: ''},
+    {label: 6, value: 'AdminPanelSettings'},
+    {label: 7, value: 'MenuBook'},
     {label: 8, value: ''},
     {label: 9, value: ''},
     {label: 10, value: ''}

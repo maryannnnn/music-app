@@ -237,7 +237,7 @@ export type menuEditAction =
     menuEditFailAction
 
 ///////////////////////////////////////////////
-////Menu Top
+////Menu Soc
 
 export interface menuSocState {
     menuSoc: IMenu[];
@@ -269,3 +269,38 @@ export type MenuSocAction =
     menuSocRequestAction |
     menuSocSuccessAction |
     menuSocFailAction
+
+///////////////////////////////////////////////
+////Menu Admin Left
+
+export interface menuAdminLeftState {
+    menuAdminLeft: IMenu[];
+    isLoadingAdminLeftMenu: boolean;
+    errorAdminLeftMenu: string;
+}
+
+export enum MenuAdminLeftActionEnum {
+    MENU_ADMINLEFT_REQUEST = "MENU_ADMINLEFT_REQUEST",
+    MENU_ADMINLEFT_SUCCESS = "MENU_ADMINLEFT_SUCCESS",
+    MENU_ADMINLEFT_FAIL = "MENU_ADMINLEFT_FAIL",
+}
+
+export interface menuAdminLeftRequestAction {
+    type: MenuAdminLeftActionEnum.MENU_ADMINLEFT_REQUEST;
+}
+
+export interface menuAdminLeftSuccessAction {
+    type: MenuAdminLeftActionEnum.MENU_ADMINLEFT_SUCCESS;
+    payload: IMenu[];
+}
+
+export interface menuAdminLeftFailAction {
+    type: MenuAdminLeftActionEnum.MENU_ADMINLEFT_FAIL;
+    payload: string;
+}
+
+export type MenuAdminLeftAction =
+    menuAdminLeftRequestAction |
+    menuAdminLeftSuccessAction |
+    menuAdminLeftFailAction
+

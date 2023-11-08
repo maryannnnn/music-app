@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5dd6a474-6225-4acd-9ade-c5a8d9341043" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/app/layouts/layout-admin.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/admin/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/shared/admin-panel-top/AdminPanelTop.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/shared/menu-account/MenuAccount.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/shared/menu-admin-top/MenuAdminTop.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/shared/mini-drawer/MiniDrawer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/shared/mini-drawer/utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/shared/menu-admin-left/MenuAdminLeft.tsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/Dockerfile" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/auth/auth.module.ts" afterDir="false" />
@@ -28,29 +22,16 @@
       <change afterPath="$PROJECT_DIR$/server/src/users/dto/create-user.dto.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/users/users.entity.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/app/layouts/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/layouts/layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/app/story/reducers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/story/reducers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/app/utils/interfases.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/utils/interfases.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/entities/menu/actions/menuActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/entities/menu/actions/menuActions.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/entities/menu/reducers/menuReducers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/entities/menu/reducers/menuReducers.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/entities/menu/types/menuTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/entities/menu/types/menuTypes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/form-menu-create/FormMenuCreate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/form-menu-create/FormMenuCreate.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/form-menu-create/validation-menu.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/form-menu-create/validation-menu.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/form-menu-edit/FormMenuEdit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/form-menu-edit/FormMenuEdit.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/form-menu-edit/validation-menu.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/form-menu-edit/validation-menu.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/admin/menu/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/admin/menu/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/shared/menu-soc/MenuSoc.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/menu-soc/MenuSoc.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/shared/menu-top/MenuTop.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/menu-top/MenuTop.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/shared/admin-panel-left/AdminPanelLeft.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/admin-panel-left/AdminPanelLeft.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/shared/mini-drawer/MiniDrawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/mini-drawer/MiniDrawer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/shared/select-options/select-options.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/select-options/select-options.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/shared/table-amenu-dmin/TableMenuAdmin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/table-amenu-dmin/TableMenuAdmin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/widgets/header-top/HeaderTop.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/widgets/header-top/HeaderTop.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/.development.de" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/.production.dev" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/menu/dto/create-menu.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/menu/dto/create-menu.dto.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/menu/dto/update-menu.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/menu/dto/update-menu.dto.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/menu/menu.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/menu/menu.entity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/menu/menu.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/menu/menu.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/users/users.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/users/users.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/users/users.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/users/users.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/users/users.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/users/users.service.ts" afterDir="false" />
@@ -67,52 +48,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/pages/admin/index.tsx">
+        <entry file="file://$PROJECT_DIR$/client/entities/menu/actions/menuActions.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#30#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/pages/admin/menu/index.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="16" column="34" lean-forward="true" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
-              <folding>
-                <element signature="e#0#33#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/shared/select-menu-admin/SelectMenuAdmin.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+            <state relative-caret-position="855">
+              <caret line="124" column="49" selection-start-line="124" selection-start-column="49" selection-end-line="124" selection-end-column="49" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/entities/menu/types/menuTypes.ts">
+        <entry file="file://$PROJECT_DIR$/client/shared/menu-admin-left/MenuAdminLeft.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/shared/menu-top/MenuTop.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="10" column="27" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="27" />
+            <state relative-caret-position="462">
+              <caret line="66" selection-start-line="66" selection-end-line="66" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -123,8 +71,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/shared/admin-panel-left/AdminPanelLeft.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+            <state relative-caret-position="286">
+              <caret line="13" column="2" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -133,13 +81,49 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/shared/menu-admin-top/MenuAdminTop.tsx">
+        <entry file="file://$PROJECT_DIR$/client/shared/mini-drawer/MiniDrawer.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-66">
-              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+            <state relative-caret-position="409">
+              <caret line="37" column="25" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
               <folding>
-                <element signature="e#0#43#0" expanded="true" />
+                <element signature="e#0#42#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/entities/menu/reducers/menuReducers.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3784">
+              <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/entities/menu/types/menuTypes.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="279" column="1" selection-start-line="279" selection-start-column="1" selection-end-line="279" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/shared/menu-soc/MenuSoc.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/shared/select-options/select-options.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="506">
+              <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -156,10 +140,6 @@
         <option value="$PROJECT_DIR$/server/src/menu/dto/create-menu.dto.ts" />
         <option value="$PROJECT_DIR$/server/src/menu/dto/update-menu.dto.ts" />
         <option value="$PROJECT_DIR$/server/src/menu/menu.service.ts" />
-        <option value="$PROJECT_DIR$/client/shared/select-options/select-options.js" />
-        <option value="$PROJECT_DIR$/client/entities/menu/reducers/menuReducers.ts" />
-        <option value="$PROJECT_DIR$/client/app/story/reducers.ts" />
-        <option value="$PROJECT_DIR$/client/entities/menu/actions/menuActions.ts" />
         <option value="$PROJECT_DIR$/client/features/form-menu-create/validation-menu.ts" />
         <option value="$PROJECT_DIR$/client/features/form-menu-edit/validation-menu.ts" />
         <option value="$PROJECT_DIR$/client/features/form-menu-create/FormMenuCreate.tsx" />
@@ -175,14 +155,18 @@
         <option value="$PROJECT_DIR$/client/material-ui-confog.ts" />
         <option value="$PROJECT_DIR$/client/pages/admin/index.tsx" />
         <option value="$PROJECT_DIR$/client/app/layouts/layout-admin.tsx" />
-        <option value="$PROJECT_DIR$/client/shared/menu-admin-left/MenuAdminLeft.tsx" />
         <option value="$PROJECT_DIR$/client/features/form-menu-edit/FormMenuEdit.tsx" />
         <option value="$PROJECT_DIR$/client/shared/menu-account/MenuAccount.tsx" />
         <option value="$PROJECT_DIR$/client/widgets/header-top/HeaderTop.tsx" />
+        <option value="$PROJECT_DIR$/client/app/story/reducers.ts" />
+        <option value="$PROJECT_DIR$/client/entities/menu/reducers/menuReducers.ts" />
         <option value="$PROJECT_DIR$/client/shared/admin-panel-top/AdminPanelTop.tsx" />
         <option value="$PROJECT_DIR$/client/shared/mini-drawer/MiniDrawer.tsx" />
-        <option value="$PROJECT_DIR$/client/shared/admin-panel-left/AdminPanelLeft.tsx" />
+        <option value="$PROJECT_DIR$/client/shared/select-options/select-options.js" />
         <option value="$PROJECT_DIR$/client/entities/menu/types/menuTypes.ts" />
+        <option value="$PROJECT_DIR$/client/entities/menu/actions/menuActions.ts" />
+        <option value="$PROJECT_DIR$/client/shared/admin-panel-left/AdminPanelLeft.tsx" />
+        <option value="$PROJECT_DIR$/client/shared/menu-admin-left/MenuAdminLeft.tsx" />
       </list>
     </option>
   </component>
@@ -233,6 +217,22 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="entities" type="462c0819:PsiDirectoryNode" />
               <item name="menu" type="462c0819:PsiDirectoryNode" />
+              <item name="actions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="music-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="music-app" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="entities" type="462c0819:PsiDirectoryNode" />
+              <item name="menu" type="462c0819:PsiDirectoryNode" />
+              <item name="reducers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="music-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="music-app" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="entities" type="462c0819:PsiDirectoryNode" />
+              <item name="menu" type="462c0819:PsiDirectoryNode" />
               <item name="types" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -247,13 +247,6 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="features" type="462c0819:PsiDirectoryNode" />
               <item name="form-menu-create" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="music-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="music-app" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="features" type="462c0819:PsiDirectoryNode" />
-              <item name="form-menu-edit" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="music-app" type="b2602c69:ProjectViewProjectNode" />
@@ -288,6 +281,55 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="shared" type="462c0819:PsiDirectoryNode" />
               <item name="admin-panel-left" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="music-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="music-app" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="admin-panel-top" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="music-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="music-app" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="menu-account" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="music-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="music-app" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="menu-admin-left" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="music-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="music-app" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="menu-admin-top" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="music-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="music-app" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="menu-soc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="music-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="music-app" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="mini-drawer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="music-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="music-app" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="select-options" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="music-app" type="b2602c69:ProjectViewProjectNode" />
@@ -430,18 +472,19 @@
       <workItem from="1699213077032" duration="12650000" />
       <workItem from="1699265934923" duration="13073000" />
       <workItem from="1699301852707" duration="10531000" />
-      <workItem from="1699356286329" duration="8272000" />
+      <workItem from="1699356286329" duration="24754000" />
+      <workItem from="1699460036594" duration="6082000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70674000" />
+    <option name="totallyTimeSpent" value="93238000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-95" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24973656" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24973656" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -454,7 +497,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="9" weight="0.15817985" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.18634886" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.17118093" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -545,16 +588,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/story/reducers.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="20" lean-forward="true" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#190#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/features/form-menu-edit/validation-menu.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -569,16 +602,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/features/form-menu-create/FormMenuCreate.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="23" column="88" selection-start-line="23" selection-start-column="88" selection-end-line="23" selection-end-column="88" />
-          <folding>
-            <element signature="e#0#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/shared/table-amenu-dmin/TableMenuAdmin.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5500">
@@ -589,27 +612,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/entities/menu/reducers/menuReducers.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3564">
-          <caret line="182" column="48" selection-start-line="182" selection-start-column="48" selection-end-line="182" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/entities/menu/actions/menuActions.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1738">
-          <caret line="93" column="20" selection-start-line="93" selection-start-column="20" selection-end-line="93" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/shared/select-options/select-options.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/app/utils/interfases.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="549">
@@ -617,30 +619,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/app/utils/icons-menu.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/app/utils/validation.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/client/shared/mini-drawer/interface.ts" />
-    <entry file="file://$PROJECT_DIR$/client/shared/menu-soc/MenuSoc.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/app/layouts/layout.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="131">
@@ -663,13 +645,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/material-ui-theme.ts" />
-    <entry file="file://$PROJECT_DIR$/client/shared/mini-drawer/utils.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="20" selection-start-column="20" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/features/form-menu-edit/FormMenuEdit.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
@@ -720,73 +695,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/shared/mini-drawer/MiniDrawer.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/pages/admin/index.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/shared/admin-panel-top/AdminPanelTop.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-154">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/shared/menu-top/MenuTop.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="10" column="27" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/shared/menu-admin-top/MenuAdminTop.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-66">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/shared/admin-panel-left/AdminPanelLeft.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/pages/admin/menu/index.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="34" lean-forward="true" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/shared/select-menu-admin/SelectMenuAdmin.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
@@ -794,10 +702,158 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/pages/admin/menu/index.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/pages/admin/index.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="76" lean-forward="true" selection-start-line="10" selection-start-column="76" selection-end-line="10" selection-end-column="76" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/story/reducers.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#236#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/shared/menu-top/MenuTop.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/shared/admin-panel-top/AdminPanelTop.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="35" column="42" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/shared/menu-admin-top/MenuAdminTop.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-66">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/shared/mini-drawer/utils.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="58" column="13" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#65#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/features/form-menu-create/FormMenuCreate.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="178" column="36" selection-start-line="178" selection-start-column="36" selection-end-line="178" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/app/utils/icons-menu.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/entities/menu/types/menuTypes.ts">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="279" column="1" selection-start-line="279" selection-start-column="1" selection-end-line="279" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/entities/menu/reducers/menuReducers.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3784">
+          <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/shared/select-options/select-options.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/shared/mini-drawer/MiniDrawer.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="37" column="25" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/shared/admin-panel-left/AdminPanelLeft.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="2" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/entities/menu/actions/menuActions.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="855">
+          <caret line="124" column="49" selection-start-line="124" selection-start-column="49" selection-end-line="124" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/shared/menu-soc/MenuSoc.tsx">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
-          <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+          <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/shared/menu-admin-left/MenuAdminLeft.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="66" selection-start-line="66" selection-end-line="66" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
