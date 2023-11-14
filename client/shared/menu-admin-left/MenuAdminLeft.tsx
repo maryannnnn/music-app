@@ -53,7 +53,6 @@ const MenuAdminLeft: FC<MenuAdminLeftProps> = ({open}) => {
                                             px: 2.5,
                                         }}
                                     >
-
                                         <ListItemIcon
                                             sx={{
                                                 minWidth: 0,
@@ -61,7 +60,6 @@ const MenuAdminLeft: FC<MenuAdminLeftProps> = ({open}) => {
                                                 justifyContent: 'center',
                                             }}
                                         >
-
                                             <IconDisplay iconName={link.iconLink}/>
                                         </ListItemIcon>
                                         <ListItemText sx={{opacity: open ? 1 : 0}}>{link.nameLink}</ListItemText>
