@@ -15,7 +15,7 @@ import {
     menuEditActionEnum,
     MenuSocActionEnum,
     MenuSocAction,
-    MenuAdminLeftAction, MenuAdminLeftActionEnum
+    MenuAdminLeftAction, MenuAdminLeftActionEnum, MenuMainAction, MenuMainActionEnum
 } from "../types/menuTypes";
 import {Dispatch} from "react";
 import Axios from "axios";
@@ -121,6 +121,21 @@ export const menuActions = {
         } catch (error) {
             dispatch({
                 type: MenuAdminLeftActionEnum.MENU_ADMINLEFT_FAIL,
+                payload: error.response && error.response.data.message
+                    ? error.response.data.message
+                    : error.message,
+            });
+        }
+    },
+
+    getMenuMainAction: (menuId: number) => async (dispatch: Dispatch<MenuMainAction>) => {
+        dispatch({type: MenuMainActionEnum.MENU_MAIN_REQUEST, payload: menuId});
+        try {
+            const response = await Axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/menu/${menuId}`);
+            dispatch({type: MenuMainActionEnum.MENU_MAIN_SUCCESS, payload: response.data});
+        } catch (error) {
+            dispatch({
+                type: MenuMainActionEnum.MENU_MAIN_FAIL,
                 payload: error.response && error.response.data.message
                     ? error.response.data.message
                     : error.message,
