@@ -304,3 +304,37 @@ export type MenuAdminLeftAction =
     menuAdminLeftSuccessAction |
     menuAdminLeftFailAction
 
+///////////////////////////////////////////////
+////Menu Main
+
+export interface menuMainState {
+    menuMain: IMenu[];
+    isLoadingMainMenu: boolean;
+    errorMainMenu: string;
+}
+
+export enum MenuMainActionEnum {
+    MENU_MAIN_REQUEST = "MENU_MAIN_REQUEST",
+    MENU_MAIN_SUCCESS = "MENU_MAIN_SUCCESS",
+    MENU_MAIN_FAIL = "MENU_MAIN_FAIL",
+}
+
+export interface menuMainRequestAction {
+    type: MenuMainActionEnum.MENU_MAIN_REQUEST;
+}
+
+export interface menuMainSuccessAction {
+    type: MenuMainActionEnum.MENU_MAIN_SUCCESS;
+    payload: IMenu[];
+}
+
+export interface menuMainFailAction {
+    type: MenuMainActionEnum.MENU_MAIN_FAIL;
+    payload: string;
+}
+
+export type MenuMainAction =
+    menuMainRequestAction |
+    menuMainSuccessAction |
+    menuMainFailAction
+

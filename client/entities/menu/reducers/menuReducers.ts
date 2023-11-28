@@ -14,7 +14,7 @@ import {
     menuCommonState,
     menuEditAction,
     menuEditActionEnum,
-    menuEditState, MenuSocAction, MenuSocActionEnum, menuSocState,
+    menuEditState, MenuMainAction, MenuMainActionEnum, menuMainState, MenuSocAction, MenuSocActionEnum, menuSocState,
     MenuTopAction,
     MenuTopActionEnum,
     menuTopState
@@ -214,6 +214,31 @@ export const menuAdminLeftReducer = (state = initialMenuAdminLeftState, action: 
         case MenuAdminLeftActionEnum.MENU_ADMINLEFT_FAIL:
             return {
                 ...state, errorAdminLeftMenu: action.payload, isLoadingAdminLeftMenu: false
+            }
+        default:
+            return state
+    }
+}
+
+const initialMenuMainState: menuMainState = {
+    menuMain: [] as IMenu[],
+    isLoadingMainMenu: false,
+    errorMainMenu: ''
+}
+
+export const menuMainReducer = (state = initialMenuMainState, action: MenuMainAction): menuMainState => {
+    switch (action.type) {
+        case MenuMainActionEnum.MENU_MAIN_REQUEST:
+            return {
+                ...state, isLoadingMainMenu: true
+            }
+        case MenuMainActionEnum.MENU_MAIN_SUCCESS:
+            return {
+                ...state, menuMain: action.payload, isLoadingMainMenu: false
+            }
+        case MenuMainActionEnum.MENU_MAIN_FAIL:
+            return {
+                ...state, errorMainMenu: action.payload, isLoadingMainMenu: false
             }
         default:
             return state
