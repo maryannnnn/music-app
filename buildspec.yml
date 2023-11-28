@@ -26,13 +26,3 @@ phases:
       - npm install
       - npm run build
 
-cache:
-  paths:
-    - '/root/.npm' # Кэширование папки npm для ускорения установки зависимостей
-
-artifacts:
-  files:
-    - '*/' # Включить все файлы из папок frontend и backend
-  base-directory:
-    - client/build # Укажите папку с собранным фронтендом
-    - server/build # Укажите папку с собранным бэкендом
