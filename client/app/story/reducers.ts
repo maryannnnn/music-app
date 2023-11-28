@@ -6,7 +6,8 @@ import {
     menuTopReducer,
     menuEditReducer,
     menuSocReducer,
-    menuAdminLeftReducer
+    menuAdminLeftReducer,
+    menuMainReducer
 } from "../../entities/menu/reducers/menuReducers";
 
 export const Reducers = {
@@ -17,6 +18,7 @@ export const Reducers = {
     linkDeleteReducer,
     menuEditReducer,
     menuSocReducer,
-    menuAdminLeftReducer
+    menuAdminLeftReducer,
+    menuMainReducer
 }
 

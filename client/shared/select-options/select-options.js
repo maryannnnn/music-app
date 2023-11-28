@@ -33,4 +33,5 @@ export const selectIcons = [
     {label: 16, value: 'Payments'},
     {label: 17, value: 'People'},
     {label: 18, value: 'AddCircle'},
+    {label: 18, value: 'Toys'},
 ]

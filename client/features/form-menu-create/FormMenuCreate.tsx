@@ -13,6 +13,7 @@ import {useTypedSelector} from "../../app/story/hooks/useTypedSelector";
 import {validationSchemaMenu} from "./validation-menu";
 import {PropsFormMenuCreate} from "./interface";
 import {selectNumber, selectIcons} from '../../shared/select-options/select-options'
+import IconDisplay from "../../app/utils/icons-menu";
 
 const FormMenuCreate: FC<PropsFormMenuCreate> = (
     {
@@ -21,7 +22,7 @@ const FormMenuCreate: FC<PropsFormMenuCreate> = (
 
     const [errors, setErrors] = useState({nameLink: '', urlLink: ''});
     const [formValid, setFormValid] = useState(false)
-    const {createLinkMenuAction, getMenuCommonAction, getMenuTopAction, getMenuSocAction} = useActions();
+    const {createLinkMenuAction, getMenuCommonAction, getMenuTopAction, getMenuSocAction, getMenuMainAction} = useActions();
     const {isLoadingLinkCreate, errorLinkCreate, successLinkCreate} = useTypedSelector(state => state.linkCreateReducer);
     const [form, setForm] = useState({
         nameLink: 'New Name Link', urlLink: 'New Url Link', orderLink: 0, iconLink: 'None',
@@ -74,6 +75,9 @@ const FormMenuCreate: FC<PropsFormMenuCreate> = (
             await getMenuCommonAction(menuId);
             if (menuId === 1) {
                 await getMenuTopAction(menuId);
+            }
+            if (menuId === 2) {
+                await getMenuMainAction(menuId);
             }
             if (menuId === 3) {
                 await getMenuSocAction(menuId);

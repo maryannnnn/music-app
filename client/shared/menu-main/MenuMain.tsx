@@ -1,18 +1,75 @@
-import React, {FC, useEffect} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Box from '@mui/material/Box';
+import theme from "../../material.config";
+import {useActions} from "../../app/story/hooks/useActions";
+import {useTypedSelector} from "../../app/story/hooks/useTypedSelector";
+import {CircularProgress} from "@mui/material";
+import Stack from "@mui/material/Stack";
+import Link from "next/link";
+import Alert from "@mui/material/Alert";
+import IconDisplay from "../../app/utils/icons-menu";
+import Fade from '@mui/material/Fade';
+import Paper from '@mui/material/Paper';
+import Divider from '@mui/material/Divider';
+import MenuList from '@mui/material/MenuList';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Check from '@mui/icons-material/Check';
+import {IMenu} from "../../entities/menu/types/menuTypes";
 
 const MenuMain: FC = () => {
+    const {getMenuMainAction} = useActions();
+    const menuId = 2;
+    const {isLoadingMainMenu, errorMainMenu, menuMain} = useTypedSelector(state => state.menuMainReducer);
+
+    useEffect(() => {
+        getMenuMainAction(menuId);
+    }, [menuId]);
+
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
-    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-        setAnchorEl(event.currentTarget);
+
+    const [menuStates, setMenuStates] = useState({});
+
+    const handleClick = (linkId: number, event: React.MouseEvent<HTMLButtonElement>) => {
+        setMenuStates({
+            ...menuStates,
+            [linkId]: event.currentTarget,
+        });
     };
-    const handleClose = () => {
-        setAnchorEl(null);
+
+    const handleClose = (linkId) => {
+        setMenuStates({
+            ...menuStates,
+            [linkId]: null,
+        });
+    };
+
+    const checkMenuItem = (linkId: number, menuMain: IMenu[]) => {
+        const menuUp = menuMain
+            .filter(item => item.isVisible && item.parentId === linkId);
+
+        if(menuUp.length > 0) {
+            return menuUp;
+        } else return null;
+    }
+
+    const getMenuItems = (menuMain: IMenu[]) => {
+
+        return menuMain
+            .sort((a, b) => a.orderLink - b.orderLink)
+            .map(item => (
+                <MenuItem key={item.id}>
+                    <Link href={item.urlLink} alt={item.nameLink}>
+                        {item.nameLink}
+                    </Link>
+                </MenuItem>
+            )
+        )
     };
 
     return (
@@ -26,51 +83,58 @@ const MenuMain: FC = () => {
                 },
             }}
         >
-            <ButtonGroup variant="contained" aria-label="outlined primary button group">
-                <Button
-                    id="basic-menu"
-                    aria-controls={open ? 'basic-menu' : undefined}
-                    aria-haspopup="true"
-                    aria-expanded={open ? 'true' : undefined}
-                    onClick={handleClick}
-                >
-                    Dashboard_1
-                </Button>
-                <Menu
-                    id="basic-menu"
-                    anchorEl={anchorEl}
-                    open={open}
-                    onClose={handleClose}
-                    MenuListProps={{
-                        'aria-labelledby': 'basic-button',
-                    }}
-                >
-                    <MenuItem onClick={handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={handleClose}>My account</MenuItem>
-                    <MenuItem onClick={handleClose}>Logout</MenuItem>
-                </Menu>
-                <Button
-                    id="basic-button"
-                    aria-controls={open ? 'basic-menu' : undefined}
-                    aria-haspopup="true"
-                    aria-expanded={open ? 'true' : undefined}
-                    onClick={handleClick}
-                >
-                    Dashboard_2
-                </Button>
-                <Menu
-                    id="basic-menu"
-                    anchorEl={anchorEl}
-                    open={open}
-                    onClose={handleClose}
-                    MenuListProps={{
-                        'aria-labelledby': 'basic-button',
-                    }}
-                >
-                    <MenuItem onClick={handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={handleClose}>My account</MenuItem>
-                    <MenuItem onClick={handleClose}>Logout</MenuItem>
-                </Menu>
+            <ButtonGroup
+                variant="contained"
+                size="large"
+                color="secondary"
+                aria-label="outlined large button group"
+            >
+                {isLoadingMainMenu ? (
+                    <Box sx={{display: 'flex'}}>
+                        <CircularProgress/>
+                    </Box>
+                ) : errorMainMenu ? (
+                    <Stack sx={{width: '100%'}} spacing={2}>
+                        <Alert severity="error">{errorMainMenu}</Alert>
+                    </Stack>
+                ) : menuMain.length > 0 ? (
+                    menuMain
+                        .filter(link => link.isVisible && link.parentId === 0)
+                        .sort((a, b) => a.orderLink - b.orderLink)
+                        .map(link =>
+                            <div key={link.id}>
+                                <Button
+                                    startIcon={<IconDisplay iconName={link.iconLink}/>}
+                                    id="basic-menu"
+                                    aria-controls={open ? 'basic-menu' : undefined}
+                                    aria-haspopup="true"
+                                    aria-expanded={open ? 'true' : undefined}
+                                    onClick={(event) => handleClick(link.id, event)}
+                                >
+                                    {/*<Link href={link.urlLink} alt={link.nameLink}>*/}
+                                    {link.nameLink}
+                                    {/*</Link>*/}
+                                </Button>
+                                {checkMenuItem(link.id, menuMain) && (
+                                    <Menu
+                                        id="fade-menu"
+                                        MenuListProps={{
+                                            'aria-labelledby': 'fade-button',
+                                        }}
+                                        anchorEl={menuStates[link.id]}
+                                        open={Boolean(menuStates[link.id])}
+                                        onClose={() => handleClose(link.id)}
+                                        TransitionComponent={Fade}
+                                    >
+                                        {getMenuItems(checkMenuItem(link.id, menuMain))}
+                                    </Menu>
+                                )}
+                            </div>
+                        )
+                ) : (
+                    <div className="m-1">no links</div>
+                )
+                }
             </ButtonGroup>
         </Box>
     )

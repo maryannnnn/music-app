@@ -6,7 +6,7 @@ const HeaderBottom: FC = () => {
 
     return (
         <div className='w-screen bg-khaki-200'>
-            <div className='container flex flex-row justify-between gap-2 items-center h-9'>
+            <div className='container flex flex-row justify-between gap-2 items-center h-11'>
                 <div className='basis-3/4 content-start'>
                     <MenuMain/>
                 </div>

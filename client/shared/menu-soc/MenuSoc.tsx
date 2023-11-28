@@ -2,7 +2,7 @@ import React, {FC, useEffect} from 'react';
 import IconDisplay from "../../app/utils/icons-menu";
 import {useActions} from "../../app/story/hooks/useActions";
 import {useTypedSelector} from "../../app/story/hooks/useTypedSelector";
-import Box from "../menu-top/MenuTop";
+import Box from '@mui/material/Box';
 import {CircularProgress} from "@mui/material";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";

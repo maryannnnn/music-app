@@ -21,7 +21,7 @@ const FormMenuEdit: FC<PropsFormMenuEdit> = (
 
     const [errors, setErrors] = useState({nameLink: '', urlLink: ''});
     const [formValid, setFormValid] = useState(false)
-    const {editLinkMenuAction, getMenuCommonAction, getMenuTopAction, getMenuSocAction} = useActions();
+    const {editLinkMenuAction, getMenuCommonAction, getMenuTopAction, getMenuSocAction, getMenuMainAction} = useActions();
     const {isLoadingLinkEdit, errorLinkEdit, successLinkEdit} = useTypedSelector(state => state.linkEditReducer);
     const [form, setForm] = useState({
         id: link.id,
@@ -82,6 +82,9 @@ const FormMenuEdit: FC<PropsFormMenuEdit> = (
             await getMenuCommonAction(link.menuId);
             if (link.menuId === 1) {
               await getMenuTopAction(link.menuId);
+            }
+            if (link.menuId === 2) {
+                await getMenuMainAction(link.menuId);
             }
             if (link.menuId === 3) {
                 await getMenuSocAction(link.menuId);
