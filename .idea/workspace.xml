@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5dd6a474-6225-4acd-9ade-c5a8d9341043" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/buildspec.yml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/Dockerfile" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/auth/auth.module.ts" afterDir="false" />
@@ -21,20 +20,7 @@
       <change afterPath="$PROJECT_DIR$/server/src/roles/roles.service.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/users/dto/create-user.dto.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/users/users.entity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/app/story/reducers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/story/reducers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/entities/menu/actions/menuActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/entities/menu/actions/menuActions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/entities/menu/reducers/menuReducers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/entities/menu/reducers/menuReducers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/entities/menu/types/menuTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/entities/menu/types/menuTypes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/form-menu-create/FormMenuCreate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/form-menu-create/FormMenuCreate.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/form-menu-create/validation-menu.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/form-menu-create/validation-menu.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/form-menu-edit/FormMenuEdit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/form-menu-edit/FormMenuEdit.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/form-menu-edit/validation-menu.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/form-menu-edit/validation-menu.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/material.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/material.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/shared/menu-main/MenuMain.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/menu-main/MenuMain.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/shared/menu-soc/MenuSoc.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/menu-soc/MenuSoc.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/shared/select-options/select-options.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/select-options/select-options.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/widgets/header-bottom/HeaderBottom.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/widgets/header-bottom/HeaderBottom.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildspec.yml" beforeDir="false" afterPath="$PROJECT_DIR$/buildspec.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/.development.de" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/.production.dev" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
@@ -101,8 +87,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/buildspec.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+            <state relative-caret-position="585">
+              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
             </state>
           </provider>
         </entry>
@@ -374,12 +360,12 @@
       <workItem from="1700647159173" duration="1243000" />
       <workItem from="1700685646068" duration="572000" />
       <workItem from="1701105043432" duration="1146000" />
-      <workItem from="1701179555715" duration="4486000" />
+      <workItem from="1701179555715" duration="5066000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="152734000" />
+    <option name="totallyTimeSpent" value="153314000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-95" width="1936" height="1056" extended-state="6" />
@@ -808,8 +794,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/buildspec.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+        <state relative-caret-position="585">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
         </state>
       </provider>
     </entry>
