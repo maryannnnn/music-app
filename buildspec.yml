@@ -9,6 +9,7 @@ phases:
       - npm install
       - echo "📦 installing Front-end packages..."
       - echo "✅ Packages Front-end installed successfully."
+      
   pre_build:
     commands:
       - npm run build
@@ -16,21 +17,24 @@ phases:
       - echo "✅ Tests passed successfully."
       - echo "🚧 Starting Front-end compiling packages..."
       - echo "✅ Build Front-end passed successfully."
+      
   build:
     commands:
       - cd ../server
       - npm install
       - echo "📦 installing Back-end packages..."
       - echo "✅ Packages Back-end installed successfully."
+      
   post_build:
     commands:
       - npm run build
       - echo "🚧 Starting Back-end compiling packages..."
       - echo "✅ Build Back-end passed successfully."
-  artifacts:
-    files:
-      - '*/'
-    base-directory: 
-      - client/.next
-      - server/dist
+      
+artifacts:
+  files:
+    - '*/'
+  base-directory: 
+    - client/.next
+    - server/dist
    
