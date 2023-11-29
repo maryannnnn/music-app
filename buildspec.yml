@@ -37,8 +37,4 @@ phases:
       - npm run build
       - echo "🚧 Starting Back-end compiling packages..."
       - echo "✅ Build Back-end passed successfully."
-  artifacts:
-    files:
-      - '**/*'
-      discard-paths: yes
 
