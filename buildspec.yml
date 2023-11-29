@@ -12,8 +12,6 @@ env:
     PRIVATE_KEY: "secret_key_music_app"
 phases:
   install:
-    runtime-versions:
-      nodejs: 12
     commands:
       - cd client
       - npm install
