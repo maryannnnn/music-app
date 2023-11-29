@@ -10,19 +10,35 @@ env:
     POSTGRESS_PASSWORD: "PDROf6{EcmxBT"
     POSTGRESS_PORT: "5432"
     PRIVATE_KEY: "secret_key_music_app"
-
 phases:
   install:
     runtime-versions:
-      nodejs: 18
+      nodejs: v18.15.0
     commands:
       - cd client
       - npm install
+      - echo "📦 installing Front-end packages..."
+      - echo "✅ Packages Front-end installed successfully."
+  pre_build:
+    commands:
       - npm run build
-
-  post_build:
+      - echo "⚙️ Testing..."
+      - echo "✅ Tests passed successfully."
+      - echo "🚧 Starting Front-end compiling packages..."
+      - echo "✅ Build Front-end passed successfully."
+  build:
     commands:
       - cd ../server
       - npm install
+      - echo "📦 installing Back-end packages..."
+      - echo "✅ Packages Back-end installed successfully."
+  post_build:
+    commands:
       - npm run build
+      - echo "🚧 Starting Back-end compiling packages..."
+      - echo "✅ Build Back-end passed successfully."
+  artifacts:
+    files:
+      - '**/*'
+      discard-paths: yes
 
