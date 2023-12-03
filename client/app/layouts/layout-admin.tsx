@@ -3,7 +3,6 @@ import Head from "next/head";
 import Footer from "../../widgets/footer/Footer";
 import MiniDrawer from "../../shared/mini-drawer/MiniDrawer";
 
-
 interface AdminLayoutProps {
     children?: ReactNode; 
     title?: string;
