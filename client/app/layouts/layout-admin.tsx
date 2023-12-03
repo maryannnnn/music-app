@@ -3,9 +3,8 @@ import Head from "next/head";
 import Footer from "../../widgets/footer/Footer";
 import MiniDrawer from "../../shared/mini-drawer/MiniDrawer";
 
-
 interface AdminLayoutProps {
-    children?: React.ReactElement<HTMLDivElement> | React.ReactElement<HTMLDivElement>[]; 
+    children?: ReactNode; 
     title?: string;
 }
 
