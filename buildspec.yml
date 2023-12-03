@@ -35,4 +35,3 @@ artifacts:
   files:
     - '*/'
   base-directory: client/.next server/dist
-
