@@ -12,7 +12,7 @@ phases:
       
   pre_build:
     commands:
-      - npm run build -- --no-prefer-offline
+      - npm run build --ignore-scripts
       - echo "⚙️ Testing..."
       - echo "✅ Tests passed successfully."
       - echo "🚧 Starting Front-end compiling packages..."
@@ -27,7 +27,7 @@ phases:
       
   post_build:
     commands:
-      - npm run build -- --no-prefer-offline
+      - npm run build --ignore-scripts
       - echo "🚧 Starting Back-end compiling packages..."
       - echo "✅ Build Back-end passed successfully."
       
