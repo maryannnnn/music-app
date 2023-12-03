@@ -21,13 +21,13 @@ phases:
   build:
     commands:
       - cd ../server
-      - npm run build -- --ignore-scripts
+      - npm install --legacy-peer-deps
       - echo "📦 installing Back-end packages..."
       - echo "✅ Packages Back-end installed successfully."
       
   post_build:
     commands:
-      - npm run build
+      - npm run build -- --ignore-scripts
       - echo "🚧 Starting Back-end compiling packages..."
       - echo "✅ Build Back-end passed successfully."
       
