@@ -4,7 +4,7 @@ import Footer from "../../widgets/footer/Footer";
 import MiniDrawer from "../../shared/mini-drawer/MiniDrawer";
 
 interface AdminLayoutProps {
-    children?: ReactNode;
+    children: ReactNode | JSX.Element | JSX.Element[]; 
     title?: string;
 }
 
