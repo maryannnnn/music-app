@@ -1,10 +1,10 @@
+import React, {FC, ReactNode} from 'react';
 import Head from "next/head";
 import Footer from "../../widgets/footer/Footer";
-import {FC} from "react";
 import MiniDrawer from "../../shared/mini-drawer/MiniDrawer";
 
 interface AdminLayoutProps {
-    children? : any;
+    children?: ReactNode;
     title?: string;
 }
 
