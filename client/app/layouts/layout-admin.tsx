@@ -5,7 +5,7 @@ import MiniDrawer from "../../shared/mini-drawer/MiniDrawer";
 
 
 interface AdminLayoutProps {
-    children?: React.ReactElement<HTMLDivElement> | React.ReactElement<HTMLDivElement>[]; 
+    children?: ReactNode; 
     title?: string;
 }
 
@@ -23,8 +23,9 @@ const AdminLayout: FC<AdminLayoutProps>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
             </Head>
                 <MiniDrawer>
-                    {children}
+                    
                 </MiniDrawer>
+            {children}
             <Footer/>
         </>
     );
