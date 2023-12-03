@@ -7,8 +7,8 @@ interface AdminLayoutProps {
     children: ReactNode | JSX.Element | JSX.Element[]; 
     title?: string;
 }
-
-const AdminLayout: FC<AdminLayoutProps>
+React.FC<LayoutProps>
+const AdminLayout: React.FC<AdminLayoutProps>
     = ({
            children,
            title
