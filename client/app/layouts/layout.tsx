@@ -6,6 +6,7 @@ import theme from "../../material.config";
 import {ThemeProvider} from "@mui/material/styles";
 
 interface MainLayoutProps {
+    children? : any;
     title?: string;
     description?: string;
     keywords?: string;
