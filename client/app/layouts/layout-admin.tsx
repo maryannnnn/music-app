@@ -4,7 +4,13 @@ import Footer from "../../widgets/footer/Footer";
 import MiniDrawer from "../../shared/mini-drawer/MiniDrawer";
 
 
-const AdminLayout = ({
+interface AdminLayoutProps {
+    children?: React.ReactElement<HTMLDivElement> | React.ReactElement<HTMLDivElement>[]; 
+    title?: string;
+}
+
+const AdminLayout: FC<AdminLayoutProps>
+    = ({
            children,
            title
        }) => {
