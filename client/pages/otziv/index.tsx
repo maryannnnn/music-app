@@ -1,5 +1,5 @@
-import '../../../app/globals.css'
-import MainLayout from "../../../app/layouts/layout";
+import '../../app/globals.css'
+import MainLayout from "../../app/layouts/layout";
 
 const Index = () => {
 
