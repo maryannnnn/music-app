@@ -1,12 +1,12 @@
+import React, {FC, ReactNode} from 'react';
 import Head from "next/head";
 import Header from "../../widgets/header/Header";
 import Footer from "../../widgets/footer/Footer";
-import {FC} from "react";
 import theme from "../../material.config";
 import {ThemeProvider} from "@mui/material/styles";
 
 interface MainLayoutProps {
-    children? : any;
+    children?: ReactNode;
     title?: string;
     description?: string;
     keywords?: string;
