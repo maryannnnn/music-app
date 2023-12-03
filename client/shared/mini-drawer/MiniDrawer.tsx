@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useState, ReactNode} from 'react';
 import {useTheme} from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,7 +12,11 @@ import {Drawer, DrawerHeader} from "./utils";
 import AdminPanelTop from "../admin-panel-top/AdminPanelTop";
 import AdminPanelLeft from "../admin-panel-left/AdminPanelLeft";
 
-const MiniDrawer: FC = ({children}) => {
+interface MiniDrawerProps {
+    children: ReactNode;
+}
+
+const MiniDrawer: FC<MiniDrawerProps> = ({children}) => {
     const theme = useTheme();
     const [open, setOpen] = useState(false);
 
