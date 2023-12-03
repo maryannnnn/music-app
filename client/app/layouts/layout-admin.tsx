@@ -4,6 +4,7 @@ import {FC} from "react";
 import MiniDrawer from "../../shared/mini-drawer/MiniDrawer";
 
 interface AdminLayoutProps {
+    children? : any;
     title?: string;
 }
 

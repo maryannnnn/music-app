@@ -20,7 +20,7 @@
       <change afterPath="$PROJECT_DIR$/server/src/roles/roles.service.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/users/dto/create-user.dto.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/users/users.entity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buildspec.yml" beforeDir="false" afterPath="$PROJECT_DIR$/buildspec.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/.development.de" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/.production.dev" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
@@ -87,8 +87,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/buildspec.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
-              <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+            <state relative-caret-position="660">
+              <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -232,7 +232,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../music-all_DEV/26.11.2023" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
     <property name="ts.external.directory.path" value="H:\Мои Документы\React_TypeScript\music-app\client\node_modules\typescript\lib" />
@@ -361,16 +361,18 @@
       <workItem from="1700685646068" duration="572000" />
       <workItem from="1701105043432" duration="1146000" />
       <workItem from="1701179555715" duration="5287000" />
-      <workItem from="1701211401905" duration="3015000" />
+      <workItem from="1701211401905" duration="3593000" />
+      <workItem from="1701260174204" duration="552000" />
+      <workItem from="1701278010942" duration="574000" />
+      <workItem from="1701386652365" duration="46000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="156550000" />
+    <option name="totallyTimeSpent" value="158300000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-95" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24973656" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -795,8 +797,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/buildspec.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+        <state relative-caret-position="660">
+          <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
         </state>
       </provider>
     </entry>
