@@ -20,4 +20,4 @@ phases:
 artifacts:
   files:
     - client/.next/**/*
-    - sserver/dist/**/*
+    - server/dist/**/*
