@@ -22,8 +22,9 @@ const AdminLayout: FC<AdminLayoutProps>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
             </Head>
                 <MiniDrawer>
-                    {children}
+                    
                 </MiniDrawer>
+            {children}
             <Footer/>
         </>
     );
