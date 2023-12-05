@@ -6,6 +6,7 @@ phases:
       nodejs: 18
     commands:
       - npm ci --legacy-peer-deps
+      - echo "📦 installing Root packages..."
       - cd client && npm ci --legacy-peer-deps
       - cd ../server && npm ci --legacy-peer-deps
       - echo "📦 installing Front-end Back-end packages..."
@@ -16,7 +17,7 @@ phases:
       - cd ../server && npm run build || true
       - echo "⚙️ Testing..."
       - echo "✅ Tests passed successfully."
-      - echo "🚧 Starting Front-end compiling packages..."
-      - echo "✅ Build Front-end passed successfully."
+      - echo "🚧 Starting Front-end Back-end compiling packages..."
+      - echo "✅ Build Front-end Back-end passed successfully."
 artifacts:
   files:
