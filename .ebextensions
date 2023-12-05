@@ -1,7 +1,4 @@
 container_commands:
-  01_start_client:
+   start_app:
     command: "npm start"
-    cwd: "/var/app-musoc/client"
-  02_start_server:
-    command: "npm run start"
-    cwd: "/var/app-musoc/server"
+
