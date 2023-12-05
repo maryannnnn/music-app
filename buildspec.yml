@@ -20,6 +20,3 @@ phases:
       - echo "✅ Build Front-end passed successfully."
 artifacts:
   files:
-    - client/.next/**/*
-    - server/dist/**/*
-
