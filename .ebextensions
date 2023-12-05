@@ -1,0 +1,4 @@
+container_commands:
+   start_app:
+    command: "npm start"
+    
