@@ -5,6 +5,7 @@ phases:
     runtime-versions:
       nodejs: 18
     commands:
+      - npm ci --legacy-peer-deps
       - cd client && npm ci --legacy-peer-deps
       - cd ../server && npm ci --legacy-peer-deps
       - echo "📦 installing Front-end Back-end packages..."
