@@ -1,11 +1,24 @@
 version: 0.2
 
+env:
+  variables:
+    FRONTEND_ENV_VARIABLE: "frontend_value"
+    PORT: "7500"
+    POSTGRES_HOST: "localhost"
+    POSTGRES_USER: "postgres"
+    POSTGRES_DB: "music-app"
+    POSTGRESS_PASSWORD: ""
+    POSTGRESS_PORT: "5432"
+    PRIVATE_KEY: "secret_key_music_app"
+    NEXT_PUBLIC_BACKEND_URL: "http://localhost:7500"
+
 phases:
   install:
     runtime-versions:
       nodejs: 18
     commands:
       - npm ci --legacy-peer-deps
+      - echo "📦 installing Root packages..."
       - cd client && npm ci --legacy-peer-deps
       - cd ../server && npm ci --legacy-peer-deps
       - echo "📦 installing Front-end Back-end packages..."
@@ -16,8 +29,8 @@ phases:
       - cd ../server && npm run build || true
       - echo "⚙️ Testing..."
       - echo "✅ Tests passed successfully."
-      - echo "🚧 Starting Front-end compiling packages..."
-      - echo "✅ Build Front-end passed successfully."
+      - echo "🚧 Starting Front-end Back-end compiling packages..."
+      - echo "✅ Build Front-end Back-end passed successfully."
 artifacts:
   files:
     - client/.next/**/*
