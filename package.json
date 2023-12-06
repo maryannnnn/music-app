@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:client": "cd client && npm run start",
-    "start:server": "cd server && npm run start:prod",
+    "start:client": "cd client && node ./.next/server/server.js",
+    "start:server": "cd server && node dist/main.js",
     "start": "concurrently \"npm run start:server\" \"npm run start:client\""
   },
   "author": "Neolines",
