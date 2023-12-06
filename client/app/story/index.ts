@@ -1,7 +1,7 @@
 import {Context, createWrapper, HYDRATE, MakeStore} from 'next-redux-wrapper';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
-import {ThunkDispatch} from "@types/redux-thunk"
+import {ThunkDispatch} from "@types/redux-thunk";
 import {Reducers} from './reducers';
 import { applyMiddleware, createStore, combineReducers, Store, AnyAction } from 'redux';
 
