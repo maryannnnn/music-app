@@ -6,7 +6,7 @@
   "scripts": {
     "start:client": "cd client && node ./.next/server/server.js",
     "start:server": "cd server && node dist/main.js",
-    "start": "concurrently \"npm run start:server\" \"npm run start:client\""
+    "start": "node ./.next/server/server.js"
   },
   "author": "Neolines",
   "license": "ISC",
