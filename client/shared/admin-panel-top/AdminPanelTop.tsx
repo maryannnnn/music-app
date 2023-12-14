@@ -2,9 +2,9 @@ import React, {FC} from 'react';
 import {AppBar} from "../mini-drawer/utils";
 import MenuAdminTop from "../menu-admin-top/MenuAdminTop";
 import MenuAccount from "../menu-account/MenuAccount";
-import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
+import { FiMenu } from "react-icons/fi";
 
 interface AdminPanelTopProps {
     open: boolean;
@@ -25,7 +25,7 @@ const AdminPanelTop: FC<AdminPanelTopProps> = ({open, handleDrawerOpen}) => {
                         ...(open && {display: 'none'}),
                     }}
                 >
-                    <MenuIcon/>
+                    <FiMenu />
                 </IconButton>
                 <div className='w-screen'>
                     <div className='container flex flex-row justify-between gap-2 items-center h-10'>

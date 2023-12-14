@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import * as Icons from '@mui/icons-material';
+import {selectIcons} from "../../shared/select-options/select-options"
 
 interface PropsIconDisplay {
     iconName: string;
@@ -7,11 +7,14 @@ interface PropsIconDisplay {
 
 const IconDisplay: FC<PropsIconDisplay> = ({iconName}) => {
 
-    const Icon = Icons[iconName]
-
     return (
         <>
-        {Icon && <Icon/>}
+            {selectIcons.length > 0 && selectIcons
+                .filter(item => item.value === iconName)
+                .map(item =>
+                <div>{item.component}</div>
+            )
+            }
         </>
     )
 }
