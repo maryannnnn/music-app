@@ -36,6 +36,11 @@ const FormMenuEdit: FC<PropsFormMenuEdit> = (
         updatedAt: link.updatedAt
     })
 
+    const [parentList, setParentList] = useState([...menuCommon, {
+        id: 0, nameLink: 'None', urlLink: '', orderLink: 0, iconLink: 'None',
+        parentId: 0, isVisible: true, menuId: 0
+    }])
+
     useEffect(() => {
         if (errors.nameLink !== '' || errors.urlLink !== '') {
             setFormValid(true)
@@ -46,6 +51,10 @@ const FormMenuEdit: FC<PropsFormMenuEdit> = (
 
     useEffect(() => {
         setFormLinks(menuCommon)
+        setParentList([...menuCommon, {
+            id: 0, nameLink: 'None', urlLink: '', orderLink: 0, iconLink: 'None',
+            parentId: 0, isVisible: false, menuId: 0
+        }])
     }, [menuCommon])
 
     const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -151,8 +160,8 @@ const FormMenuEdit: FC<PropsFormMenuEdit> = (
                                     label="Parent"
                                     onChange={changeHandler}
                                 >
-                                    {menuCommon.map(link => (
-                                        <MenuItem key={link.id} value={link.value}>{link.nameLink}</MenuItem>
+                                    {parentList.sort((a, b) => a.id - b.id).map((item) => (
+                                        <MenuItem key={item.id} value={item.id}>{item.nameLink}</MenuItem>
                                     ))}
                                 </Select>
                             </FormControl>

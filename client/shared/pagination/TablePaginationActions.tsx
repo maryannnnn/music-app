@@ -1,9 +1,11 @@
 import React, {FC} from "react";
 import {useTheme} from "@mui/material/styles";
 import {Box, IconButton} from "@mui/material";
-import LastPageIcon from "@mui/icons-material/LastPage";
-import FirstPageIcon from "@mui/icons-material/FirstPage";
-import {KeyboardArrowLeft, KeyboardArrowRight} from "@mui/icons-material";
+import { BiFirstPage } from "react-icons/bi";
+import { BiLastPage } from "react-icons/bi";
+import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
+
 
 interface TablePaginationActionsProps {
     count: number;
@@ -43,28 +45,28 @@ const TablePaginationActions: FC<TablePaginationActionsProps> = ({count, page, r
                 disabled={page === 0}
                 aria-label="first page"
             >
-                {theme.direction === 'rtl' ? <LastPageIcon/> : <FirstPageIcon/>}
+                {theme.direction === 'rtl' ? <BiLastPage /> : <BiFirstPage />}
             </IconButton>
             <IconButton
                 onClick={handleBackButtonClick}
                 disabled={page === 0}
                 aria-label="previous page"
             >
-                {theme.direction === 'rtl' ? <KeyboardArrowRight/> : <KeyboardArrowLeft/>}
+                {theme.direction === 'rtl' ? <IoIosArrowForward /> : <IoIosArrowBack />}
             </IconButton>
             <IconButton
                 onClick={handleNextButtonClick}
                 disabled={page >= Math.ceil(count / rowsPerPage) - 1}
                 aria-label="next page"
             >
-                {theme.direction === 'rtl' ? <KeyboardArrowLeft/> : <KeyboardArrowRight/>}
+                {theme.direction === 'rtl' ? <IoIosArrowBack /> : <IoIosArrowForward />}
             </IconButton>
             <IconButton
                 onClick={handleLastPageButtonClick}
                 disabled={page >= Math.ceil(count / rowsPerPage) - 1}
                 aria-label="last page"
             >
-                {theme.direction === 'rtl' ? <FirstPageIcon/> : <LastPageIcon/>}
+                {theme.direction === 'rtl' ? <BiFirstPage size="25px" /> : <BiLastPage size="25px" />}
             </IconButton>
         </Box>
     );
