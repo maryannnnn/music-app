@@ -1,10 +1,8 @@
 import React, {FC, useEffect, useState} from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Box from '@mui/material/Box';
-import theme from "../../material.config";
 import {useActions} from "../../app/story/hooks/useActions";
 import {useTypedSelector} from "../../app/story/hooks/useTypedSelector";
 import {CircularProgress} from "@mui/material";
@@ -13,13 +11,7 @@ import Link from "next/link";
 import Alert from "@mui/material/Alert";
 import IconDisplay from "../../app/utils/icons-menu";
 import Fade from '@mui/material/Fade';
-import Paper from '@mui/material/Paper';
-import Divider from '@mui/material/Divider';
-import MenuList from '@mui/material/MenuList';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Check from '@mui/icons-material/Check';
-import {IMenu} from "../../entities/menu/types/menuTypes";
+import {checkMenuItem, getMenuItems} from "../utils/utils-menu";
 
 const MenuMain: FC = () => {
     const {getMenuMainAction} = useActions();
@@ -47,29 +39,6 @@ const MenuMain: FC = () => {
             ...menuStates,
             [linkId]: null,
         });
-    };
-
-    const checkMenuItem = (linkId: number, menuMain: IMenu[]) => {
-        const menuUp = menuMain
-            .filter(item => item.isVisible && item.parentId === linkId);
-
-        if(menuUp.length > 0) {
-            return menuUp;
-        } else return null;
-    }
-
-    const getMenuItems = (menuMain: IMenu[]) => {
-
-        return menuMain
-            .sort((a, b) => a.orderLink - b.orderLink)
-            .map(item => (
-                <MenuItem key={item.id}>
-                    <Link href={item.urlLink} alt={item.nameLink}>
-                        {item.nameLink}
-                    </Link>
-                </MenuItem>
-            )
-        )
     };
 
     return (
@@ -111,9 +80,12 @@ const MenuMain: FC = () => {
                                     aria-expanded={open ? 'true' : undefined}
                                     onClick={(event) => handleClick(link.id, event)}
                                 >
-                                    {/*<Link href={link.urlLink} alt={link.nameLink}>*/}
-                                    {link.nameLink}
-                                    {/*</Link>*/}
+                                    {checkMenuItem(link.id, menuMain) ? link.nameLink : (
+                                        <Link href={link.urlLink} alt={link.nameLink}>
+                                            {link.nameLink}
+                                        </Link>
+                                        )
+                                    }
                                 </Button>
                                 {checkMenuItem(link.id, menuMain) && (
                                     <Menu

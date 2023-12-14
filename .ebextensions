@@ -1,4 +1,0 @@
-option_settings:
-  aws:elasticbeanstalk:container:nodejs:
-    FrontendWsgiPath: client/.next/server/server.js
-    BackendWsgiPath: server/dist/main.js
