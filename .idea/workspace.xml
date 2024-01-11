@@ -20,37 +20,7 @@
       <change afterPath="$PROJECT_DIR$/server/src/roles/roles.service.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/users/dto/create-user.dto.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/users/users.entity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/.eslintrc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/app/story/hooks/useTypedDispatch.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/story/hooks/useTypedDispatch.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/app/story/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/story/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/app/utils/icons-menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/utils/icons-menu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/app/utils/interfases.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/utils/interfases.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/app/utils/validation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/utils/validation.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/entities/menu/actions/menuActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/entities/menu/actions/menuActions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/entities/menu/types/menuTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/entities/menu/types/menuTypes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/alert-menu-delete/interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/alert-menu-delete/interface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/form-menu-create/FormMenuCreate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/form-menu-create/FormMenuCreate.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/form-menu-create/interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/form-menu-create/interface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/form-menu-edit/FormMenuEdit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/form-menu-edit/FormMenuEdit.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/form-menu-edit/interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/form-menu-edit/interface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/admin/menu/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/admin/menu/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/shared/menu-account/MenuAccount.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/menu-account/MenuAccount.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/shared/menu-admin-left/MenuAdminLeft.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/menu-admin-left/MenuAdminLeft.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/shared/menu-admin-top/MenuAdminTop.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/menu-admin-top/MenuAdminTop.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/shared/menu-main/MenuMain.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/menu-main/MenuMain.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/shared/menu-soc/MenuSoc.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/menu-soc/MenuSoc.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/shared/menu-top/MenuTop.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/menu-top/MenuTop.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/shared/modal/Modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/modal/Modal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/shared/pagination/Pagination.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/pagination/Pagination.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/shared/pagination/TablePaginationActions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/pagination/TablePaginationActions.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/shared/select-menu-admin/SelectMenuAdmin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/select-menu-admin/SelectMenuAdmin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/shared/snack-bar/SnackBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/snack-bar/SnackBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/shared/table-amenu-dmin/TableMenuAdmin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/table-amenu-dmin/TableMenuAdmin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/shared/utils/utils-menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/utils/utils-menu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/github-actions-deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/github-actions-deploy.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/.development.de" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/.production.dev" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
@@ -94,8 +64,8 @@
       <file leaf-file-name="github-actions-deploy.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.github/workflows/github-actions-deploy.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="13" column="33" lean-forward="true" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+            <state relative-caret-position="440">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
@@ -240,6 +210,7 @@
         <option value="$PROJECT_DIR$/client/app/utils/validation.ts" />
         <option value="$PROJECT_DIR$/client/shared/table-amenu-dmin/TableMenuAdmin.tsx" />
         <option value="$PROJECT_DIR$/.github/github-actions-deploy.yml" />
+        <option value="$PROJECT_DIR$/.github/workflows/github-actions-deploy.yml" />
       </list>
     </option>
   </component>
@@ -568,12 +539,12 @@
       <workItem from="1704282016790" duration="6235000" />
       <workItem from="1704912312809" duration="78000" />
       <workItem from="1704913739108" duration="3189000" />
-      <workItem from="1704972590797" duration="2089000" />
+      <workItem from="1704972590797" duration="2689000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="256312000" />
+    <option name="totallyTimeSpent" value="256912000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-95" width="1936" height="1056" extended-state="6" />
@@ -977,8 +948,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.github/workflows/github-actions-deploy.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" column="33" lean-forward="true" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+        <state relative-caret-position="440">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
