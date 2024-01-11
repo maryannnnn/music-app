@@ -34,8 +34,8 @@ const MenuSoc: FC = () => {
                     .sort((a, b) => a.orderLink - b.orderLink)
                     .map(link =>
                         <li className='hover:text-gray-200' key={link.id}>
-                            <Link href={link.urlLink} alt={link.nameLink} target="blank">
-                                <IconDisplay iconName={link.iconLink}/>
+                            <Link href={link.urlLink} target="blank">
+                                <IconDisplay iconLabel={link.iconLink}/>
                             </Link>
                         </li>
                     )

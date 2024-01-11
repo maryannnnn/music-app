@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC, useEffect, useState, ChangeEvent, MouseEvent} from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
@@ -6,7 +6,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import {IMenu} from "../../entities/menu/types/menuTypes";
-import {Checkbox, CircularProgress, IconButton, Select} from "@mui/material";
+import {AlertColor, Checkbox, CircularProgress, IconButton, Select, SelectChangeEvent} from "@mui/material";
 import Pagination from "../pagination/Pagination";
 import {StyledTableCell, StyledTableRow} from "./Styles";
 import ModalForm from "../modal/Modal";
@@ -21,9 +21,8 @@ import {validateNumberField, validateStringField} from "@/app/utils/validation";
 import {validationSchemaMenu} from "@/features/form-menu-edit/validation-menu";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
-import {selectNumber, selectIcon} from "@/shared/select-options/select-options";
 import MenuItem from "@mui/material/MenuItem";
-import {selectIcons} from "../select-options/select-options";
+import {selectNumber, selectIcons} from "../select-options/select-options";
 import {RiEdit2Fill} from "react-icons/ri";
 import {IoMdAddCircle} from "react-icons/io";
 import {FaTrashAlt} from "react-icons/fa";
@@ -34,9 +33,9 @@ interface PropsMenuTable {
 }
 
 const TableMenuAdmin: FC<PropsMenuTable> = ({menuId}) => {
-    const [page, setPage] = React.useState(0);
-    const [rowsPerPage, setRowsPerPage] = React.useState(5);
-    const [snackbar, setSnackbar] = useState({openSnackbar: false, severity: '', alertMessage: ''})
+    const [page, setPage] = useState(0);
+    const [rowsPerPage, setRowsPerPage] = useState(5);
+    const [snackbar, setSnackbar] = useState<{openSnackbar: boolean, severity: AlertColor, alertMessage: string}>({openSnackbar: false, severity: 'success', alertMessage: 'Successfully!'})
     const [modalOpenCreate, setModalOpenCreate] = useState(false);
     const [modalOpenEdit, setModalOpenEdit] = useState(false);
     const [modalOpenDelete, setModalOpenDelete] = useState(false);
@@ -44,14 +43,17 @@ const TableMenuAdmin: FC<PropsMenuTable> = ({menuId}) => {
     const [linkDelete, setLinkDelete] = useState({} as IMenu)
     const [isDisableAdd, setIsDisableAdd] = useState(true)
     const [isDisableSave, setIsDisableSave] = useState(true)
-    const [errors, setErrors] = useState({nameLink: '', urlLink: ''});
+    const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
     const {editMenuAction, getMenuCommonAction, getMenuTopAction, getMenuSocAction} = useActions();
+
     const {errorMenuEdit, successMenuEdit} = useTypedSelector(state => state.menuEditReducer);
     const {isLoadingCommonMenu, errorCommonMenu, menuCommon} = useTypedSelector(state => state.menuCommonReducer);
-    const [formLinks, setFormLinks] = useState(menuCommon);
+
+
+    const [formLinks, setFormLinks] = useState(menuCommon as IMenu[]);
     const [parentList, setParentList] = useState([...menuCommon, {
-        id: 0, nameLink: 'None', urlLink: '', orderLink: 0, iconLink: 'None',
+        id: 0, nameLink: 'None', urlLink: '', orderLink: 0, iconLink: 0,
         parentId: 0, isVisible: true, menuId: 0
     }])
 
@@ -59,29 +61,31 @@ const TableMenuAdmin: FC<PropsMenuTable> = ({menuId}) => {
         page > 0 ? Math.max(0, (1 + page) * rowsPerPage - menuCommon.length) : 0;
 
     useEffect(() => {
-        if (menuId > 0) {
-            setIsDisableAdd(false)
-            getMenuCommonAction(menuId);
-        } else {
-            setIsDisableAdd(true)
-            getMenuCommonAction(menuId);
+        if (typeof menuId === "number") {
+            if (menuId > 0) {
+                setIsDisableAdd(false)
+                getMenuCommonAction(menuId);
+            } else {
+                setIsDisableAdd(true)
+                getMenuCommonAction(menuId);
+            }
         }
     }, [menuId])
 
     useEffect(() => {
         setFormLinks(menuCommon)
         setParentList([...menuCommon, {
-            id: 0, nameLink: 'None', urlLink: '', orderLink: 0, iconLink: 'None',
+            id: 0, nameLink: 'None', urlLink: '', orderLink: 0, iconLink: 0,
             parentId: 0, isVisible: false, menuId: 0
         }])
     }, [menuCommon])
 
-    const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null,
+    const handleChangePage = (event: MouseEvent<HTMLButtonElement> | null,
                               newPage: number,) => {
         setPage(newPage);
     };
 
-    const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,) => {
+    const handleChangeRowsPerPage = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,) => {
         setRowsPerPage(parseInt(event.target.value, 10));
         setPage(0);
     };
@@ -100,39 +104,31 @@ const TableMenuAdmin: FC<PropsMenuTable> = ({menuId}) => {
         setModalOpenDelete(true)
     }
 
-    const changeHandlerLinks = (e: React.ChangeEvent<HTMLInputElement>, id: number) => {
-        const {name, value, checked, type} = e.target;
+    const changeHandlerLinks = (e: ChangeEvent<HTMLInputElement | { value: unknown; name: string }> | SelectChangeEvent<number>, id: number) => {
+        const {name, value} = e.target as HTMLInputElement;
 
-        if (type === 'text') {
-            validateStringField({
-                fieldName: name,
-                value: value,
-                validationSchema: validationSchemaMenu,
-                setErrors: setErrors,
-                form: formLinks.find(link => link.id === id) // Находим объект по id
-            });
-        } else if (type === 'number') {
-            validateNumberField({
-                fieldName: name,
-                value: Number(value),
-                validationSchema: validationSchemaMenu,
-                setErrors: setErrors,
-                form: formLinks.find(link => link.id === id) // Находим объект по id
-            });
+        let checkedValue: boolean | undefined;
+        if (e.target instanceof HTMLInputElement && e.target.type === 'checkbox') {
+            checkedValue = e.target.checked;
         }
 
         setErrors({...errors, [name]: ''});
 
-        setFormLinks((prevFormLinks) => {
+        setFormLinks((prevFormLinks: IMenu[]) => {
             const updatedFormLinks = [...prevFormLinks];
-            const linkToUpdate = updatedFormLinks.find(link => link.id === id);
+            const linkToUpdate = updatedFormLinks.find((link: IMenu) => link.id === id);
             if (linkToUpdate) {
-                if (type === 'checkbox') {
-                    linkToUpdate[name] = checked;
-                } else {
-                    linkToUpdate[name] = value;
+                if (checkedValue !== undefined && 'isVisible' in linkToUpdate) {
+                    linkToUpdate.isVisible = checkedValue;
+                } else if (name === 'orderLink' && 'orderLink' in linkToUpdate) {
+                    linkToUpdate.orderLink = parseInt(value, 10);
+                } else if (name === 'parentId' && 'parentId' in linkToUpdate) {
+                    linkToUpdate.parentId = parseInt(value, 10);
+                } else if (name === 'iconLink' && 'iconLink' in linkToUpdate) {
+                    linkToUpdate.iconLink = parseInt(value, 10);
                 }
             }
+
             return updatedFormLinks;
         });
         setIsDisableSave(false);
@@ -160,7 +156,7 @@ const TableMenuAdmin: FC<PropsMenuTable> = ({menuId}) => {
         <div className="p-4 flex flex-row gap-x-2">
             <Button variant="text" onClick={handleModalCreateOpen}
                     disabled={isDisableAdd}>
-                    <IoMdAddCircle size="25px"/>
+                <IoMdAddCircle size="25px"/>
             </Button>
             <Button variant="text" onClick={handleSaveTable}
                     disabled={isDisableSave}>
@@ -224,14 +220,14 @@ const TableMenuAdmin: FC<PropsMenuTable> = ({menuId}) => {
                                         <Select
                                             required
                                             name="iconLink"
-                                            type="string"
+                                            type="number"
                                             fullWidth
                                             value={link.iconLink}
                                             label="Icon Link"
                                             onChange={(e) => changeHandlerLinks(e, link.id)}
                                         >
                                             {selectIcons.map((item, index) => (
-                                                <MenuItem key={index} value={item.value}>{item.value}</MenuItem>
+                                                <MenuItem key={index} value={item.label}>{item.value}</MenuItem>
                                             ))}
                                         </Select>
                                     </FormControl>

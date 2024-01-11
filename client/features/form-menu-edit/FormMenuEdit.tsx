@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC, useEffect, useState, ChangeEvent} from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import {Alert, Checkbox, CircularProgress, FormControlLabel, FormGroup, Select} from "@mui/material";
@@ -13,13 +13,14 @@ import {useTypedSelector} from "../../app/story/hooks/useTypedSelector";
 import {validationSchemaMenu} from "./validation-menu";
 import {PropsFormMenuEdit} from "./interface";
 import {selectIcons, selectNumber} from "../../shared/select-options/select-options";
+import {SelectChangeEvent} from '@mui/material/Select';
 
 const FormMenuEdit: FC<PropsFormMenuEdit> = (
     {
         setModalOpen, link, setSnackbar, menuCommon, setFormLinks
     }) => {
 
-    const [errors, setErrors] = useState({nameLink: '', urlLink: ''});
+    const [errors, setErrors] = useState<{ [key: string]: string }>({});
     const [formValid, setFormValid] = useState(false)
     const {editLinkMenuAction, getMenuCommonAction, getMenuTopAction, getMenuSocAction, getMenuMainAction} = useActions();
     const {isLoadingLinkEdit, errorLinkEdit, successLinkEdit} = useTypedSelector(state => state.linkEditReducer);
@@ -37,7 +38,7 @@ const FormMenuEdit: FC<PropsFormMenuEdit> = (
     })
 
     const [parentList, setParentList] = useState([...menuCommon, {
-        id: 0, nameLink: 'None', urlLink: '', orderLink: 0, iconLink: 'None',
+        id: 0, nameLink: 'None', urlLink: '', orderLink: 0, iconLink: 0,
         parentId: 0, isVisible: true, menuId: 0
     }])
 
@@ -52,13 +53,13 @@ const FormMenuEdit: FC<PropsFormMenuEdit> = (
     useEffect(() => {
         setFormLinks(menuCommon)
         setParentList([...menuCommon, {
-            id: 0, nameLink: 'None', urlLink: '', orderLink: 0, iconLink: 'None',
+            id: 0, nameLink: 'None', urlLink: '', orderLink: 0, iconLink: 0,
             parentId: 0, isVisible: false, menuId: 0
         }])
     }, [menuCommon])
 
-    const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const {name, value, checked, type} = e.target;
+    const changeHandler = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent<number>) => {
+        const {name, value, checked, type} = e.target as HTMLInputElement;
 
         if (type === 'text') {
             validateStringField({
@@ -74,9 +75,9 @@ const FormMenuEdit: FC<PropsFormMenuEdit> = (
 
         setErrors({...errors, [name]: ''});
         if (type === 'checkbox') {
-            setForm({ ...form, [name]: checked });
+            setForm({...form, [name]: checked});
         } else {
-            setForm({ ...form, [name]: value });
+            setForm({...form, [name]: value});
         }
     };
 
@@ -187,14 +188,14 @@ const FormMenuEdit: FC<PropsFormMenuEdit> = (
                             <Select
                                 required
                                 name="iconLink"
-                                type="string"
+                                type="number"
                                 fullWidth
                                 value={form.iconLink}
                                 label="Icon Link"
                                 onChange={changeHandler}
                             >
                                 {selectIcons.map((item, index) => (
-                                    <MenuItem key={index} value={item.value}>{item.value}</MenuItem>
+                                    <MenuItem key={index} value={item.label}>{item.value}</MenuItem>
                                 ))}
                             </Select>
                         </FormControl>

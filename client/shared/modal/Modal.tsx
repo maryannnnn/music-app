@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, ReactNode} from 'react';
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
@@ -20,7 +20,7 @@ const style = {
 interface ModalProps {
     modalOpen: boolean;
     setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
-    children;
+    children: ReactNode;
 }
 
 const ModalForm: FC<ModalProps> = ({modalOpen, setModalOpen, children}) => {

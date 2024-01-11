@@ -13,6 +13,10 @@ import IconDisplay from "../../app/utils/icons-menu";
 import Fade from '@mui/material/Fade';
 import {checkMenuItem, getMenuItems} from "../utils/utils-menu";
 
+interface MenuStates {
+    [key: number]: HTMLElement | null;
+}
+
 const MenuMain: FC = () => {
     const {getMenuMainAction} = useActions();
     const menuId = 2;
@@ -25,7 +29,7 @@ const MenuMain: FC = () => {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
 
-    const [menuStates, setMenuStates] = useState({});
+    const [menuStates, setMenuStates] = useState<MenuStates>({});
 
     const handleClick = (linkId: number, event: React.MouseEvent<HTMLButtonElement>) => {
         setMenuStates({
@@ -34,7 +38,7 @@ const MenuMain: FC = () => {
         });
     };
 
-    const handleClose = (linkId) => {
+    const handleClose = (linkId: number) => {
         setMenuStates({
             ...menuStates,
             [linkId]: null,
@@ -73,7 +77,7 @@ const MenuMain: FC = () => {
                         .map(link =>
                             <div key={link.id}>
                                 <Button
-                                    startIcon={<IconDisplay iconName={link.iconLink}/>}
+                                    startIcon={<IconDisplay iconLabel={link.iconLink}/>}
                                     id="basic-menu"
                                     aria-controls={open ? 'basic-menu' : undefined}
                                     aria-haspopup="true"
@@ -81,7 +85,7 @@ const MenuMain: FC = () => {
                                     onClick={(event) => handleClick(link.id, event)}
                                 >
                                     {checkMenuItem(link.id, menuMain) ? link.nameLink : (
-                                        <Link href={link.urlLink} alt={link.nameLink}>
+                                        <Link href={link.urlLink}>
                                             {link.nameLink}
                                         </Link>
                                         )
@@ -98,7 +102,7 @@ const MenuMain: FC = () => {
                                         onClose={() => handleClose(link.id)}
                                         TransitionComponent={Fade}
                                     >
-                                        {getMenuItems(checkMenuItem(link.id, menuMain))}
+                                        {getMenuItems(link.id, menuMain)}
                                     </Menu>
                                 )}
                             </div>
