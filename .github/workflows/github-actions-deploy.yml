@@ -19,7 +19,9 @@ jobs:
       - name: install modules
         run: npm install
       - name: Build client
-        run: npm run build --prefix client
+        run: |
+         cd client
+         npm run build
       - name: Build server
         run: |
          cd server
