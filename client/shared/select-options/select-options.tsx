@@ -1,5 +1,4 @@
-import {IMenu} from "../../entities/menu/types/menuTypes";
-import { FiFacebook } from "react-icons/fi";
+import {FiFacebook, FiInstagram, FiTwitter, FiYoutube} from "react-icons/fi";
 
 export const selectNumber = [
     {label: 0, value: 0},
@@ -17,23 +16,23 @@ export const selectNumber = [
 
 export const selectIcons = [
     {label: 0, value: 'None', component: <FiFacebook />},
-    {label: 1, value: 'FacebookIcon', component: <FiFacebook />},
-    {label: 2, value: 'InstagramIcon', component: <FiFacebook />},
-    {label: 3, value: 'TwitterIcon', component: <FiFacebook />},
-    {label: 4, value: 'YouTubeIcon', component: <FiFacebook />},
-    {label: 5, value: 'PinterestIcon', component: <FiFacebook />},
-    {label: 6, value: 'AdminPanelSettingsIcon', component: <FiFacebook />},
-    {label: 7, value: 'MenuBookIcon', component: <FiFacebook />},
-    {label: 8, value: 'PermMediaIcon', component: <FiFacebook />},
-    {label: 9, value: 'CategoryIcon', component: <FiFacebook />},
-    {label: 10, value: 'PriceChangeIcon', component: <FiFacebook />},
-    {label: 11, value: 'ShoppingBasketIcon', component: <FiFacebook />},
-    {label: 12, value: 'StorefrontIcon', component: <FiFacebook />},
-    {label: 13, value: 'ShoppingCartCheckoutIcon', component: <FiFacebook />},
-    {label: 14, value: 'LocalShippingIcon', component: <FiFacebook />},
-    {label: 15, value: 'CommentIcon', component: <FiFacebook />},
-    {label: 16, value: 'PaymentsIcon', component: <FiFacebook />},
-    {label: 17, value: 'PeopleIcon', component: <FiFacebook />},
-    {label: 18, value: 'AddCircleIcon', component: <FiFacebook />},
+    {label: 1, value: 'Facebook', component: <FiFacebook />},
+    {label: 2, value: 'Instagram', component: <FiInstagram />},
+    {label: 3, value: 'Twitter', component: <FiTwitter />},
+    {label: 4, value: 'YouTube', component: <FiYoutube />},
+    {label: 5, value: 'Pinterest', component: <FiFacebook />},
+    {label: 6, value: 'AdminPanelSettings', component: <FiFacebook />},
+    {label: 7, value: 'MenuBook', component: <FiFacebook />},
+    {label: 8, value: 'PermMedia', component: <FiFacebook />},
+    {label: 9, value: 'Category', component: <FiFacebook />},
+    {label: 10, value: 'PriceChange', component: <FiFacebook />},
+    {label: 11, value: 'ShoppingBasket', component: <FiFacebook />},
+    {label: 12, value: 'Storefront', component: <FiFacebook />},
+    {label: 13, value: 'ShoppingCartCheckout', component: <FiFacebook />},
+    {label: 14, value: 'LocalShipping', component: <FiFacebook />},
+    {label: 15, value: 'Comment', component: <FiFacebook />},
+    {label: 16, value: 'Payments', component: <FiFacebook />},
+    {label: 17, value: 'People', component: <FiFacebook />},
+    {label: 18, value: 'AddCircle', component: <FiFacebook />},
     {label: 19, value: 'ToysIcon', component: <FiFacebook />},
 ]

@@ -20,9 +20,9 @@ jobs:
         run: |
          cd client
          npm install
-         npm run build
+#         npm run build
       - name: install modules Server Build
         run: |
          cd server
          npm install
-         npm run build
+#         npm run build

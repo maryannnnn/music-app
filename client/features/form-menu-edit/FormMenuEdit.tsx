@@ -61,6 +61,8 @@ const FormMenuEdit: FC<PropsFormMenuEdit> = (
     const changeHandler = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent<number>) => {
         const {name, value, checked, type} = e.target as HTMLInputElement;
 
+        setFormValid(false)
+
         if (type === 'text') {
             validateStringField({
                 fieldName: name, value: value, validationSchema: validationSchemaMenu,
@@ -79,6 +81,7 @@ const FormMenuEdit: FC<PropsFormMenuEdit> = (
         } else {
             setForm({...form, [name]: value});
         }
+
     };
 
     const handleClose = () => setModalOpen(false);

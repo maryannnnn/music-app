@@ -25,6 +25,9 @@ export class MenuService {
 
     async updateLinkMenu(updateDto: UpdateMenuDto): Promise<Link> {
         const existingLinkMenu = await this.menuRepository.findOneById(updateDto.id);
+        if (!existingLinkMenu) {
+            return null;
+        }
         existingLinkMenu.nameLink = updateDto.nameLink;
         existingLinkMenu.urlLink = updateDto.urlLink;
         existingLinkMenu.orderLink = updateDto.orderLink;

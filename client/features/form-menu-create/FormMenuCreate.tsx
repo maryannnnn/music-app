@@ -55,6 +55,8 @@ const FormMenuCreate: FC<PropsFormMenuCreate> = ({
     const changeHandler = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent<number>) => {
         const {name, value, checked, type} = e.target as HTMLInputElement;
 
+        setFormValid(false)
+
         if (type === 'text') {
             validateStringCreateField({
                 fieldName: name, value: value, validationSchema: validationSchemaMenu,

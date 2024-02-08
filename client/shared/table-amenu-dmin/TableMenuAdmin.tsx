@@ -50,7 +50,6 @@ const TableMenuAdmin: FC<PropsMenuTable> = ({menuId}) => {
     const {errorMenuEdit, successMenuEdit} = useTypedSelector(state => state.menuEditReducer);
     const {isLoadingCommonMenu, errorCommonMenu, menuCommon} = useTypedSelector(state => state.menuCommonReducer);
 
-
     const [formLinks, setFormLinks] = useState(menuCommon as IMenu[]);
     const [parentList, setParentList] = useState([...menuCommon, {
         id: 0, nameLink: 'None', urlLink: '', orderLink: 0, iconLink: 0,

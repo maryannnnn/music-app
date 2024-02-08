@@ -10,6 +10,12 @@ import { AuthModule } from './auth/auth.module';
 import { MenuController } from './menu/menu.controller';
 import { MenuModule } from './menu/menu.module';
 import {Link} from "./menu/menu.entity";
+import { FileController } from './file/file.controller';
+import { FileModule } from './file/file.module';
+import { MetaController } from './meta/meta.controller';
+import { MetaModule } from './meta/meta.module';
+import {File} from "./file/file.entity";
+import {Meta} from "./meta/meta.entity";
 
 @Module({
     imports: [
@@ -25,15 +31,17 @@ import {Link} from "./menu/menu.entity";
             username: process.env.POSTGRES_USER,
             password: process.env.POSTGRESS_PASSWORD,
             database: process.env.POSTGRES_DB,
-            entities: [Users, Roles, Link],
+            entities: [Users, Roles, Link, File, Meta],
             synchronize: true,
         }),
         UsersModule,
         RolesModule,
         AuthModule,
         MenuModule,
+        FileModule,
+        MetaModule,
     ],
-    controllers: [AuthController, MenuController],
+    controllers: [AuthController, MenuController, FileController, MetaController],
     providers: []
 })
 export class AppModule {
