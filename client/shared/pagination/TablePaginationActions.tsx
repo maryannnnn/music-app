@@ -1,23 +1,13 @@
-import React, {FC} from "react";
+import React, {FC, ReactNode} from 'react';
 import {useTheme} from "@mui/material/styles";
 import {Box, IconButton} from "@mui/material";
 import { BiFirstPage } from "react-icons/bi";
 import { BiLastPage } from "react-icons/bi";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
+import { TablePaginationActionsProps } from '@mui/material/TablePagination/TablePaginationActions';
 
-
-interface TablePaginationActionsProps {
-    count: number;
-    page: number;
-    rowsPerPage: number;
-    onPageChange: (
-        event: React.MouseEvent<HTMLButtonElement>,
-        newPage: number,
-    ) => void;
-}
-
-const TablePaginationActions: FC<TablePaginationActionsProps> = ({count, page, rowsPerPage, onPageChange}) => {
+const TablePaginationActions: FC<TablePaginationActionsProps> = ({count, page, rowsPerPage, onPageChange}): React.ReactElement => {
     const theme = useTheme();
 
     const handleFirstPageButtonClick = (

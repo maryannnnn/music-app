@@ -32,9 +32,9 @@ const MenuAdminLeft: FC<MenuAdminLeftProps> = ({open}) => {
         <List>
             {
                 isLoadingAdminLeftMenu ? (
-                    <Box sx={{display: 'flex'}}>
-                        <CircularProgress/>
-                    </Box>
+                    <div style={{ display: 'flex' }}>
+                        <CircularProgress />
+                    </div>
                 ) : errorAdminLeftMenu ? (
                     <Stack sx={{width: '100%'}} spacing={2}>
                         <Alert severity="error">{errorAdminLeftMenu}</Alert>
@@ -45,7 +45,7 @@ const MenuAdminLeft: FC<MenuAdminLeftProps> = ({open}) => {
                         .sort((a, b) => a.orderLink - b.orderLink)
                         .map(link =>
                             <ListItem key={link.id} disablePadding sx={{display: 'block'}}>
-                                <Link href={link.urlLink} alt={link.nameLink}>
+                                <Link href={link.urlLink}>
                                     <ListItemButton
                                         sx={{
                                             minHeight: 48,
@@ -60,7 +60,7 @@ const MenuAdminLeft: FC<MenuAdminLeftProps> = ({open}) => {
                                                 justifyContent: 'center',
                                             }}
                                         >
-                                            <IconDisplay iconName={link.iconLink}/>
+                                            <IconDisplay iconLabel={link.iconLink}/>
                                         </ListItemIcon>
                                         <ListItemText sx={{opacity: open ? 1 : 0}}>{link.nameLink}</ListItemText>
                                     </ListItemButton>

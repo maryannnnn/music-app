@@ -25,9 +25,9 @@ export class Link {
     @Column({nullable: false})
     orderLink: number;
 
-    @ApiProperty({example: 'Facebook', description: 'Name icon'})
-    @Column({nullable: true, length: 100})
-    iconLink: string;
+    @ApiProperty({example: '1', description: 'Number of icon'})
+    @Column({nullable: true})
+    iconLink: number;
 
     @ApiProperty({example: '1', description: 'Parent Id'})
     @Column({nullable: true})

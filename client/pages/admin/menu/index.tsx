@@ -6,7 +6,7 @@ import TableMenuAdmin from "../../../shared/table-amenu-dmin/TableMenuAdmin";
 
 const Index: FC = () => {
 
-    const [menuId, setMenuId] = useState(0);
+    const [menuId, setMenuId] = useState<number>(0);
 
     return (
         <AdminLayout>

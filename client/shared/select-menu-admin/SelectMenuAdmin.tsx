@@ -12,8 +12,11 @@ interface PropsSelect {
 
 const SelectMenuAdmin: FC<PropsSelect> = ({ menuId, setMenuId }) => {
 
-    const handleChange = (event: SelectChangeEvent) => {
-        setMenuId(event.target.value);
+    const handleChange = (event: SelectChangeEvent<number>) => {
+        const selectedValue = event.target.value;
+        if (typeof selectedValue === 'number') {
+            setMenuId(selectedValue);
+        }
     };
 
     return (
@@ -28,9 +31,6 @@ const SelectMenuAdmin: FC<PropsSelect> = ({ menuId, setMenuId }) => {
                     autoWidth
                     label="Menu"
                 >
-                    <MenuItem value={0}>
-                        <em>None</em>
-                    </MenuItem>
                     {MenuNames.map(item => (
                         <MenuItem key={item.id} value={item.id}>{item.name}</MenuItem>
                     ))}

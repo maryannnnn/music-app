@@ -2,17 +2,17 @@ import React, {FC} from 'react';
 import {selectIcons} from "../../shared/select-options/select-options"
 
 interface PropsIconDisplay {
-    iconName: string;
+    iconLabel: number;
 }
 
-const IconDisplay: FC<PropsIconDisplay> = ({iconName}) => {
+const IconDisplay: FC<PropsIconDisplay> = ({iconLabel}) => {
 
     return (
         <>
             {selectIcons.length > 0 && selectIcons
-                .filter(item => item.value === iconName)
-                .map(item =>
-                <div>{item.component}</div>
+                .filter(item => item.label === iconLabel)
+                .map((item, index) =>
+                <div key={index}>{item.component}</div>
             )
             }
         </>

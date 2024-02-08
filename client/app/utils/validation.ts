@@ -1,5 +1,10 @@
-
-import {ValidateNumberFieldParams, ValidateStringFieldParams} from "./interfases";
+import { ValidationError } from 'yup';
+import {
+    ValidateNumberCreateFieldParams,
+    ValidateNumberFieldParams,
+    ValidateStringCreateFieldParams,
+    ValidateStringFieldParams
+} from "./interfases";
 
 export const validateStringField = async (
     {
@@ -12,8 +17,10 @@ export const validateStringField = async (
     try {
         await validationSchema.validateAt(fieldName, { ...form, [fieldName]: value });
         setErrors(prevErrors => ({ ...prevErrors, [fieldName]: '' }));
-    } catch (validationError) {
-        setErrors(prevErrors => ({ ...prevErrors, [fieldName]: validationError.message }));
+    } catch (validationError: unknown) {
+        if (validationError instanceof ValidationError) {
+            setErrors(prevErrors => ({ ...prevErrors, [fieldName]: (validationError as ValidationError).message }));
+        }
     }
 };
 
@@ -28,8 +35,46 @@ export const validateNumberField = async (
     try {
         await validationSchema.validateAt(fieldName, { ...form, [fieldName]: value });
         setErrors(prevErrors => ({ ...prevErrors, [fieldName]: '' }));
-    } catch (validationError) {
-        setErrors(prevErrors => ({ ...prevErrors, [fieldName]: validationError.message }));
+    } catch (validationError: unknown) {
+        if (validationError instanceof ValidationError) {
+            setErrors(prevErrors => ({ ...prevErrors, [fieldName]: (validationError as ValidationError).message }));
+        }
+    }
+};
+
+export const validateStringCreateField = async (
+    {
+        fieldName,
+        value,
+        validationSchema,
+        setErrors,
+        form
+    }: ValidateStringCreateFieldParams): Promise<void> => {
+    try {
+        await validationSchema.validateAt(fieldName, { ...form, [fieldName]: value });
+        setErrors(prevErrors => ({ ...prevErrors, [fieldName]: '' }));
+    } catch (validationError: unknown) {
+        if (validationError instanceof ValidationError) {
+            setErrors(prevErrors => ({ ...prevErrors, [fieldName]: (validationError as ValidationError).message }));
+        }
+    }
+};
+
+export const validateNumberCreateField = async (
+    {
+        fieldName,
+        value,
+        validationSchema,
+        setErrors,
+        form
+    }: ValidateNumberCreateFieldParams): Promise<void> => {
+    try {
+        await validationSchema.validateAt(fieldName, { ...form, [fieldName]: value });
+        setErrors(prevErrors => ({ ...prevErrors, [fieldName]: '' }));
+    } catch (validationError: unknown) {
+        if (validationError instanceof ValidationError) {
+            setErrors(prevErrors => ({ ...prevErrors, [fieldName]: (validationError as ValidationError).message }));
+        }
     }
 };
 
