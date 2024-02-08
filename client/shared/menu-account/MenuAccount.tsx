@@ -87,7 +87,7 @@ const MenuAccount: FC = () => {
                 </MenuItem>
                 <Divider/>
                 <MenuItem>
-                    <Link href="/admin" alt="">
+                    <Link href="/admin">
                         <ListItemIcon>
                             <RiAdminFill />
                         </ListItemIcon>

@@ -13,8 +13,8 @@ export class UpdateMenuDto {
     @ApiProperty({example: '5', description: 'Number of order'})
     readonly orderLink: number;
 
-    @ApiProperty({example: 'Facebook', description: 'Name of icon'})
-    readonly iconLink: string;
+    @ApiProperty({example: '3', description: 'Number of icon'})
+    readonly iconLink: number;
 
     @ApiProperty({example: '2', description: 'Parent Id of link'})
     readonly parentId: number;

@@ -32,7 +32,7 @@ const MenuAdminTop: FC = () => {
                 .sort((a, b) => a.orderLink - b.orderLink)
                 .map(link =>
                     <li className='hover:text-gray-200' key={link.id}>
-                        <Link href={link.urlLink} alt={link.nameLink}>
+                        <Link href={link.urlLink}>
                             {link.nameLink}
                         </Link>
                     </li>

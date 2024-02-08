@@ -1,0 +1,28 @@
+name: GitHub Actions
+on:
+  push:
+    branches: [ maryan ]
+  pull_request:
+    branches: [ maryan ]
+jobs:
+  init:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 18.x ]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Staring Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: install modules Client Build
+        run: |
+         cd client
+         npm install
+         npm run build
+      - name: install modules Server Build
+        run: |
+         cd server
+         npm install
+         npm run build

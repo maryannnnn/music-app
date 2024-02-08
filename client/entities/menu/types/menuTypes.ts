@@ -4,7 +4,7 @@ export interface IMenu {
     nameLink: string;
     urlLink: string;
     orderLink: number;
-    iconLink: string;
+    iconLink: number;
     parentId: number;
     isVisible: boolean;
     menuId: number;
@@ -16,13 +16,14 @@ export interface ILinkNew {
     nameLink: string;
     urlLink: string;
     orderLink: number;
-    iconLink: string;
+    iconLink: number;
     parentId: number;
     isVisible: boolean;
     menuId: number;
 }
 
 export const MenuNames = [
+    {id: 0, name: "None"},
     {id: 1, name: "Menu Top"},
     {id: 2, name: "Menu Main"},
     {id: 3, name: "Menu Soc"},
