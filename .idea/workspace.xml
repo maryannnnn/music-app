@@ -27,20 +27,9 @@
       <change afterPath="$PROJECT_DIR$/server/src/users/dto/create-user.dto.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/users/users.entity.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/workflows/github-actions-deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/github-actions-deploy.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/form-menu-create/FormMenuCreate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/form-menu-create/FormMenuCreate.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/form-menu-edit/FormMenuEdit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/form-menu-edit/FormMenuEdit.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/shared/select-options/select-options.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/select-options/select-options.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/shared/table-amenu-dmin/TableMenuAdmin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/shared/table-amenu-dmin/TableMenuAdmin.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/.development.de" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/.production.dev" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/menu/dto/create-menu.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/menu/dto/create-menu.dto.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/menu/dto/update-menu.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/menu/dto/update-menu.dto.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/menu/menu.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/menu/menu.entity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/menu/menu.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/menu/menu.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/roles/roles.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/roles/roles.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/users/users.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/users/users.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/users/users.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/users/users.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/users/users.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/users/users.service.ts" afterDir="false" />
@@ -117,8 +106,8 @@
       <file leaf-file-name="github-actions-deploy.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.github/workflows/github-actions-deploy.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="13" column="33" lean-forward="true" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+            <state relative-caret-position="594">
+              <caret line="27" selection-start-line="27" selection-end-line="27" />
             </state>
           </provider>
         </entry>
@@ -487,12 +476,12 @@
       <workItem from="1706427225322" duration="594000" />
       <workItem from="1706475553016" duration="660000" />
       <workItem from="1707328678439" duration="598000" />
-      <workItem from="1707424390288" duration="3722000" />
+      <workItem from="1707424390288" duration="4343000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="322379000" />
+    <option name="totallyTimeSpent" value="323000000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-95" width="1936" height="1056" extended-state="6" />
@@ -871,8 +860,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.github/workflows/github-actions-deploy.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" column="33" lean-forward="true" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+        <state relative-caret-position="594">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
         </state>
       </provider>
     </entry>
