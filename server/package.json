@@ -36,8 +36,10 @@
     "pg-hstore": "^2.3.4",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0",
+    "sharp": "^0.33.2",
     "swagger-ui-express": "^4.6.3",
-    "typeorm": "^0.3.16"
+    "typeorm": "^0.3.16",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",
