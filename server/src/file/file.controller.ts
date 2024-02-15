@@ -17,8 +17,8 @@ export class FileController {
     @ApiResponse({status: 200, type: File})
     @Post('/upload')
     @UseInterceptors(FilesInterceptor('files'))
-    uploadFile(@UploadedFiles() files: Express.Multer.File[], @Body() newDtoFiles: NewFileDto[], @Body() dtoMeta: CreateMetaDto[]) {
-        return this.fileService.uploadFiles(files, newDtoFile, dtoMeta)
+    uploadFile(@UploadedFiles() files: Array<Express.Multer.File>, @Body() newDtoFiles: NewFileDto[], @Body() dtoMeta: CreateMetaDto[]) {
+        return this.fileService.uploadFiles(files, newDtoFiles, dtoMeta)
     }
 
     @ApiOperation({summary: 'Get File'})

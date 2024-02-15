@@ -2,14 +2,7 @@ import {ApiProperty} from "@nestjs/swagger";
 
 export class CreateFileDto {
     constructor(param: { title: string; titleLong: string; alt: string; description: string; original: string; preview: string; src: string; thumbnail: string; }) {
-        this.title = title;
-        this.titleLong = titleLong;
-        this.alt = alt;
-        this.description = description;
-        this.original = original;
-        this.preview = preview;
-        this.src = src;
-        this.thumbnail = rthumbnail;
+
     }
 
     @ApiProperty({example: 'Company', description: 'Title file'})
