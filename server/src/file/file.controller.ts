@@ -7,6 +7,7 @@ import { FileService } from "./file.service";
 import { UpdateFileDto } from "./dto/update-file.dto";
 import { FilesInterceptor } from '@nestjs/platform-express';
 import { NewFileDto } from "./dto/new-file.dto";
+import { Express } from 'express';
 
 @Controller('files')
 export class FileController {
@@ -16,7 +17,7 @@ export class FileController {
     @ApiResponse({status: 200, type: File})
     @Post('/upload')
     @UseInterceptors(FilesInterceptor('files'))
-    uploadFile(@UploadedFiles() files: Express.Multer.File[], @Body() newDtoFile: NewFileDto[], @Body() dtoMeta: CreateMetaDto[]) {
+    uploadFile(@UploadedFiles() files: Express.Multer.File[], @Body() newDtoFiles: NewFileDto[], @Body() dtoMeta: CreateMetaDto[]) {
         return this.fileService.uploadFiles(files, newDtoFile, dtoMeta)
     }
 

@@ -1,3 +1,4 @@
+import { Express } from 'express';
 import {Injectable} from '@nestjs/common';
 import {UpdateMetaDto} from "../meta/dto/update-meta.dto";
 import {InjectRepository} from "@nestjs/typeorm";
@@ -7,12 +8,11 @@ import {File} from "./file.entity";
 import {CreateFileDto} from "./dto/create-file.dto";
 import {MetaService} from "../meta/meta.service";
 import {UpdateFileDto} from "./dto/update-file.dto";
+import {NewFileDto} from "./dto/new-file.dto";
 import * as sharp from 'sharp';
 import * as path from 'path';
 import * as fs from 'fs';
 import * as uuid from 'uuid'
-import {Meta} from "../meta/meta.entity";
-import {NewFileDto} from "./dto/new-file.dto";
 
 @Injectable()
 export class FileService {
@@ -93,7 +93,7 @@ export class FileService {
                     original: relativeOriginalPath,
                     preview: relativePreviewPath,
                     src: relativeSrcPath,
-                    thumbnail: relativeThumbnailPath
+                    thumbnail: relativeThumbnailPath,
                 });
 
                 const createFile = this.fileRepository.create(newCreateFileDto);
